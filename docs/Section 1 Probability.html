@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Philosophy of Statistical Inference (Chapters 11-14) – Stat 262 Notes</title>
+<title>1&nbsp; Probability – Stat 262 Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Section 2 Random Variables.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -110,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 1 Probability.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Philosophy of Statistical Inference (Chapters 11-14)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 1 Probability.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -147,7 +148,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Section 1 Probability.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Philosophy of Statistical Inference (Chapters 11-14)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 2 Random Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span></a>
   </div>
 </li>
     </ul>
@@ -160,10 +167,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#randomization-tests-chapter-11" id="toc-randomization-tests-chapter-11" class="nav-link active" data-scroll-target="#randomization-tests-chapter-11"><span class="header-section-number">1.1</span> Randomization Tests (Chapter 11)</a></li>
-  <li><a href="#bootstrap-methods-chapter-12" id="toc-bootstrap-methods-chapter-12" class="nav-link" data-scroll-target="#bootstrap-methods-chapter-12"><span class="header-section-number">1.2</span> Bootstrap Methods (Chapter 12)</a></li>
-  <li><a href="#inference-with-mathematical-models-chapter-13" id="toc-inference-with-mathematical-models-chapter-13" class="nav-link" data-scroll-target="#inference-with-mathematical-models-chapter-13"><span class="header-section-number">1.3</span> Inference with Mathematical Models (Chapter 13)</a></li>
-  <li><a href="#decision-errors-chapter-14" id="toc-decision-errors-chapter-14" class="nav-link" data-scroll-target="#decision-errors-chapter-14"><span class="header-section-number">1.4</span> Decision Errors (Chapter 14)</a></li>
+  <li><a href="#basic-probability-definitions-and-calculations" id="toc-basic-probability-definitions-and-calculations" class="nav-link active" data-scroll-target="#basic-probability-definitions-and-calculations"><span class="header-section-number">1.1</span> Basic Probability Definitions and Calculations</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">1.2</span> Conditional Probability</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">1.3</span> Independence</a></li>
   </ul>
 </nav>
     </div>
@@ -172,7 +178,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Philosophy of Statistical Inference (Chapters 11-14)</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></h1>
 </div>
 
 
@@ -189,187 +195,86 @@ window.Quarto = {
 </header>
 
 
-<p>In STAT 101, you focused on Exploratory Data Analysis. Exploratory data analysis aims to investigate the characteristics of a data set through visualizations and numerical summaries. Visualizations may include:</p>
-<ul>
-<li>box plots</li>
-<li>histograms</li>
-<li>bar charts</li>
-<li>pie charts</li>
-<li>scatterplots</li>
-<li>heat maps</li>
+<p>When we are uncertain about an outcome’s occurrence (e.g., whether a coin will come up heads or tails, the number of dots observed on the roll of a die, whether or not the bus will be late), we typically quantify this uncertainty with a probability. Probability is the foundation upon which all of statistics is built, and it a provides a framework for modeling populations, experiments, and almost anything that could be considered a random phenomenon.</p>
+<section id="basic-probability-definitions-and-calculations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="basic-probability-definitions-and-calculations"><span class="header-section-number">1.1</span> Basic Probability Definitions and Calculations</h2>
+<p>A <strong>sample space</strong>, denoted by <span class="math inline">\(\cal{S}\)</span>, is comprised of all possible outcomes of a random phenomenon.</p>
+<p>An <strong>event</strong> is a collection of possible outcomes. Each event <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(\cal{S}\)</span>.</p>
+<p>We want to formalize the idea of the “chance” that event <span class="math inline">\(A\)</span> occurs. We will do this by defining the <strong>probability</strong> of each <span class="math inline">\(A\)</span>, which we denote <span class="math inline">\(P(A)\)</span>.</p>
+<p>Probabilities are calculated by defining functions on sets, and should be defined for all possible events. One thing that must be true: <span class="math display">\[
+0 \leq P(A) \leq 1
+\]</span></p>
+<p>More formally, a probability function is defined as follows.</p>
+<p>Given a sample space <span class="math inline">\(\cal{S}\)</span>, a <strong>probability function</strong> is a function P(<span class="math inline">\(\cdot\)</span>) that satisfies</p>
+<ol type="1">
+<li><br>
+<br>
+</li>
+<li><br>
+<br>
+</li>
+<li><br>
+<br>
+</li>
+</ol>
+<p>Requirements (1) - (3) are called the</p>
+<p>Any function P(<span class="math inline">\(\cdot\)</span>) that satisfies the Axioms of Probability is called a probability function.</p>
+<p>Here’s a (hopefully) obvious theorem:</p>
+<p><strong>Theorem</strong>: Let <span class="math inline">\((\cal{S}, \hbox{P})\)</span> be a sample space and associated probability function, respectively. For any event <span class="math inline">\(A \in \cal{S}\)</span></p>
+<ol type="1">
 <li></li>
+</ol>
+<p><br>
+</p>
+<ol start="2" type="1">
 <li></li>
+</ol>
+<p><br>
+</p>
+<ol start="3" type="1">
 <li></li>
-</ul>
-<p>Numerical summaries used to explore a data set may include:</p>
-<ul>
-<li>sample mean</li>
-<li>sample variance/standard deviation</li>
-<li>five number summary, and other order statistics</li>
-<li>sample proportions</li>
-<li>calculated regression slope and intercept</li>
+</ol>
+<p><br>
+</p>
+<p>And another, maybe less obvious.</p>
+<p><strong>Theorem</strong>: Let <span class="math inline">\((\cal{S}, \hbox{P})\)</span> be a sample space and associated probability function, respectively. For any events <span class="math inline">\(A\)</span>, <span class="math inline">\(B \in \cal{S}\)</span></p>
+<ol type="1">
 <li></li>
+</ol>
+<p><br>
+</p>
+<ol start="2" type="1">
 <li></li>
+</ol>
+<p><br>
+</p>
+<ol start="3" type="1">
 <li></li>
-</ul>
-<p>More often than not, the data were collected to answer a research question about a larger population for which the data collected are a (hopefully) representative sample. This notion of drawing conclusions beyond the data collected is at the heart of statistical inference.</p>
-<p><strong>Example:</strong> <a href="https://www.youtube.com/watch?v=HBW5vdhr_PA">Bred in the Bone</a></p>
-<ul>
-<li>If each baby is really guessing/choosing blindly, what proportion would you expect to choose the good guy? Why?</li>
-</ul>
+</ol>
 <p><br>
-<br>
 </p>
+<p>We’ll use these theorems often when calculating probabilities. However, we first need to figure out how to assign probabilities to specific events. In some cases, we can do that by figuring out how many possible events there are in a sample space.</p>
+<p>In a finite sample space, when all outcomes are equally likely, the number of possible outcomes can be used to make probability assignments.</p>
 <ul>
-<li>Based on this, what randomizing device could we use to model this experiment?</li>
+<li>If the sample space <span class="math inline">\(\cal{S}\)</span> consists of <span class="math inline">\(n\)</span> possible outcomes, and these <span class="math inline">\(n\)</span> outcomes are equally likely, the probability of any of these <span class="math inline">\(\{s_1,s_2,\dots, s_n\}\)</span> outcomes is</li>
 </ul>
 <p><br>
 <br>
 </p>
 <ul>
-<li>Experiment! Add your results to the plot on the board.</li>
-</ul>
-<p><br>
-<br>
-</p>
-<ul>
-<li><a href="https://www.isi-stats.com/isi2nd/ISIapplets2021.html">Applet</a></li>
-</ul>
-<p><br>
-<br>
-</p>
-<ul>
-<li>What do you observe in the plot?</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li>Real experiment</li>
+<li>If the set <span class="math inline">\(A\)</span> is some collection of these outcomes, then</li>
 </ul>
 <p><br>
 <br>
 <br>
 </p>
-<p><strong>Take away:</strong></p>
-<p><br>
-<br>
-</p>
-<p>In exploratory data analysis, the visualizations and numerical summaries you choose are driven by the type of data at hand. This is true for statistical inference as well. The type of data will drive the appropriate inference techniques. However, the goal of the research study will also impact the selected method, as will the underlying assumptions of the technique (we’ll talk <strong>a lot</strong> more about this). That said, there are some overarching approaches to quantifying variability, and thus drawing conclusions beyond the data set at hand.</p>
-<p><strong>Approaches to quantifying variability</strong></p>
-<ul>
-<li>Randomization methods (Chapter 11)</li>
-<li>Bootstrap methods (Chapter 12)</li>
-<li>Mathematical models (Chapter 13)</li>
-</ul>
-<p>We’ll start the semester by talking about these three approaches fairly generally. For (most of) the rest of the semester, we’ll see how these approaches fit with different types of data.</p>
-<section id="randomization-tests-chapter-11" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="randomization-tests-chapter-11"><span class="header-section-number">1.1</span> Randomization Tests (Chapter 11)</h2>
-<p>The goal of hypothesis tests is to use an <strong>observed</strong> data set to answer a yes/no question about a characteristic of a larger population from which the observed data set was drawn. For example, is swimming with dolphins therapeutic for patients with clinical depression? That is, we want to assess whether or not the explanatory variable causes changes in the response variable.</p>
-<p>To answer this question, Antonioli and Reveley (2005) recruited 30 subjects with a clinical diagnosis of mild to moderate depression. The subjects were required to stop all other treatments (therapy and/or pharmaceuticals) 4 weeks prior the experiment, and the 30 subjects were all taken to an island off the coast of Honduras. The subjects were randomly assigned to one of two groups. Both groups spent one hour swimming and snorkeling each day, but one group did so in the presence of dolphins and the other group did not. At the end of two weeks, each subject’s level of depressions was evaluated, and whether or not the subjects had a substantial improvement in their depression was recorded.</p>
-<p>Explanatory variable:</p>
-<p><br>
-</p>
-<p>Response variable:</p>
-<p><br>
-</p>
-<p>Is this an observational study or an experiment? What does that imply about inference?</p>
+<p><strong>Example</strong>: Toss a fair, six-sided die</p>
 <p><br>
 <br>
 <br>
 <br>
 </p>
-<p>The question we will answer is whether the resulting data provide convincing evidence that subjects who swam with dolphins were more likely to see depression improvement than subjects who swam without dolphins.</p>
-<p>If there really is no impact of swimming with dolphins, what does this imply about the explanatory and response variables?</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>If swimming with dolphins does improve depression, what does this imply about the explanatory and response variables?</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>This leads to two competing claims:</p>
-<ul>
-<li><strong>Null hypothesis</strong>: H<span class="math inline">\(_0\)</span></li>
-</ul>
-<p><br>
-<br>
-</p>
-<ul>
-<li><strong>Alternative hypothesis</strong>: H<span class="math inline">\(_a\)</span></li>
-</ul>
-<p><br>
-<br>
-</p>
-<p>If the null hypothesis is true, how would this manifest in the observed data?</p>
-<p><br>
-<br>
-<br>
-</p>
-<p>If the alternative hypothesis is true, how would this manifest in the observed data?</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>We will choose between the competing claims by assessing whether the data conflict so much with H<span class="math inline">\(_0\)</span> that the null hypothesis cannot be considered reasonable. If this happens, we’ll reject the notion of H<span class="math inline">\(_0\)</span> and conclude that H<span class="math inline">\(_a\)</span> must be true.</p>
-<p>Up to now, we haven’t seen the data! Here’s a summary:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Dolphin Therapy</th>
-<th>Control Group</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Showed Improvement</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>No Improvement</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Total</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>We can see that</p>
-<ul>
-<li></li>
-</ul>
-<p><br>
-<br>
-</p>
-<ul>
-<li></li>
-</ul>
-<p><br>
-<br>
-</p>
-<p>So,</p>
+<p><strong>Other Examples</strong>:</p>
 <p><br>
 <br>
 <br>
@@ -379,146 +284,14 @@ window.Quarto = {
 <br>
 <br>
 </p>
-<p>The question remains…is this enough different from what we would expect under the null hypothesis to conclude that swimming with dolphins does make a difference in depression?</p>
-<p>So far, nothing we’ve laid out is unique to a randomization test. Where does randomization come in?</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Let’s visualize these observations as a set of cards. Each card denotes a subject in the study. The color indicates the response: red for substantial improvement and black for no substantial improvement.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Any difference we see in the simulation is due to chance–the cards were randomly dealt into the dolphin/control groups.</p>
-<p><br>
-<br>
-<br>
-<br>
-</p>
-<p>It’s not realistic to keep shuffling and dealing by hand…we need to turn to technology to do the randomization for us: <a href="https://www.isi-stats.com/isi2nd/ISIapplets2021.html">Applet</a></p>
-<p>We can do this over and over again to build up a <strong>null distribution</strong>. This distribution shows how we expect the variability to behave under the null hypothesis:</p>
-<p>What do you notice about this null distribution?</p>
-<p><br>
-</p>
-<p>How rare is it to see our observed statistic <strong>0.467</strong> in this distribution? What does this imply?</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>So, we’ve just carried out a <strong>statistical inference</strong> technique! We might be wrong in our conclusions (more on this in Chapter 14), but we’ve made the best decision we could with the data available.</p>
-<p>In summary:</p>
-<p><strong>Randomization Test Procedure</strong>:</p>
-<ul>
-<li>Frame the research question in terms of hypotheses</li>
-<li>Collect data from an observational study or experiment</li>
-<li>Model randomness that would occur if H<span class="math inline">\(_0\)</span> is true</li>
-<li>Analyze the data by comparing the observed data to the simulated distribution</li>
-<li>Conclusion</li>
-</ul>
-<p>Now let’s go to R!</p>
-</section>
-<section id="bootstrap-methods-chapter-12" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="bootstrap-methods-chapter-12"><span class="header-section-number">1.2</span> Bootstrap Methods (Chapter 12)</h2>
-<p>Bootstrap methods are a relatively new statistical technique (proposed in 1979 by Efron), but they are based on a very simple idea. The goal is to characterize the variability of the statistic across many samples. One way we could do this is take lots and lots of samples from the population, and get a picture of how much variance there is among the samples. This is almost always impossible. So, rather than resample from the population, we could try resampling from the sample. This is the basic idea behind the bootstrap.</p>
-<p>Bootstrapping is used in many different applications. For this general introduction to the approach, we’re going to consider a confidence interval for a proportion.</p>
-<p>A <strong>confidence interval</strong> is</p>
-<p><br>
-<br>
-<br>
-<br>
-</p>
-<p>Note the goal of the confidence interval is different from the goal of a hypothesis test!</p>
-<p><br>
-<br>
-<br>
-</p>
-<p>However, like with hypothesis tests, we need to understand the variability inherent to the statistic. To figure out how wide the range of plausible values should be, we need to know how a statistic varies from sample to sample in the population.</p>
-<p>For example, let’s think back to the Baby scenario and suppose our goal is to estimate the population parameter</p>
-<p><br>
-<br>
-<br>
-</p>
-<p>The researchers collected one sample of 16 babies, and found that 14 picked the good guy. This is our observed data. What do you think would happen if we took a sample of 16 different babies? And then a different sample of 16 babies?</p>
-<p><br>
-<br>
-<br>
-</p>
-<p>Idea of the bootstrap:</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Infinite populations are pretty tough to work with, though. However, we can produce an equivalent bootstrap distribution by</p>
-<p><br>
-<br>
-<br>
-</p>
-<p>So, we’ll repeatedly draw bootstrap samples of size 16 (why 16?) and calculate the proportion of successes in each bootstrap samples. After we do this many many times, we’ll have an idea of a range of plausible values for the population parameter. We’ll set the <strong>confidence level</strong> by opting for a wider or a narrower interval, based on how certain we need to be in the results.</p>
-<p><br>
-<br>
-<br>
-</p>
-<p><strong>Bootstrap Process</strong></p>
-<ul>
-<li>Frame the research question in terms of a parameter to estimate</li>
-<li>Collect data using an observational study or an experiment</li>
-<li>Model the randomness by using the observed data as a proxy for the population</li>
-<li>Create the interval (in future chapters we’ll see there are multiple ways to do this)</li>
-<li>Conclusion</li>
-</ul>
-<p>Let’s go to R!</p>
-</section>
-<section id="inference-with-mathematical-models-chapter-13" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="inference-with-mathematical-models-chapter-13"><span class="header-section-number">1.3</span> Inference with Mathematical Models (Chapter 13)</h2>
-<p>So far, we’ve seen computational methods like randomization and bootstrapping to characterize the variability of a statistic. The use of computational methods is relatively recent, due to the increase in computing power. In pre-computing days, re-sampling and randomization was very difficult. As a result, mathematical approximations were used and are still pervasive. If you took AP Statistics or a different intro statistics course, you employed mathematical models. However, to be clear, all of the methods we’ll talk about (randomization, bootstrap, mathematical models) are techniques to get a <strong>sampling distribution</strong>.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>The sampling distributions we’ve seen so far have been (mostly):</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>This isn’t coincidence…it’s guaranteed by a very important theorem, the <strong>Central Limit Theorem</strong>.</p>
+<p>Often, it is difficult to list all of the outcomes in a sample space, even when it is finite. In such circumstances, other methods must be employed to count the number of outcomes in a sample space.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Central Limit Theorem
+Fundamental Theorem of Counting
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -531,261 +304,365 @@ Central Limit Theorem
 </p>
 </div>
 </div>
-<p>What are the requirements here?</p>
-<ul>
-<li><p>Independence:</p>
+<p><strong>Example</strong>:</p>
+<p><img src="CalvinHobbesPeanutButter.png" class="img-fluid"></p>
 <p><br>
 <br>
 <br>
-</p></li>
-<li><p>“Large enough”:</p>
-<p><br>
 <br>
-<br>
-</p></li>
-</ul>
-<p><strong>Normal Distribution</strong>: Nothing followings it exactly–it’s a mathematical construct. But, a lot of things follow it approximately, either:</p>
-<ul>
-<li><p>naturally:</p>
-<p><br>
-<br>
-</p></li>
-<li><p>created to follow it:</p></li>
-</ul>
-<p><br>
 </p>
-<p>The normal distribution depends on two parameters, <span class="math inline">\(\mu=\)</span> mean (where the distribution is centered) and <span class="math inline">\(\sigma=\)</span> standard deviation (how spread out it is). <span class="math inline">\(\mu\)</span> shifts the distribution up and down the number line, <span class="math inline">\(\sigma\)</span> stretches and contracts the curve. The <strong>standard normal</strong> distribution has <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma=1\)</span> (this is the distribution tabulated in normal tables in textbooks).</p>
-<p>The standard normal gives us a convenient way to compare observations, and any normal distribution can be transformed into a standard normal. The <strong>Z-score</strong> is</p>
+<p>Why is the number of possible outcomes important? Because when each outcome is equally likely, we use the number of possible outcomes to find the probabilities of various events. The problem is that Fundamental Theorem of Counting doesn’t always (obviously) work. To determine the number of ways a task can be completed, we often need to consider whether sampling occurs with or without replacement and whether sampling is ordered or unordered. We’re not going to go into a ton of detail here. Some of these combinatorics scenarios really aren’t helpful to us, and most situations don’t involve outcomes that are all equally likely.</p>
+<p>Some quick and dirty examples:</p>
+<p><strong>Ordered, with replacement</strong>: Number of different 6-character license plates if the first 3 characters must be letters and the final 3 characters must be numbers.</p>
 <p><br>
 <br>
 <br>
 </p>
-<p>If the Z-score is positive</p>
+<p>In general:</p>
 <p><br>
+<br>
 </p>
-<p>If the Z-score is negative</p>
-<p>Z-scores can be used to</p>
-<ul>
-<li><p>gauge the unusualness of an observation</p>
+<p><strong>Ordered, without replacement</strong>: Number of different lead-off (i.e., first three batters) batting orders for a baseball team consisting of 9 players.</p>
+<p>In general:</p>
 <p><br>
 <br>
-</p></li>
-<li><p>find probabilities</p>
+</p>
+<p><strong>Unordered, without replacement</strong>: A student is to answer 7 out of 10 questions on an exam. How many choice are there?</p>
+<p><br>
+<br>
+</p>
+<p>In general:</p>
 <p><br>
 <br>
 <br>
-</p></li>
-</ul>
-<p>Helpful R functions:</p>
-<ul>
-<li><code>pnorm(x, mean=0, sd=1)</code></li>
-<li><code>normTail(m=0,s=1,L=x)</code> or <code>normTail(m=0,s=1,U=x)</code> will draw pretty pictures–need to use the OpenIntro library</li>
-<li><code>qnorm(prob, mean=0, sd=1)</code> gives a Z-score with area to the left</li>
-</ul>
-<p>Pictures are super-helpful!</p>
-<p><strong>Example</strong>: Full-term birth weights for single babies are normally distributed with a mean of 7.5 pounds and a standard deviation of 1.1 pounds.</p>
+</p>
+<p><strong>Unordered, with replacement</strong>: This one is not terribly intuitive, and not terribly useful anyway. I couldn’t think of a realistic scenario. In case you care:</p>
+<p><br>
+<br>
+</p>
+<p><strong>Example</strong>: Suppose Alabama (which does not have a state lottery) is considering four possible lottery drawing configurations:</p>
 <ol type="1">
-<li>A baby is born weighing 9.1 pounds. What is the weight percentile for this baby?</li>
+<li>Six different cages, each with 40 balls numbered 1-40. Winners’ selections must be in the same sequence as the numbers drawn from the cages.</li>
 </ol>
 <p><br>
-<br>
-<br>
 </p>
 <ol start="2" type="1">
-<li>Babies that weigh less than 5.5 pounds are considered low birth weight. What proportion of babies are low birth weight?</li>
+<li>One cage with 40 balls numbered 1-40. Winners’ selections must be in the same sequence as the six numbers drawn from the cage.</li>
 </ol>
 <p><br>
-<br>
-<br>
 </p>
 <ol start="3" type="1">
-<li>What weight would make a baby at the 25th percentile?</li>
+<li>One cage with 40 balls numbered 1-40 Winners’ selections must match the six numbers drawn from the cage.</li>
 </ol>
+<p><br>
+</p>
 <ol start="4" type="1">
-<li>What is the probability a randomly selected baby weighs between 7 and 8 pounds?</li>
+<li>Six different cages, each with 40 balls numbered 1-40. Winners’ selections must match the numbers drawn from the cages.</li>
 </ol>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>The <strong>Empirical Rule</strong> (aka the 68-95-99.7 Rule) presents a general rule for the probability of falling within one, two, and three standard deviations of the mean in a normal distribution.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>This rule is useful in a wide range of settings when trying to make quick estimate (we’ll use it with bootstraps too!).</p>
-<p>Some more definitions we’ll use throughout the semester:</p>
-<ul>
-<li><strong>Standard error</strong>:</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li><strong>Margin of error</strong>:</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-</p>
-<p><strong>Example (13.11)</strong>: In 2013, the Pew Research Foundation reported that “45% of US adults report that they live with one ore more chronic conditions.” However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used. Create a 95% confidence interval for the proportion of US adults who live with one or more chronic conditions. Interpret the confidence interval in the context of the study.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-</section>
-<section id="decision-errors-chapter-14" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="decision-errors-chapter-14"><span class="header-section-number">1.4</span> Decision Errors (Chapter 14)</h2>
-<p>Anytime we’re using sample data to make decisions about a larger population we can potentially make a mistake. We can make an incorrect decision in a hypothesis test or calculate a confidence interval that does not capture the true population parameter. In a hypothesis test, there are four possible outcomes:</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p><strong>Type I error</strong>:</p>
-<p><br>
-<br>
-</p>
-<p><strong>Type II error</strong>:</p>
-<p><strong>Examples</strong>:</p>
-<ul>
-<li>Doping in the Olympics</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li>Criminal trial</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li>Diagnostic test for a serious disease</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Errors require a balancing act. We want to reduce the chance of making a Type I error but this will necessarily increase the chance of making a Type II error. The best we can do is to set the probability of a Type I error. We can do through setting the <strong>significance level</strong>.</p>
-<p><strong>Significance level</strong>:</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Another consideration that will impact the chance of making an error is the whether the test is one- or two-sided.</p>
-<p><strong>Two-sided hypotheses</strong>:</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p><strong>Example</strong>: Standard anticoagulant therapy to prevent blood clots requires frequent (expensive) lab monitoring. A new procedure called riva was tested because it did not require frequent monitoring. A randomized trial was conducted in 2012, with standard therapy randomly assigned to 2416 patients and riva randomly assigned to 2416 patients. A bad result was a recurrence of a blood clot in a vein. We want to know if the likelihood of a bad result is different between the two therapies.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Here are the results of the randomized trial</p>
+<p>Bottom line: the total number of ways to pick <span class="math inline">\(r\)</span> items from a total of <span class="math inline">\(n\)</span> distinguishable items depends on whether or not order matters, as well as whether sampling is done with or without replacement.</p>
 <table class="caption-top table">
+<caption>Number of Ways to Pick <span class="math inline">\(r\)</span> Items from <span class="math inline">\(n\)</span> Distinguishable Objects</caption>
 <thead>
 <tr class="header">
 <th></th>
-<th>Riva</th>
-<th>Standard</th>
-<th>Total</th>
+<th>Without Replacement</th>
+<th>With Replacement</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Clot</td>
-<td>44</td>
-<td>60</td>
-<td>104</td>
+<td>Order Matters</td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>No Clot</td>
-<td>2372</td>
-<td>2356</td>
-<td>4728</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>Total</td>
-<td>2416</td>
-<td>2416</td>
-<td>4832</td>
+<td>Order Doesn’t Matter</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
+<p>Unordered, without replacement will turn out to be the most case we use most often (and we’ll use that one A LOT).</p>
+</section>
+<section id="conditional-probability" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">1.2</span> Conditional Probability</h2>
+<p>Let’s look at the following table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Survived</th>
+<th>Did Not Survive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First Class</td>
+<td>201</td>
+<td>123</td>
+</tr>
+<tr class="even">
+<td>Second Class</td>
+<td>118</td>
+<td>166</td>
+</tr>
+<tr class="odd">
+<td>Third Class</td>
+<td>181</td>
+<td>528</td>
+</tr>
+</tbody>
+</table>
+<p>The counts in the table are the number of Titanic passengers that fell into the each of the categories. From this table, we can calculate some probabilities. Let’s consider the outcomes First Class and Survived.</p>
 <p><br>
 <br>
 <br>
 </p>
-<p>For two-sided tests, the p-value is the probability that we observe a result as least as favorable to the alternative hypothesis as the result we observe. That is, that we observe a result as extreme or more extreme in either direction.</p>
+<p>Often, we have partial information about a certain phenomenon and wish to know how this affects the probabilities of outcomes of interest to us, if at all. For example, we might want to know the probability a randomly selected student is a sophomore, given that we know they are enrolled in STAT 262.</p>
+<p><strong>Example</strong>: Toss a fair die. Let <span class="math inline">\(A=\{1\}\)</span> and <span class="math inline">\(B=\{1,3,5\}\)</span>. What is the probability of throwing a 1 given that an odd number is thrown?</p>
+<p><br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Conditional Probability
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><br>
 <br>
 <br>
 <br>
 <br>
+<br>
 </p>
-<p><strong>When in doubt, use a two-sided test!</strong> Use a one-sided test only if you truly have interest in only one direction.</p>
-<p>So, how can we control Type I error?</p>
+</div>
+</div>
+<p><strong>Example, again</strong>:</p>
+<p><br>
+<br>
+</p>
+<p>This definition of conditional probability leads to:</p>
+<p><br>
+<br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Law of Total Probability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(A_1,A_2,\dots\)</span> is a collection of mutually exclusive (<span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for all <span class="math inline">\(i \neq j\)</span>) and exhaustive<br>
+(<span class="math inline">\(P(\cup_{i=1}^{\infty} A_i)=1\)</span>) events, and if <span class="math inline">\(P(A_i) &gt; 0\)</span> for all <span class="math inline">\(i\)</span>, then for any event <span class="math inline">\(B\)</span>,</p>
+<p><br>
+</p>
+<p><span class="math inline">\(P(B)=\)</span></p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><br>
+Venn Diagram:</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General Form of Bayes’ Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(A_1,A_2,\dots,\)</span> partition <span class="math inline">\(\cal{S}\)</span>.</p>
+<p><br>
+</p>
+<p><span class="math inline">\(P(A_i|B) =\)</span></p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: Of travelers arriving at a small airport, 60% fly on major airlines, 30% fly on privately owned planes, and the remainder fly on commercially owned planes not belonging to a major airline. Of those traveling on major airlines, 50% are traveling for business reasons, whereas 60% of those arriving on private planes and 90% of those arriving on other commercially owned planes are traveling for business reasons.</p>
+<p>Let’s first construct a table.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>Suppose we randomly select one person arriving at this airport. What is the probability the person . . .</p>
 <ul>
-<li>Set up tests before seeing the data.</li>
-<li>Collect enough data that the test has sufficient <strong>power</strong>. We’ll talk more about power later (and LOTS more in an experimental design course), but power is the probability of correctly rejecting a false null hypothesis. It’s a function of how big the true difference is (which we don’t know and can’t control) and the sample size (which we can control).</li>
+<li>is traveling on business?</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>is traveling for business on a privately owned plane?</li>
+</ul>
+<p><br>
+<br>
+</p>
+<ul>
+<li>arrived on a privately owned plane, given the person is traveling on business?</li>
+</ul>
+<p><br>
+<br>
+</p>
+<ul>
+<li>is traveling on business, given the person is flying on a commercially owned plane not belonging to a major airline?</li>
+</ul>
+<p><strong>Example</strong>: A diagnostic test for a disease is such that it (correctly) detects the disease in 95% of the individuals who actually have the disease. Also, if a person does not have the disease, the test will report that he or she does not have it with probability 0.9. Only 1% of the population has the disease in question. If a person is chosen at random from the population and the diagnostic test indicates that she has the disease, what is the conditional probability that she does, in fact, have the disease?</p>
+<p><br>
+<br>
+</p>
+<p><strong>Example</strong>: A student answers a multiple choice exam question that offers four possible answers. Suppose the probability the student knows the answer to the question is 0.8 and the probability the student will guess is 0.2. If the student guesses, the probability of selecting the correct answer is 0.25. If the student correctly answers a question, what is the probability the student really knew the correct answer?</p>
+<p><br>
+<br>
+</p>
+<p>Consider the following table:</p>
+<table class="caption-top table">
+<caption>All flights arriving at an airport on a single day</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>Late</th>
+<th>On Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Domestic</td>
+<td>12</td>
+<td>109</td>
+</tr>
+<tr class="even">
+<td>International</td>
+<td>6</td>
+<td>53</td>
+</tr>
+</tbody>
+</table>
+<p>Find the probability that a randomly selected flight on this day was on time.</p>
+<p><br>
+<br>
+<br>
+</p>
+<p>Find the probability that a randomly selected flight was on time, given that it was a domestic flight.</p>
+<p><br>
+<br>
+<br>
+</p>
+<p>What do you notice about these two values?</p>
+<p><br>
+</p>
+<p>Does this make sense in the context of this scenario? What do you think it means?</p>
+<p><br>
+<br>
+</p>
+</section>
+<section id="independence" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="independence"><span class="header-section-number">1.3</span> Independence</h2>
+<p>Sometimes the occurrence of one event, <span class="math inline">\(B\)</span>, will have no effect on the probability of another event, <span class="math inline">\(A\)</span>. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are unrelated, then intuitively it should be the case that<br>
+</p>
+<p>Also, it follows that</p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Statistical Independence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two events, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>statistically independent</strong> if and only if<br>
+<br>
+</p>
+</div>
+</div>
+<p>Extending this to multiple events . . .</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Mutual Independence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A collection of events <span class="math inline">\(A_1, A_2, \dots A_n\)</span> are if and only if for any subcollection <span class="math inline">\(A_{i_1},A_{i_2},\dots, A_{i_k}\)</span></p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: A mouse caught in a maze has to maneuver through three successive escape hatches in order to escape. If the hatches operate independently and the probabilities for the mouse to successfully get through them are 0.6, 0.4, and 0.2, respectively, what are the probabilities that the mouse:</p>
+<ul>
+<li>will be able to escape?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>will not be able to escape?</li>
 </ul>
 
 
@@ -1198,6 +1075,9 @@ Central Limit Theorem
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Section 2 Random Variables.html" class="pagination-link" aria-label="Random Variables and their Associated Functions">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

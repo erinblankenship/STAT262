@@ -10,6 +10,7 @@ book:
   chapters:
     - index.qmd
     - Section 1 Probability.qmd
+    - Section 2 Random Variables.qmd
 
   
 

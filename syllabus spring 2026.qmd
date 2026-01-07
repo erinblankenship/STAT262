@@ -15,58 +15,59 @@ format:
       - right=10mm
 ---
 
-# **STAT 102: Principles of Statistical Analysis**
+# **STAT 262: Probability for Statisticians**
 
 **Instructor:** Dr. Erin Blankenship (she/her)
 
 **email:** `erin.blankenship@unl.edu`
 
-**Lecture:** 12:30-1:45 Tuesday/Thursday, Keim 262
+**Lecture:** 2:00-3:15 Tuesday/Thursday, Plant Science 272
 
 **Office Hours:** 9:30-11:00 Tuesday/Thursday or by appointment; 343B Hardin Hall, North Wing
 
-**Required Materials:** *Introduction to Modern Statistics*, 2nd edition (Cetinkaya-Rundel and Hardin).
+**Required Materials:** There is no required textbook for this course.
 
-Download for free at <https://leanpub.com/imstat>
+**Reference:** *Mathematical Statistics with Applications*, 7th edition (Wackerly, Mendenhall and Scheaffer; 2008)
 
-Chapters 1-10 cover content from STAT 101. We'll pick up with Chapter 11 (and backfill anywhere it's necessary).
+**Prerequisites:** MATH 208 (Calculus III), or the equivalent
 
-**Prerequisites:** STAT 101
-
-**Course Description:** Introduction to formal statistical inference and elementary probability for statistics majors. Explores the practical application of statistical techniques to meaningful scientific problems. Inference topics will be implemented using both simulation-based approaches and classical, theory-based methods.
+**Course Description:** Probabilistic undergirding of statistical procedures including moments, common parametric families, marginal and conditional densities, sufficient statistics, modes of convergence, laws of large numbers, and the central limit theorem and how they apply to estimators.
 
 **Course Goals:**
 
--   Read an example where the research question is explicitly stated, and then translate what’s stated into a statistical statement involving parameters or other simple distributional characteristics.
+-   Understand and be able to apply the basic rules of probability, including sample spaces, conditional probability, independence, and Bayes' theorem
 
--   Identify whether the ideal data collection strategy would involve random assignment, random sampling, or both and explain why.
+-   Understand and be able to articulate the definition of random variable for a specific scenario
 
--   Work with an example where the research question is explicitly stated, along with an existing data set, and propose and carry out an appropriate analysis to answer the research question.
+-   Recognize and be able to use the different function associated with random variables: cumulative distribution function, probability density/mass function, moment generating function
 
--   Explain the terms/components of a given statistical model, and connect those terms to the research question at hand.
+-   Use density/mass functions to find moments
 
--   Check basic assumptions of various (simple) analysis methods and justify the use of the method.
+-   Use common discrete and continuous probability distributions to model real-world scenarios
 
--   Apply existing functions and point-and-click software for implementing basic data analyses.
+-   Understand and be able to use multivariate probability distributions, including
+    marginal and conditional distributions, independence, and covariance
+    between random variables
 
--   Use tactile simulation to carry out a simple resampling procedure.
+-   Derive and use probability distributions of functions of random variables using the methods of transformations, Jacobians, and moment generating functions
 
--   Identify the steps and perform the calculations required for routine statistical procedures to address a given problem.
+-   Understand and be able to recognize random samples, including random samples drawn from the normal distribution
 
--   Calculate simple analyses (t-test, chi-squared test for proportions) by hand, to verify the validity of the computational algorithm.
+-   Understand and be able to recognize the distribution of functions of normal random variables
 
--   Recognize when computational results do not make sense in the context of the problem.
+-   Understand elementary convergence concepts, including the law of large numbers and the Central Limit Theorem
 
 \newpage
 
 **Grading:**
 
-| Assignment(s)       | Contribution to Final Grade |
-|---------------------|-----------------------------|
-| Mid-Term Project    | 25%                         |
-| Final Project       | 25%                         |
-| Homework            | 25%                         |
-| Final Demonstration | 25%                         |
+| Assignment(s)      | Contribution to Final Grade |
+|--------------------|-----------------------------|
+| Exam 1             | 20%                         |
+| Exam 2             | 20%                         |
+| Homework           | 25%                         |
+| Writing Assignment | 10%                         |
+| Final Project      | 25%                         |
 
 \
 
@@ -106,11 +107,17 @@ You are also expected to exhibit a professional demeanor (language, attitude) to
 
 Students may not make or distribute screen captures, audio/video recordings of, or livestream, any class-related activity, including lectures and presentations, without express prior written consent from me or an approved accommodation from Services for Students with Disabilities. If you have (or think you may have) a disability such that you need to record or tape class-related activities, you should contact Services for Students with Disabilities. If you have an accommodation to record class-related activities, those recordings may not be shared with any other student, whether in this course or not, or with any other person or on any other platform.
 
-**Projects:** Two projects will be given during the course of the semester, on **approximate** dates noted on the Tentative Course Outline on the last page. These projects will give you the opportunity to demonstrate your understanding of the material, as well as your ability to synthesize and transfer that knowledge to other scenarios and situations; questions will assess conceptual understanding as opposed to mere memorization. **You will not be allowed to collaborate with other students on the projects. If collaboration occurs, all involved students will receive a 0 on the project.**
+**Homework:** Approximately 8-10 homework assignments will be made over the course of the semester. The only way to learn statistics is to practice working problems, and homework is therefore an essential part of the course. Bear in mind that homework is for your benefit, not the instructor's.
 
-**Homework:** Approximately 8-10 homework assignments will be made over the course of the semester. The only way to learn statistics is to practice working problems, and homework is therefore an essential part of the course. Homework will be graded partially on completeness and partially on accuracy. Bear in mind that homework is for your benefit, not the instructor's.
+Homework may be submitted either on paper or through Canvas. If you opt to submit via Canvas, it must be submitted as a single pdf (not multiple files), and any scans must be high quality. If I cannot read it, it will not be graded. Homework will be graded partially on completeness and partially on accuracy.
 
-**Final Demonstration:** One of the goals of the course is to develop your skills in communicating with and about data. To this end, as well as to provide other students with valuable resources, you will demonstrate how to do something in R and/or with data. All materials and resources (e.g., R code, links to webpages, slides, instructions, etc.) will be provided the rest of the class, and other students should be able to use the tools you demonstrate on their own after the presentation. This assignment will be completed in pairs. More details will be provided later in the semester.
+**Calculators:** We will be using a great deal of calculus in this course. While I realize that many calculators will do the calculus we'll use, such calculators will **not** be permitted on in-class exams. Don't get too reliant on them for homework!
+
+**Writing Assignment:** Written communication is an essential part of any job. To help you get used to writing about statistics, as well as to reinforce and assess understanding of class concepts, you will assigned a formal writing project. More details on the writing assignment will be distributed later.
+
+**Exams:** Two exams will be given during the course of the semester, tentatively scheduled on , and . The in-class exams are closed book and notes. The exams will evaluate your understanding of the material, as well as your ability to synthesize and transfer that knowledge to other scenarios and situations; questions will assess conceptual understanding as opposed to mere memorization.
+
+**Final Project:** In lieu of a final exam, there will be a project assignment to allow you demonstrate your understanding and synthesis of the course concepts. More details on the project will be distributed later.
 
 **Instructional Continuity:** If in-person classes are canceled, you will be notified of the instructional continuity plan for this class through Canvas.
 
@@ -146,20 +153,20 @@ It may be useful to leverage AI tools to ensure that your work conforms to gramm
 
 | Week | Dates | Notes | Topics |
 |------------------|------------------|------------------|------------------|
-| 1 | 13-15 January |  | Introduction; Inference methods in broad strokes; Randomization tests |
-| 2 | 20-22 January | HW 1 due | Randomization tests; bootstrap confidence intervals |
-| 3 | 27-29 January | HW 2 due | Mathematical model methods |
-| 4 | 3-5 February | HW 3 due | Decision errors; Inference for one proportion |
-| 5 | 10-12 February | HW 4 due | Inference for one proportion |
-| 6 | 17-19 February | HW 5 due | Inference for two proportions |
-| 7 | 24-26 February |  | Two-way tables; inference for more than 2 proportions |
-| 8 | 3-5 March | Mid-Term Project due | Inference for one mean |
-| 9 | 10-12 March |  | Inference for two means |
+| 1 | 13-15 January |  | Introduction; probability basics; counting; conditional probability |
+| 2 | 20-22 January | HW 1 due | Conditional probability; Bayes' theorem; independence; RVs; CDFs |
+| 3 | 27-29 January | HW 2 due | pdfs/pmfs; expected values; moments |
+| 4 | 3-5 February | HW 3 due | Moments; mgfs |
+| 5 | 10-12 February | HW 4 due | Kernels; quantities based on moments; discrete distributions |
+| 6 | 17-19 February |  | **Exam 1** |
+| 7 | 24-26 February |  | Discrete distributions; continuous distributions |
+| 8 | 3-5 March | HW 5 due | Multiple RVs; marginals; independence |
+| 9 | 10-12 March | HW 6 due | Conditional distributions; conditional expectations; covariance; correlation |
 | 10 | 17-19 March | No class! | Spring Break |
-| 11 | 24-26 March | HW 6 due | Inference for two means; inference for mean difference |
-| 12 | 31 March - 2 April | HW 7 due | Inference for more than 2 means: ANOVA |
-| 13 | 7-9 April | HW 8 due | ANOVA |
-| 14 | 14-16 April | HW 9 due | Regression |
-| 15 | 21-23 April |  | Regression |
-| 16 | 28-30 April | Final Project due | Final demonstration presentations |
-| Finals Week |  | No final exam |  |
+| 11 | 24-26 March | HW 7 due | Multiple RVs revisited; named multivariate distributions; transformations |
+| 12 | 31 March - 2 April | HW 8 due | Transformations; multivariate mgfs |
+| 13 | 7-9 April |  | **Exam 2** |
+| 14 | 14-16 April |  | Random samples; sampling from a normal distribution |
+| 15 | 21-23 April | HW 9 due | Convergence; CLT |
+| 16 | 28-30 April |  | **Final project presentations** |
+| Finals Week |  | No final exam | **Final project papers due Monday, 4 May at 9:00 am** |

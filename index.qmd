@@ -1,13 +1,33 @@
 # Course Goals for STAT 262 {.unnumbered}
 
-STAT 262 is an introduction to formal statistical inference. We will carry out inference using both simulation-based approaches and classical, theory-based methods. By the end of the course, you will:
+STAT 262 is an introduction to the basic probability theory that allows us to the use the statistical methods seen in courses like STAT 102 and STAT 212. By the end of the course, you will:
 
-```{r}
-#| eval: true
-#| include: false
+-   Understand and be able to apply the basic rules of probability, including sample spaces, conditional probability, independence, and Bayes' theorem
 
-quarto::quarto_render(input="syllabus spring 2026.qmd")
-file.copy("syllabus spring 2026.html","docs/")
-file.copy("syllabus-spring-2026.pdf","docs/")
-file.copy("syllabus spring 2026_files","docs/",recursive=TRUE)
-```
+-   Understand and be able to articulate the definition of random variable for a specific scenario
+
+-   Recognize and be able to use the different function associated with random variables: cumulative distribution function, probability density/mass function, moment generating function
+
+-   Use density/mass functions to find moments
+
+-   Use common discrete and continuous probability distributions to model real-world scenarios
+
+-   Understand and be able to use multivariate probability distributions, including marginal and conditional distributions, independence, and covariance between random variables
+
+-   Derive and use probability distributions of functions of random variables using the methods of transformations, Jacobians, and moment generating functions
+
+-   Understand and be able to recognize random samples, including random samples drawn from the normal distribution
+
+-   Understand and be able to recognize the distribution of functions of normal random variables
+
+-   Understand elementary convergence concepts, including the law of large numbers and the Central Limit Theorem
+
+    ```{r}
+    #| eval: true
+    #| include: false
+
+    quarto::quarto_render(input="syllabus spring 2026.qmd")
+    file.copy("syllabus spring 2026.html","docs/")
+    file.copy("syllabus-spring-2026.pdf","docs/")
+    file.copy("syllabus spring 2026_files","docs/",recursive=TRUE)
+    ```

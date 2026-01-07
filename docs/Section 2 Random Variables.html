@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>syllabus-spring-2026</title>
+<title>2&nbsp; Random Variables and their Associated Functions – Stat 262 Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,308 +23,144 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="syllabus spring 2026_files/libs/clipboard/clipboard.min.js"></script>
-<script src="syllabus spring 2026_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="syllabus spring 2026_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="syllabus spring 2026_files/libs/quarto-html/popper.min.js"></script>
-<script src="syllabus spring 2026_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="syllabus spring 2026_files/libs/quarto-html/anchor.min.js"></script>
-<link href="syllabus spring 2026_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="syllabus spring 2026_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="syllabus spring 2026_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="syllabus spring 2026_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="syllabus spring 2026_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Section 1 Probability.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ffd282cb318059e0bcb130885a47f5dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
 </head>
 
-<body class="quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="syllabus-spring-2026.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 2 Random Variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Stat 262 Notes</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Stat-262-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Goals for STAT 262</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 1 Probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 2 Random Variables.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></h1>
+</div>
 
 
 
-<section id="stat-262-probability-for-statisticians" class="level1">
-<h1><strong>STAT 262: Probability for Statisticians</strong></h1>
-<p><strong>Instructor:</strong> Dr.&nbsp;Erin Blankenship (she/her)</p>
-<p><strong>email:</strong> <code>erin.blankenship@unl.edu</code></p>
-<p><strong>Lecture:</strong> 2:00-3:15 Tuesday/Thursday, Plant Science 272</p>
-<p><strong>Office Hours:</strong> 9:30-11:00 Tuesday/Thursday or by appointment; 343B Hardin Hall, North Wing</p>
-<p><strong>Required Materials:</strong> There is no required textbook for this course.</p>
-<p><strong>Reference:</strong> <em>Mathematical Statistics with Applications</em>, 7th edition (Wackerly, Mendenhall and Scheaffer; 2008)</p>
-<p><strong>Prerequisites:</strong> MATH 208 (Calculus III), or the equivalent</p>
-<p><strong>Course Description:</strong> Probabilistic undergirding of statistical procedures including moments, common parametric families, marginal and conditional densities, sufficient statistics, modes of convergence, laws of large numbers, and the central limit theorem and how they apply to estimators.</p>
-<p><strong>Course Goals:</strong></p>
-<ul>
-<li><p>Understand and be able to apply the basic rules of probability, including sample spaces, conditional probability, independence, and Bayes’ theorem</p></li>
-<li><p>Understand and be able to articulate the definition of random variable for a specific scenario</p></li>
-<li><p>Recognize and be able to use the different function associated with random variables: cumulative distribution function, probability density/mass function, moment generating function</p></li>
-<li><p>Use density/mass functions to find moments</p></li>
-<li><p>Use common discrete and continuous probability distributions to model real-world scenarios</p></li>
-<li><p>Understand and be able to use multivariate probability distributions, including marginal and conditional distributions, independence, and covariance between random variables</p></li>
-<li><p>Derive and use probability distributions of functions of random variables using the methods of transformations, Jacobians, and moment generating functions</p></li>
-<li><p>Understand and be able to recognize random samples, including random samples drawn from the normal distribution</p></li>
-<li><p>Understand and be able to recognize the distribution of functions of normal random variables</p></li>
-<li><p>Understand elementary convergence concepts, including the law of large numbers and the Central Limit Theorem</p></li>
-</ul>
-<p><strong>Grading:</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Assignment(s)</th>
-<th>Contribution to Final Grade</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Exam 1</td>
-<td>20%</td>
-</tr>
-<tr class="even">
-<td>Exam 2</td>
-<td>20%</td>
-</tr>
-<tr class="odd">
-<td>Homework</td>
-<td>25%</td>
-</tr>
-<tr class="even">
-<td>Writing Assignment</td>
-<td>10%</td>
-</tr>
-<tr class="odd">
-<td>Final Project</td>
-<td>25%</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
-<p><strong>Grading Scale:</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Grade</th>
-<th>Final Percentage Range</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>94.0-100</td>
-</tr>
-<tr class="even">
-<td>A-</td>
-<td>90.0-93.99</td>
-</tr>
-<tr class="odd">
-<td>B+</td>
-<td>88.0-89.99</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>84.0-87.99</td>
-</tr>
-<tr class="odd">
-<td>B-</td>
-<td>80.0-83.99</td>
-</tr>
-<tr class="even">
-<td>C+</td>
-<td>78.0-79.99</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>74.0-77.99</td>
-</tr>
-<tr class="even">
-<td>C-</td>
-<td>70.0-73.99</td>
-</tr>
-<tr class="odd">
-<td>D+</td>
-<td>68.0-69.99</td>
-</tr>
-<tr class="even">
-<td>D</td>
-<td>64.0-67.99</td>
-</tr>
-<tr class="odd">
-<td>D-</td>
-<td>60.0-63.99</td>
-</tr>
-<tr class="even">
-<td>F</td>
-<td>&lt;60.0</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-<strong>Course Expectations:</strong> In this course, you are expected to have professional behavior. You are expected to attend all class meetings, be curious, ask questions, seek opportunities to learn, and be open and responsive to constructive feedback. In addition:</p>
-<ul>
-<li><p>Be an active participant–statistics is not a spectator sport!</p></li>
-<li><p>Be committed, take your work seriously</p></li>
-<li><p>Engage with the in-class activities and labs</p></li>
-<li><p>Help others–if you understand the material being discussed, practice your mentoring skills. This does not means sharing answers, but instead helping others understand the concepts.</p></li>
-<li><p>Complete any assigned readings.</p></li>
-</ul>
-<p>You are also expected to exhibit a professional demeanor (language, attitude) toward others. Disagreement during discussions is welcome and often productive in developing a deeper understanding of the concepts being discussed. However, disagreement does not warrant yelling or disrespectful language or behavior. Unprofessional behavior will not be tolerated, and appropriate actions will be taken to prevent future occurrences.</p>
-<p><strong>Recording of class-related activity:</strong> I invite all of you to join me in actively creating and contributing to a positive, productive, and respectful classroom culture. Each student contributes to an environment that shapes the learning process. Any work and/or communication that you are privy to as a member of this course should be treated as the intellectual property of the speaker/creator, and is not to be shared outside the context of this course.</p>
-<p>Students may not make or distribute screen captures, audio/video recordings of, or livestream, any class-related activity, including lectures and presentations, without express prior written consent from me or an approved accommodation from Services for Students with Disabilities. If you have (or think you may have) a disability such that you need to record or tape class-related activities, you should contact Services for Students with Disabilities. If you have an accommodation to record class-related activities, those recordings may not be shared with any other student, whether in this course or not, or with any other person or on any other platform.</p>
-<p><strong>Homework:</strong> Approximately 8-10 homework assignments will be made over the course of the semester. The only way to learn statistics is to practice working problems, and homework is therefore an essential part of the course. Bear in mind that homework is for your benefit, not the instructor’s.</p>
-<p>Homework may be submitted either on paper or through Canvas. If you opt to submit via Canvas, it must be submitted as a single pdf (not multiple files), and any scans must be high quality. If I cannot read it, it will not be graded. Homework will be graded partially on completeness and partially on accuracy.</p>
-<p><strong>Calculators:</strong> We will be using a great deal of calculus in this course. While I realize that many calculators will do the calculus we’ll use, such calculators will <strong>not</strong> be permitted on in-class exams. Don’t get too reliant on them for homework!</p>
-<p><strong>Writing Assignment:</strong> Written communication is an essential part of any job. To help you get used to writing about statistics, as well as to reinforce and assess understanding of class concepts, you will assigned a formal writing project. More details on the writing assignment will be distributed later.</p>
-<p><strong>Exams:</strong> Two exams will be given during the course of the semester, tentatively scheduled on , and . The in-class exams are closed book and notes. The exams will evaluate your understanding of the material, as well as your ability to synthesize and transfer that knowledge to other scenarios and situations; questions will assess conceptual understanding as opposed to mere memorization.</p>
-<p><strong>Final Project:</strong> In lieu of a final exam, there will be a project assignment to allow you demonstrate your understanding and synthesis of the course concepts. More details on the project will be distributed later.</p>
-<p><strong>Instructional Continuity:</strong> If in-person classes are canceled, you will be notified of the instructional continuity plan for this class through Canvas.</p>
-<p><strong>AI and Explainability Policy:</strong> (adapted from Dr.&nbsp;Vanderplas)</p>
-<ul>
-<li><p>Any use of generative AI must be disclosed in an appendix to your submission - this includes brainstorming, editing, using AI as spell-check/grammar-check, and so on. You must document the following:</p>
-<ul>
-<li><p>the version of the generative AI used</p></li>
-<li><p>the full sequence of prompts and responses</p></li>
-<li><p>any additional inputs you provided to the AI system</p></li>
-<li><p>a “diff” between the AI responses and your submission, showing exactly what was generated by the AI system and what you changed.</p></li>
-</ul></li>
-</ul>
-<p>It may be useful to leverage AI tools to ensure that your work conforms to grammar and style guidelines, but I very highly discourage the use of generative AI for content or code (I’ve seen it generate incorrect code too many times).</p>
-<ul>
-<li>You must be able to explain any work you turn in, including code. If you cannot explain the logic behind your approach as well as how it works in practice, then you will not receive credit for your submission.</li>
-</ul>
-<p><strong>Department Grade Appeal Policy:</strong> The Department of Statistics <a href="https://statistics.unl.edu/department-policies-grade-appeals-academic-integrity/">grade appeal policy</a></p>
-<p><strong>Academic Integrity:</strong> You are encouraged to work together on problems and exercises, but the work you turn in must be your own (unless the assignment specifically states otherwise). Work on exams must be your own. University policy will be followed in cases of academic dishonesty: In cases where an instructor finds that a student has committed any act of academic dishonesty, the instructor may in the exercise of his or her professional judgment impose an academic sanction as severe as giving the student a failing grade in the course. Before imposing an academic sanction the instructor shall first attempt to discuss the matter with the student. If deemed necessary by either the instructor or the student, the matter may be brought to the attention of the student’s major advisor, the instructor’s department chairperson or head, or the dean of the college in which the student is enrolled. For additional details see <a href="https://statistics.unl.edu/department-policies-grade-appeals-academic-integrity/">the department policy.</a></p>
-<p><strong>Services for Students with Disabilities:</strong> The University strives to make all learning experiences as accessible as possible. If you anticipate or experience barriers based on your disability (including mental health, chronic or temporary medical conditions), please let your instructor know immediately so that you can discuss options privately. To establish reasonable accommodations, your instructor may request that you register with Services for Students with Disabilities. If you are eligible for services and register with the office, make arrangements with your instructor as soon as possible to discuss your accommodations so they can be implemented in a timely manner. SSD is located in 117 Louise Pound Hall and can be reached at 402-472-3787.</p>
-<p><strong>University Policies:</strong> All <a href="https://executivevc.unl.edu/academic-excellence/teaching-resources/course-policies/">university-wide course policies.</a></p>
-<p><u><strong><em>TENTATIVE</em></strong></u> <strong>Course Outline</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Dates</th>
-<th>Notes</th>
-<th>Topics</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>13-15 January</td>
-<td></td>
-<td>Introduction; probability basics; counting; conditional probability</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>20-22 January</td>
-<td>HW 1 due</td>
-<td>Conditional probability; Bayes’ theorem; independence; RVs; CDFs</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>27-29 January</td>
-<td>HW 2 due</td>
-<td>pdfs/pmfs; expected values; moments</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>3-5 February</td>
-<td>HW 3 due</td>
-<td>Moments; mgfs</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>10-12 February</td>
-<td>HW 4 due</td>
-<td>Kernels; quantities based on moments; discrete distributions</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>17-19 February</td>
-<td></td>
-<td><strong>Exam 1</strong></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>24-26 February</td>
-<td></td>
-<td>Discrete distributions; continuous distributions</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>3-5 March</td>
-<td>HW 5 due</td>
-<td>Multiple RVs; marginals; independence</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>10-12 March</td>
-<td>HW 6 due</td>
-<td>Conditional distributions; conditional expectations; covariance; correlation</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>17-19 March</td>
-<td>No class!</td>
-<td>Spring Break</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>24-26 March</td>
-<td>HW 7 due</td>
-<td>Multiple RVs revisited; named multivariate distributions; transformations</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>31 March - 2 April</td>
-<td>HW 8 due</td>
-<td>Transformations; multivariate mgfs</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td>7-9 April</td>
-<td></td>
-<td><strong>Exam 2</strong></td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td>14-16 April</td>
-<td></td>
-<td>Random samples; sampling from a normal distribution</td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td>21-23 April</td>
-<td>HW 9 due</td>
-<td>Convergence; CLT</td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td>28-30 April</td>
-<td></td>
-<td><strong>Final project presentations</strong></td>
-</tr>
-<tr class="odd">
-<td>Finals Week</td>
-<td></td>
-<td>No final exam</td>
-<td><strong>Final project papers due Monday, 4 May at 9:00 am</strong></td>
-</tr>
-</tbody>
-</table>
-</section>
+<div class="quarto-title-meta">
 
-</main>
-<!-- /main column -->
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -724,6 +560,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Section 1 Probability.html" class="pagination-link" aria-label="Probability">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
