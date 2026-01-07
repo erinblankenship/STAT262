@@ -1,0 +1,31 @@
+project:
+  type: book
+  output-dir: docs
+
+
+editor: visual
+book: 
+  title: Stat 262 Notes
+  
+  chapters:
+    - index.qmd
+    - Section 1 Probability.qmd
+
+  
+
+  downloads: [pdf]    
+
+format: 
+  html: default
+  pdf:   
+    header-includes:
+        - \usepackage{float}
+        - \floatplacement{table}{H}  
+    output-file: pdf-book
+    fontsize: 12pt
+    geometry: 
+      - top=20mm
+      - left=15mm
+      - right=10mm
+
+   

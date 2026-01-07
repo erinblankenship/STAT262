@@ -1,0 +1,13 @@
+# Course Goals for STAT 262 {.unnumbered}
+
+STAT 262 is an introduction to formal statistical inference. We will carry out inference using both simulation-based approaches and classical, theory-based methods. By the end of the course, you will:
+
+```{r}
+#| eval: true
+#| include: false
+
+quarto::quarto_render(input="syllabus spring 2026.qmd")
+file.copy("syllabus spring 2026.html","docs/")
+file.copy("syllabus-spring-2026.pdf","docs/")
+file.copy("syllabus spring 2026_files","docs/",recursive=TRUE)
+```
