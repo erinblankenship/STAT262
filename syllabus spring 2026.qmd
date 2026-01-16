@@ -45,9 +45,7 @@ format:
 
 -   Use common discrete and continuous probability distributions to model real-world scenarios
 
--   Understand and be able to use multivariate probability distributions, including
-    marginal and conditional distributions, independence, and covariance
-    between random variables
+-   Understand and be able to use multivariate probability distributions, including marginal and conditional distributions, independence, and covariance between random variables
 
 -   Derive and use probability distributions of functions of random variables using the methods of transformations, Jacobians, and moment generating functions
 
@@ -152,7 +150,7 @@ It may be useful to leverage AI tools to ensure that your work conforms to gramm
 [***TENTATIVE***]{.underline} **Course Outline**
 
 | Week | Dates | Notes | Topics |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | 1 | 13-15 January |  | Introduction; probability basics; counting; conditional probability |
 | 2 | 20-22 January | HW 1 due | Conditional probability; Bayes' theorem; independence; RVs; CDFs |
 | 3 | 27-29 January | HW 2 due | pdfs/pmfs; expected values; moments |

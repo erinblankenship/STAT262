@@ -1,2 +1,355 @@
 # Random Variables and their Associated Functions
 
+Often, we are interested in a numerical measurement of the outcome of a random experiment. For example, we might want to know the number of insects treated with a dose of a new insecticide that are killed. In this case, the outcome is the survival status of each \`dosed' insect, and the numerical measurement in which we are interested is the number that died. However, the observed number varies depending on the actual result of the experiment. This type of variable is called a \textbf{random variable}.
+
+## Random Variables
+
+::: callout-tip
+## Definition: Random Variable
+
+A **random variable** is a function that associates a real number with each element in the sample space. That is, a random variable is a function from a sample space, $\cal{S}$, into the real numbers, $\mathbb{R}$.
+:::
+
+**Example**: Suppose we roll two dice. There are 36 possible outcomes:
+
+$$
+\cal{S} =  \left \{ \begin{array}{llllll} 1,1 & 2,1 & 3,1 & 4,1 & 5,1 & 6,1 \\ 1,2 & 2,2 & 3,2 & 4,2 & 5,2 & 6,2 \\ 1,3 & 2,3 & 3,3 & 4,3 & 5,3 & 6,3 \\ 
+1,4 & 2,4 & 3,4 & 4,4 & 5,4 & 6,4 \\ 1,5 & 2,5 & 3,5 & 4,5 & 5,5 & 6,5 \\ 1,6 & 2,6 & 3,6 & 4,6 & 5,6 & 6,6 \end{array} \right \} \Rightarrow \hbox{\hspace{80mm}}
+$$
+
+In the game of SKUNK, we don't necessarily care about the specific outcome of a roll. For example, we don't care to know that, specifically, a (2,3) was rolled. Instead, what are we interested in?
+
+\
+
+The number of ones rolled varies among the 36 points in the sample space, and an observed value of the variable, $X$, denoted by $x$, depends on the outcome of a random experiment (a roll of two dice). This variable (the number of ones rolled on two dice) is referred to as a random variable.
+
+\newpage
+
+The **support** of $X$, or the set of possible values of $X$, is:
+
+\
+
+The corresponding probabilities for each of the possible values of $X$ are:
+
+\
+\
+\
+\
+\
+\
+\
+\
+
+Identifying the type(s) of random variable(s) we are interested in helps us decide which methods and procedures are most appropriate for certain problems and answering specific questions. In general, there are two types of random variables:
+
+-   **Discrete Random Variable**: If the sample space of a random variable is finite or countably infinite, then the random variable is a discrete random variable.
+
+\
+\
+\
+\
+
+-   **Continuous Random Variable**: If the sample space of a random variable is uncountably infinite, then the random variable is a continuous random variable. A continuous random variable can take on any value in an interval
+
+\
+\
+
+## Distribution Functions
+
+Each random variable, $X$, is associated with a function called the cumulative distribution function (CDF) of $X$.
+
+::: callout-tip
+## Definition: Cumulative Distribution Function
+
+The **cumulative distribution function** or CDF of a random variable $X$, denoted by $F_X(x)$, is defined as\
+\
+\
+\
+:::
+
+\
+
+**Example**: Before, we found the probabilities for the possible values of $X=$ number of ones rolled on two dice. What is the CDF of $X$?
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+\newpage
+
+::: callout-tip
+## Theorem:
+
+The function $F_X(x)$ is a CDF if and only if the following three conditions hold:
+
+-   \
+
+-   \
+
+-   \
+    \
+:::
+
+\
+A discrete CDF increases only in jumps.
+
+**Example**: A teenager has passed the written driving exam, but still needs to pass the road exam. Suppose the probability of passing the road exam is $p$. Let $X$ be the number of attempts required to pass the road test, and assume attempts are independent.
+
+\
+\
+\
+\
+\
+\
+\
+
+\newpage
+
+Continuous CDFs have no discontinuities.
+
+**Example**: Suppose $X\sim$ Uniform(0,1). For this distribution, the CDF is:
+
+$F_X(x) = \left \{ \begin{array}{lll} 0 & \hbox{if } x < 0 \\ x & \hbox{if } 0 \leq x < 1 \\ 1 & \hbox{if } x \geq 1 \end{array} \right .$
+
+\vspace{5mm}
+
+For a continuous CDF, $P(X=a)=0$. Why?
+
+\
+\
+
+**Example**: Suppose the time a person must wait in line (in minutes) at airport security has cdf $$
+F_X(x) = \left \{ \begin{array}{ll} 0 & \hbox{if } x < 0 \\ 1-\exp(-x/15) & \hbox{if } 0 \leq x < \infty \end{array} \right .
+$$
+
+-   What is the probability a randomly selected passenger gets through the security line in less than 5 minutes?\
+    \
+    \
+
+-   What is the probability a randomly selected passenger waits in the security line longer than 5 minutes?\
+    \
+    \
+
+-   What is the probability a randomly selected passenger waits in line between 5 and 10 minutes?\
+    \
+    \
+    \
+    \
+
+::: callout-tip
+## Definition: Identically Distributed
+
+Two random variables $X$ and $Y$ are **identically distributed** if they have the same distribution function. That is,\
+\
+\
+\
+:::
+
+\newpage
+
+## Density and Mass Functions
+
+Associated with any random variable $X$ and its CDF $F_X(x)$ is another function, called either the probability density function (pdf) or probability mass function (pmf). The terms pmf and pdf refer, respectively, to the discrete and continuous cases (though pdf often gets used for both types of RVs). Both pmfs and pdfs are concerned with "point probabilities" of random variables.
+
+::: callout-tip
+## Definition: Probability Mass Function
+
+The **probability mass function** or pmf of a discrete random variable $X$, denoted by $f_X(x)$, is given by\
+\
+\
+\
+Let $p_j$ be the size of the jump in the CDF at $x=x_j$, $j=1,2,\dots$, then\
+\
+\
+\
+\
+:::
+
+**Example**: In game of SKUNK, we defined $X=$ number of ones rolled on two dice. $X$ has pmf:
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+::: callout-tip
+## Theorem:
+
+A function, $f_X(x)$, is a pmf if and only if
+
+-   \
+-   \
+    \
+:::
+
+**Example**: A car dealer has 30 cars available for immediate sale, of which 10 are classified as compact cars. 3 customers arrive and buy cars. Define the random variable $N$ to be the number of compact cars sold. What is the pmf for $N$?
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+-   What is the probability exactly 2 compact cars are purchased?
+
+\
+
+-   What is the probabilty less than 2 compact cars are purchased?
+
+\
+\
+
+This shows the special relationship between CDFs and pmfs for discrete random variables:
+
+\
+\
+
+**Example (cont'd)**: What is the CDF for $N$=number of compact cars sold?
+
+\
+
+\newpage
+
+Probability density functions are associated with (absolutely) continuous random variables and (absolutely) continuous CDFs. A probability mass function (pmf) gives "point probabilities," and pmfs may be summed to get the CDF of a discrete random variable. For continuous random variables, the probability of any point is zero (i.e., P$(X=a)=0$). As a result, we define the probability density function (pdf) for a continuous random variable differently.
+
+::: callout-tip
+## Relationship between CDFs and pdfs
+
+The relationship between the CDF and the **probability density function** (pdf) of a continuous random variable $X$ is given by\
+\
+\
+\
+where $f_X(x)$ is the pdf. By the Fundamental Theorem of Calculus,\
+\
+\
+\
+:::
+
+**Example**: Each day, mail arrives in the Statistics department office between 9 and 10 am. The mail is no more likely to arrive at one time than another. Let the random variable $X$ represent the time (in hours) after 9 am that the mail arrives in the department office. Earlier, we determined $X\sim$ Uniform(0,1). For this distribution, the CDF is:\
+
+$F_X(x) = \left \{ \begin{array}{lll} 0 & \hbox{if } x < 0 \\ x & \hbox{if } 0 \leq x < 1 \\ 1 & \hbox{if } x \geq 1 \end{array} \right .$
+
+\
+
+For this distribution, the pdf is:
+
+\
+\
+\
+\
+\
+\
+
+What is the probability the mail arrives before 9:15 am?
+
+\
+\
+
+\newpage
+
+The pdf is a curve that describes the probability of observing $X$ in some range of values, such as between $x_1$ and $x_2$. The probability is defined as:
+
+\
+\
+
+**Example (con't)**: Suppose that a random variable $Y\sim$ Uniform($L,U$). In the previous example, $L=0$ and $U=1$. The pdf of $Y$ is:\
+
+$f_Y(y) = \left \{ \begin{array}{lll} 0 & \hbox{if } y < L \\ c & \hbox{if } L \leq y \leq U \\ 0 & \hbox{if } y > U \end{array} \right .$
+
+\
+
+What should $c$ be?
+
+::: callout-tip
+## Theorem:
+
+A function, $f_X(x)$, is a pdf if and only if
+
+-   \
+
+-   \
+    \
+:::
+
+**Example (con't)**:
+
+-   What should $c$ be?
+
+\
+\
+\
+\
+
+-   Let $Y$ represent the time ([in minutes]{.underline}) after 9 am that the mail arrives at the office. Assuming mail arrives between 9 and 10 am, and the mail is no more likely to arrive at one time than another, what is the pdf of $Y$?
+
+\
+\
+\
+
+\newpage
+
+**Example**: Suppose the time between injury accidents in a nuclear power plant (in days) is a random variable has the pdf:
+
+\
+$f_X(x) = \left \{ \begin{array}{ll} \frac{1}{3} e^{-x/3} &  x > 0 \\ 0 & x \leq 0 \end{array} \right .$
+
+\
+
+- Verify that this function is a pdf.
+
+\
+\
+\
+\
+\
+
+- What is the probability the time between accidents is between 2 and 5 days?
+
+\
+\
+
+- What is the probability the time between 2 accidents is more than 365 days?
+
+\
+\
+
+- Find the CDF of $X$.
+
+\
+\
+\
+\
+\
+\
+\
+
+- How could the CDF be used to find the probability that the time between 2 accidents is more than 365 days? Is this value easier to calculate using the CDF or pdf?  Why do you think so?
+
+\
+
+
