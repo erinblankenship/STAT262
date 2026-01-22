@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Random Variables and their Associated Functions – Stat 262 Notes</title>
+<title>3&nbsp; Moments – Stat 262 Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Section 3 Moments.html" rel="next">
-<link href="./Section 1 Probability.html" rel="prev">
+<link href="./Section 2 Random Variables.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -112,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 2 Random Variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 3 Moments.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,13 +155,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Section 2 Random Variables.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Section 2 Random Variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Section 3 Moments.html" class="sidebar-item-text sidebar-link">
+  <a href="./Section 3 Moments.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></span></a>
   </div>
 </li>
@@ -176,9 +175,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#random-variables" id="toc-random-variables" class="nav-link active" data-scroll-target="#random-variables"><span class="header-section-number">2.1</span> Random Variables</a></li>
-  <li><a href="#distribution-functions" id="toc-distribution-functions" class="nav-link" data-scroll-target="#distribution-functions"><span class="header-section-number">2.2</span> Distribution Functions</a></li>
-  <li><a href="#density-and-mass-functions" id="toc-density-and-mass-functions" class="nav-link" data-scroll-target="#density-and-mass-functions"><span class="header-section-number">2.3</span> Density and Mass Functions</a></li>
+  <li><a href="#expected-values" id="toc-expected-values" class="nav-link active" data-scroll-target="#expected-values"><span class="header-section-number">3.1</span> Expected Values</a></li>
+  <li><a href="#moments" id="toc-moments" class="nav-link" data-scroll-target="#moments"><span class="header-section-number">3.2</span> Moments</a></li>
+  <li><a href="#moment-generating-functions" id="toc-moment-generating-functions" class="nav-link" data-scroll-target="#moment-generating-functions"><span class="header-section-number">3.3</span> Moment Generating Functions</a>
+  <ul class="collapse">
+  <li><a href="#finding-moment-generating-functions" id="toc-finding-moment-generating-functions" class="nav-link" data-scroll-target="#finding-moment-generating-functions"><span class="header-section-number">3.3.1</span> Finding Moment Generating Functions</a></li>
+  <li><a href="#using-moment-generating-functions" id="toc-using-moment-generating-functions" class="nav-link" data-scroll-target="#using-moment-generating-functions"><span class="header-section-number">3.3.2</span> Using Moment Generating Functions</a></li>
+  </ul></li>
+  <li><a href="#other-quantities-based-on-moments" id="toc-other-quantities-based-on-moments" class="nav-link" data-scroll-target="#other-quantities-based-on-moments"><span class="header-section-number">3.4</span> Other Quantities Based on Moments</a></li>
+  <li><a href="#identifying-distributions" id="toc-identifying-distributions" class="nav-link" data-scroll-target="#identifying-distributions"><span class="header-section-number">3.5</span> Identifying Distributions</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +192,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></h1>
 </div>
 
 
@@ -204,47 +209,37 @@ window.Quarto = {
 </header>
 
 
-<p>Often, we are interested in a numerical measurement of the outcome of a random experiment. For example, we might want to know the number of insects treated with a dose of a new insecticide that are killed. In this case, the outcome is the survival status of each `dosed’ insect, and the numerical measurement in which we are interested is the number that died. However, the observed number varies depending on the actual result of the experiment. This type of variable is called a .</p>
-<section id="random-variables" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">2.1</span> Random Variables</h2>
+<section id="expected-values" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="expected-values"><span class="header-section-number">3.1</span> Expected Values</h2>
+<p>Remember that a random variable is a function that associates a real number with each element in the sample space. The probability a RV takes on a certain value, or falls within a range of values, is described by the probability distribution (pdf or pmf) of the RV. Often, we are interested in the expected/“average” value of the RV. The expected value can tell us things like the “average” amount we might expect to win (or lose!) in a game, the typical weight range for 3 month old babies, the price we might expect to pay for a typical house in a new city.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Random Variable
+<span class="screen-reader-only">Tip</span>Definition: Expected Value
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A <strong>random variable</strong> is a function that associates a real number with each element in the sample space. That is, a random variable is a function from a sample space, <span class="math inline">\(\cal{S}\)</span>, into the real numbers, <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Let <span class="math inline">\(X \sim f_X(x)\)</span>, <span class="math inline">\(F_X(x)\)</span> and let <span class="math inline">\(g\)</span> be a function defined on the support of <span class="math inline">\(X\)</span>. The <strong>expected value</strong> of <span class="math inline">\(g(X)\)</span> is E<span class="math inline">\([g(X)]\)</span>, where<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
 </div>
 </div>
-<p><strong>Example</strong>: Suppose we roll two dice. There are 36 possible outcomes:</p>
-<p><span class="math display">\[
-\cal{S} =  \left \{ \begin{array}{llllll} 1,1 &amp; 2,1 &amp; 3,1 &amp; 4,1 &amp; 5,1 &amp; 6,1 \\ 1,2 &amp; 2,2 &amp; 3,2 &amp; 4,2 &amp; 5,2 &amp; 6,2 \\ 1,3 &amp; 2,3 &amp; 3,3 &amp; 4,3 &amp; 5,3 &amp; 6,3 \\
-1,4 &amp; 2,4 &amp; 3,4 &amp; 4,4 &amp; 5,4 &amp; 6,4 \\ 1,5 &amp; 2,5 &amp; 3,5 &amp; 4,5 &amp; 5,5 &amp; 6,5 \\ 1,6 &amp; 2,6 &amp; 3,6 &amp; 4,6 &amp; 5,6 &amp; 6,6 \end{array} \right \} \Rightarrow \hbox{\hspace{80mm}}
+<p>NOTE: The expected value is a characteristic of the underlying distribution of the random variable–its CDF/pdf. It is NOT calculated from data. The sample mean calculated from data could be used to estimate the true expected value (and this is what we did in STAT 102; <span class="math inline">\(\mu\)</span> vs <span class="math inline">\(\bar X\)</span>).</p>
+<p><strong>Example</strong>: Consider a game in which a fair die is thrown. The player pays $5 to play, and wins $2 for each dot that occurs on the roll. Is it worth the $5 to enter?</p>
+<p> An insurance policyholder’s loss, <span class="math inline">\(X\)</span>, follows a distribution with pdf <span class="math display">\[
+f_X(x) = \left \{ \begin{array}{ll} \frac{2}{x^3} &amp; x &gt; 1 \\ 0 &amp; \hbox{else} \end{array} \right . .
 \]</span></p>
-<p>In the game of SKUNK, we don’t necessarily care about the specific outcome of a roll. For example, we don’t care to know that, specifically, a (2,3) was rolled. Instead, what are we interested in?</p>
-<p><br>
-</p>
-<p>The number of ones rolled varies among the 36 points in the sample space, and an observed value of the variable, <span class="math inline">\(X\)</span>, denoted by <span class="math inline">\(x\)</span>, depends on the outcome of a random experiment (a roll of two dice). This variable (the number of ones rolled on two dice) is referred to as a random variable.</p>
-<p>The <strong>support</strong> of <span class="math inline">\(X\)</span>, or the set of possible values of <span class="math inline">\(X\)</span>, is:</p>
-<p><br>
-</p>
-<p>The corresponding probabilities for each of the possible values of <span class="math inline">\(X\)</span> are:</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Identifying the type(s) of random variable(s) we are interested in helps us decide which methods and procedures are most appropriate for certain problems and answering specific questions. In general, there are two types of random variables:</p>
 <ul>
-<li><strong>Discrete Random Variable</strong>: If the sample space of a random variable is finite or countably infinite, then the random variable is a discrete random variable.</li>
+<li>What is the expected loss for a randomly selected policyholder?</li>
 </ul>
 <p><br>
 <br>
@@ -252,45 +247,36 @@ window.Quarto = {
 <br>
 </p>
 <ul>
-<li><strong>Continuous Random Variable</strong>: If the sample space of a random variable is uncountably infinite, then the random variable is a continuous random variable. A continuous random variable can take on any value in an interval</li>
+<li>The insurance company reimburses a loss up to a benefit limit of 20. What is the expected value of the benefit paid under the insurance policy?</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} e^{-x} &amp; x \geq 0 \\ 0 &amp; \hbox{else} \end{array} \right.\)</span>.</p>
+<ul>
+<li>Suppose <span class="math inline">\(g(X) = X\)</span>. Find E<span class="math inline">\([g(X)]\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Suppose <span class="math inline">\(g(X) = e^{X}\)</span>. Find E<span class="math inline">\([g(X)]\)</span>.</li>
 </ul>
 <p><br>
 <br>
 </p>
-</section>
-<section id="distribution-functions" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="distribution-functions"><span class="header-section-number">2.2</span> Distribution Functions</h2>
-<p>Each random variable, <span class="math inline">\(X\)</span>, is associated with a function called the cumulative distribution function (CDF) of <span class="math inline">\(X\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Cumulative Distribution Function
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>cumulative distribution function</strong> or CDF of a random variable <span class="math inline">\(X\)</span>, denoted by <span class="math inline">\(F_X(x)\)</span>, is defined as<br>
-<br>
-<br>
-<br>
-</p>
-</div>
-</div>
-<p><br>
-</p>
-<p><strong>Example</strong>: Before, we found the probabilities for the possible values of <span class="math inline">\(X=\)</span> number of ones rolled on two dice. What is the CDF of <span class="math inline">\(X\)</span>?</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
+<p>If E<span class="math inline">\([|g(X)|] = \infty\)</span>, then E<span class="math inline">\([g(X)]\)</span> does not exist.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -301,21 +287,13 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The function <span class="math inline">\(F_X(x)\)</span> is a CDF if and only if the following three conditions hold:</p>
-<ul>
-<li><p><br>
-</p></li>
-<li><p><br>
-</p></li>
-<li><p><br>
+<p>Let <span class="math inline">\(X\)</span> be a random variable and let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> be constants. For any functions <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span> whose expectations exist,<br>
 <br>
-</p></li>
-</ul>
+<br>
+</p>
 </div>
 </div>
-<p><br>
-A discrete CDF increases only in jumps.</p>
-<p><strong>Example</strong>: A teenager has passed the written driving exam, but still needs to pass the road exam. Suppose the probability of passing the road exam is <span class="math inline">\(p\)</span>. Let <span class="math inline">\(X\)</span> be the number of attempts required to pass the road test, and assume attempts are independent.</p>
+<p><strong>Example</strong>: The failure of a circuit board interrupts work that utilizes a computing system until a new board is delivered. The delivery time (in days), <span class="math inline">\(X\)</span>, follows a distribution with pdf <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} \frac{1}{4} &amp; 1 \leq x \leq 5 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>. The cost of a board failure and interruption is given by <span class="math inline">\(C=500 + 100X^2 - 25 X\)</span>. Find the expected cost associated with a single failed circuit board.</p>
 <p><br>
 <br>
 <br>
@@ -323,88 +301,28 @@ A discrete CDF increases only in jumps.</p>
 <br>
 <br>
 <br>
-</p>
-<p>Continuous CDFs have no discontinuities.</p>
-<p><strong>Example</strong>: Suppose <span class="math inline">\(X\sim\)</span> Uniform(0,1). For this distribution, the CDF is:</p>
-<p><span class="math inline">\(F_X(x) = \left \{ \begin{array}{lll} 0 &amp; \hbox{if } x &lt; 0 \\ x &amp; \hbox{if } 0 \leq x &lt; 1 \\ 1 &amp; \hbox{if } x \geq 1 \end{array} \right .\)</span></p>
-<p>For a continuous CDF, <span class="math inline">\(P(X=a)=0\)</span>. Why?</p>
-<p><br>
-<br>
-</p>
-<p><strong>Example</strong>: Suppose the time a person must wait in line (in minutes) at airport security has cdf <span class="math display">\[
-F_X(x) = \left \{ \begin{array}{ll} 0 &amp; \hbox{if } x &lt; 0 \\ 1-\exp(-x/15) &amp; \hbox{if } 0 \leq x &lt; \infty \end{array} \right .
-\]</span></p>
-<ul>
-<li><p>What is the probability a randomly selected passenger gets through the security line in less than 5 minutes?<br>
-<br>
-<br>
-</p></li>
-<li><p>What is the probability a randomly selected passenger waits in the security line longer than 5 minutes?<br>
-<br>
-<br>
-</p></li>
-<li><p>What is the probability a randomly selected passenger waits in line between 5 and 10 minutes?<br>
-<br>
-<br>
-<br>
-<br>
-</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Identically Distributed
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>identically distributed</strong> if they have the same distribution function. That is,<br>
-<br>
 <br>
 <br>
 </p>
-</div>
-</div>
 </section>
-<section id="density-and-mass-functions" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="density-and-mass-functions"><span class="header-section-number">2.3</span> Density and Mass Functions</h2>
-<p>Associated with any random variable <span class="math inline">\(X\)</span> and its CDF <span class="math inline">\(F_X(x)\)</span> is another function, called either the probability density function (pdf) or probability mass function (pmf). The terms pmf and pdf refer, respectively, to the discrete and continuous cases (though pdf often gets used for both types of RVs). Both pmfs and pdfs are concerned with “point probabilities” of random variables.</p>
+<section id="moments" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="moments"><span class="header-section-number">3.2</span> Moments</h2>
+<p>A particular set of expected values are called moments.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Probability Mass Function
+<span class="screen-reader-only">Tip</span>Definition: Moment
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <strong>probability mass function</strong> or pmf of a discrete random variable <span class="math inline">\(X\)</span>, denoted by <span class="math inline">\(f_X(x)\)</span>, is given by<br>
-<br>
-<br>
-<br>
-Let <span class="math inline">\(p_j\)</span> be the size of the jump in the CDF at <span class="math inline">\(x=x_j\)</span>, <span class="math inline">\(j=1,2,\dots\)</span>, then<br>
-<br>
-<br>
-<br>
-<br>
+<p>The <span class="math inline">\(n^{th}\)</span> <strong>moment</strong> of <span class="math inline">\(X\)</span> is<br>
 </p>
 </div>
 </div>
-<p><strong>Example</strong>: In game of SKUNK, we defined <span class="math inline">\(X=\)</span> number of ones rolled on two dice. <span class="math inline">\(X\)</span> has pmf:</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p><strong>Example</strong>:<br>
 </p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -412,24 +330,84 @@ Let <span class="math inline">\(p_j\)</span> be the size of the jump in the CDF 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Theorem:
+<span class="screen-reader-only">Tip</span>Definition: Central Moment
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A function, <span class="math inline">\(f_X(x)\)</span>, is a pmf if and only if</p>
-<ul>
+<p>The <span class="math inline">\(n^{th}\)</span> <strong>central moment</strong> of <span class="math inline">\(X\)</span> is<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Facts about the Variance:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
 <li><br>
 </li>
 <li><br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </li>
+</ol>
+</div>
+</div>
+<p><strong>Example (cont’d)</strong>: Earlier, we considered a random variable, <span class="math inline">\(X\)</span>, representing the delivery time (in days) of a new circuit board, which had pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} \frac{1}{4} &amp; 1 \leq x \leq 5 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>.</p>
+<ul>
+<li>Find the variance of the delivery time (in days) of a new circuit board.</li>
 </ul>
-</div>
-</div>
-<p><strong>Example</strong>: A car dealer has 30 cars available for immediate sale, of which 10 are classified as compact cars. 3 customers arrive and buy cars. Define the random variable <span class="math inline">\(N\)</span> to be the number of compact cars sold. What is the pmf for <span class="math inline">\(N\)</span>?</p>
 <p><br>
 <br>
 <br>
+<br>
+<br>
+</p>
+<ul>
+<li>Suppose that the cost of a single failed circuit board is <span class="math inline">\(K=500 + 6 X^2\)</span> (yeah, I know it’s not the same cost we used before). Find the variance of the cost associated with a single failed circuit board.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>One identity that will come in VERY handy this semester:</p>
+<p><img src="exp.png" class="img-fluid"></p>
+<p>This is especially helpful with a common discrete distribution called the Poisson.</p>
+<p><strong>Example</strong>: Suppose <span class="math inline">\(X\sim\)</span> Poisson(<span class="math inline">\(\lambda\)</span>). This means that <span class="math inline">\(f_X(x) = P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}\)</span> for <span class="math inline">\(x=0,1,2,\dots\)</span>.</p>
+<ul>
+<li>E<span class="math inline">\((X)\)</span> =</li>
+</ul>
+<p><br>
 <br>
 <br>
 <br>
@@ -446,72 +424,66 @@ Let <span class="math inline">\(p_j\)</span> be the size of the jump in the CDF 
 <br>
 </p>
 <ul>
-<li>What is the probability exactly 2 compact cars are purchased?</li>
-</ul>
-<p><br>
-</p>
-<ul>
-<li>What is the probabilty less than 2 compact cars are purchased?</li>
+<li>Var<span class="math inline">\((X)\)</span> =</li>
 </ul>
 <p><br>
 <br>
-</p>
-<p>This shows the special relationship between CDFs and pmfs for discrete random variables:</p>
-<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 </p>
-<p><strong>Example (cont’d)</strong>: What is the CDF for <span class="math inline">\(N\)</span>=number of compact cars sold?</p>
-<p><br>
-</p>
-<p>Probability density functions are associated with (absolutely) continuous random variables and (absolutely) continuous CDFs. A probability mass function (pmf) gives “point probabilities,” and pmfs may be summed to get the CDF of a discrete random variable. For continuous random variables, the probability of any point is zero (i.e., P<span class="math inline">\((X=a)=0\)</span>). As a result, we define the probability density function (pdf) for a continuous random variable differently.</p>
+</section>
+<section id="moment-generating-functions" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="moment-generating-functions"><span class="header-section-number">3.3</span> Moment Generating Functions</h2>
+<p>A special expected value that is quite useful is the moment generating function. Moment generating functions can make our lives a LOT easier. We’ll first talk about how to find moment generating functions, and then discuss how to use moment generating functions in a few different ways.</p>
+<section id="finding-moment-generating-functions" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="finding-moment-generating-functions"><span class="header-section-number">3.3.1</span> Finding Moment Generating Functions</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Relationship between CDFs and pdfs
+<span class="screen-reader-only">Tip</span>Definition: Moment Generating Function
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The relationship between the CDF and the <strong>probability density function</strong> (pdf) of a continuous random variable <span class="math inline">\(X\)</span> is given by<br>
+<p>Let <span class="math inline">\(X\)</span> be a random variable with pdf/pmf <span class="math inline">\(f_X(x)\)</span>. The <strong>moment generating function</strong> (mgf) of <span class="math inline">\(X\)</span> is <span class="math inline">\(M_X(t)\)</span>, where<br>
 <br>
 <br>
 <br>
-where <span class="math inline">\(f_X(x)\)</span> is the pdf. By the Fundamental Theorem of Calculus,<br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<u>Note</u>: At <span class="math inline">\(t=0\)</span>, <span class="math inline">\(M_X(t)=1\)</span>.<br>
 <br>
 </p>
 </div>
 </div>
-<p><strong>Example</strong>: Each day, mail arrives in the Statistics department office between 9 and 10 am. The mail is no more likely to arrive at one time than another. Let the random variable <span class="math inline">\(X\)</span> represent the time (in hours) after 9 am that the mail arrives in the department office. Earlier, we determined <span class="math inline">\(X\sim\)</span> Uniform(0,1). For this distribution, the CDF is:<br>
-</p>
-<p><span class="math inline">\(F_X(x) = \left \{ \begin{array}{lll} 0 &amp; \hbox{if } x &lt; 0 \\ x &amp; \hbox{if } 0 \leq x &lt; 1 \\ 1 &amp; \hbox{if } x \geq 1 \end{array} \right .\)</span></p>
-<p><br>
-</p>
-<p>For this distribution, the pdf is:</p>
+<p><strong>Example</strong>: Suppose <span class="math inline">\(X\sim\)</span> Poisson(<span class="math inline">\(\lambda\)</span>). What is the mgf of <span class="math inline">\(X\)</span>?</p>
 <p><br>
 <br>
 <br>
-<br>
-<br>
-<br>
 </p>
-<p>What is the probability the mail arrives before 9:15 am?</p>
-<p><br>
-<br>
-</p>
-<p>The pdf is a curve that describes the probability of observing <span class="math inline">\(X\)</span> in some range of values, such as between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. The probability is defined as:</p>
-<p><br>
-<br>
-</p>
-<p><strong>Example (con’t)</strong>: Suppose that a random variable <span class="math inline">\(Y\sim\)</span> Uniform(<span class="math inline">\(L,U\)</span>). In the previous example, <span class="math inline">\(L=0\)</span> and <span class="math inline">\(U=1\)</span>. The pdf of <span class="math inline">\(Y\)</span> is:<br>
-</p>
-<p><span class="math inline">\(f_Y(y) = \left \{ \begin{array}{lll} 0 &amp; \hbox{if } y &lt; L \\ c &amp; \hbox{if } L \leq y \leq U \\ 0 &amp; \hbox{if } y &gt; U \end{array} \right .\)</span></p>
-<p><br>
-</p>
-<p>What should <span class="math inline">\(c\)</span> be?</p>
+</section>
+<section id="using-moment-generating-functions" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="using-moment-generating-functions"><span class="header-section-number">3.3.2</span> Using Moment Generating Functions</h3>
+<p>The moment generating function (mgf) of a random variable is a tool we use for a variety of purposes. Specifically, we use the mgf to:</p>
+<ul>
+<li>Calculate moments (the mean, variance, other quantities calculated from moments like skewness and kurtosis)</li>
+<li>Identify distributions (of a random variable, or some function of a random variable)</li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -522,60 +494,169 @@ where <span class="math inline">\(f_X(x)\)</span> is the pdf. By the Fundamental
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A function, <span class="math inline">\(f_X(x)\)</span>, is a pdf if and only if</p>
-<ul>
-<li><p><br>
-</p></li>
-<li><p><br>
+<p>If <span class="math inline">\(X\)</span> has mgf <span class="math inline">\(M_X(t)\)</span>, then E<span class="math inline">\((X^n) = M_X^{(n)}(0)\)</span>, where<br>
 <br>
-</p></li>
-</ul>
+<br>
+<span class="math inline">\(M_X^{(n)}(0)=\)</span><br>
+<br>
+<br>
+That is, the <span class="math inline">\(n^{th}\)</span> moment of <span class="math inline">\(X\)</span> is equal to the <span class="math inline">\(n^{th}\)</span> partial derivative of <span class="math inline">\(M_X(t)\)</span> with respect to <span class="math inline">\(t\)</span>, evaluated at <span class="math inline">\(t=0\)</span>.</p>
 </div>
 </div>
-<p><strong>Example (con’t)</strong>:</p>
+<p><strong>Example (cont’d)</strong>: Suppose <span class="math inline">\(X\sim\)</span> Poisson<span class="math inline">\((\lambda)\)</span>. Using the mgf we found earlier, let’s find the mean and variance of <span class="math inline">\(X\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\sim\)</span> Gamma<span class="math inline">\((\alpha,\beta)\)</span>. This means that <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} \left ( \frac{1}{\Gamma(\alpha) \beta^\alpha} \right ) x^{\alpha-1} e^{-x/\beta} &amp; x \geq 0 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>, where <span class="math inline">\(\alpha,\beta &gt; 0\)</span>. Also note that <span class="math inline">\(\Gamma(\alpha) = \int_0^\infty y^{\alpha-1} e^{-y} dy\)</span>, <span class="math inline">\(\Gamma(\alpha+1) = \alpha \Gamma(\alpha)\)</span>, and, if <span class="math inline">\(n\)</span> is an integer, <span class="math inline">\(\Gamma(n+1) = n \Gamma(n) = n!\)</span>. What is the mgf of <span class="math inline">\(X\)</span>?</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example (cont’d)</strong>: Using the mgf, find the mean and variance of <span class="math inline">\(X\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>Notice that one of the key steps in finding the mgf of a gamma distribution was recognizing another gamma pdf.</p>
+<p><span class="math display">\[\begin{align*}
+    M_X(t)
+    &amp;= \frac{1}{\Gamma(\alpha) \beta^\alpha} \int_0^\infty \underbrace{x^{\alpha-1} e^{x(t-1/\beta)}}_{\text{looks like $x^{\alpha-1}e^{-x/\beta^*}$}} dx
+    \\
+    &amp;=\frac{1}{\Gamma(\alpha) \beta^\alpha} \int_0^\infty
+    \underbrace{x^{\alpha-1} e^{-x/(\frac{\beta}{1-\beta t})}}_{\propto \operatorname{gamma}\left(\alpha,\frac{\beta}{1-\beta t}\right) \text{ pdf}} dx
+\end{align*}\]</span><br>
+</p>
+<p>The part we recognized is called the kernel of the pdf.</p>
+<p>A <strong>kernel</strong> of a function is the main part of the function, the part that remains when constants are ignored.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>The mean and variance don’t completely describe a distribution. These three distributions all have the same mean and variance.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><embed src="UniformNormalGamma.pdf" class="img-fluid quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="other-quantities-based-on-moments" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="other-quantities-based-on-moments"><span class="header-section-number">3.4</span> Other Quantities Based on Moments</h2>
+<p>The distribution of a random variable is most often described by its mean and variance. However, as evidence by the previous examples, we might need additional measures. One such quantity is the skewness.</p>
+<p><br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Skewness
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>skewness</strong> of a random variable <span class="math inline">\(X\)</span> measures the lack of symmetry in the pdf and is defined as<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><br>
+</p>
+<p>Distributions of random variables can be summarized by a variety of measures, among which are mean, variance/standard deviation and skewness. Random variables with symmetric pdfs/pmfs have a value of ________ for the skewness. Random variables with right-skewed pdfs/pmfs have ________ values for the skewness. Random variables with left-skewed pdfs/pmfs have ________ values for the skewness.</p>
+<p><br>
+</p>
+<p>Another such quantity is the kurtosis.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Kurtosis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>kurtosis</strong> of a random variable <span class="math inline">\(X\)</span> measures the peakedness or flatness of the pdf and is defined as<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p>The normal distribution has a kurtosis of 3, but often <strong>excess kurtosis</strong> is calculated, rather than kurtosis. Excess kurtosis is <span class="math inline">\(\alpha_4 -3\)</span>, so the normal has excess kurtosis = 0.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><embed src="KurtosisAlt.pdf" class="img-fluid quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="identifying-distributions" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="identifying-distributions"><span class="header-section-number">3.5</span> Identifying Distributions</h2>
+<p>Earlier we said that mgfs can also be used to identify distributions, both for RVs and for functions of RVs. How does this work?</p>
+<div class="callout callout-style-default callout-tip callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>If a moment generating function exists, it is unique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with mgf <span class="math inline">\(M_X(t) = e^{3.2(e^t-1)}\)</span>. What is the distribution of <span class="math inline">\(X\)</span>?</p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} \frac{1}{\beta} e^{-x/\beta} &amp; x \geq 0 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>, where <span class="math inline">\(\beta &gt; 0\)</span>.</p>
 <ul>
-<li>What should <span class="math inline">\(c\)</span> be?</li>
+<li>What is the mgf of <span class="math inline">\(X\)</span>?</li>
 </ul>
 <p><br>
 <br>
 <br>
 <br>
-</p>
-<ul>
-<li>Let <span class="math inline">\(Y\)</span> represent the time (<u>in minutes</u>) after 9 am that the mail arrives at the office. Assuming mail arrives between 9 and 10 am, and the mail is no more likely to arrive at one time than another, what is the pdf of <span class="math inline">\(Y\)</span>?</li>
-</ul>
-<p><br>
-<br>
-<br>
-</p>
-<p><strong>Example</strong>: Suppose the time between injury accidents in a nuclear power plant (in days) is a random variable has the pdf:</p>
-<p><br>
-<span class="math inline">\(f_X(x) = \left \{ \begin{array}{ll} \frac{1}{3} e^{-x/3} &amp;  x &gt; 0 \\ 0 &amp; x \leq 0 \end{array} \right .\)</span></p>
-<p><br>
-</p>
-<ul>
-<li>Verify that this function is a pdf.</li>
-</ul>
-<p><br>
 <br>
 <br>
 <br>
 <br>
 </p>
 <ul>
-<li>What is the probability the time between accidents is between 2 and 5 days?</li>
-</ul>
-<p><br>
-<br>
-</p>
-<ul>
-<li>What is the probability the time between 2 accidents is more than 365 days?</li>
-</ul>
-<p><br>
-<br>
-</p>
-<ul>
-<li>Find the CDF of <span class="math inline">\(X\)</span>.</li>
+<li>Where have we seen something similar before?</li>
 </ul>
 <p><br>
 <br>
@@ -584,12 +665,32 @@ where <span class="math inline">\(f_X(x)\)</span> is the pdf. By the Fundamental
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 </p>
-<ul>
-<li>How could the CDF be used to find the probability that the time between 2 accidents is more than 365 days? Is this value easier to calculate using the CDF or pdf? Why do you think so?</li>
-</ul>
-<p><br>
+<p>We can also use mgfs to identify the distributions of functions of random variables (i.e., Transformations–much more on these later).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>MGFs of functions of RVs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Assume a random variable <span class="math inline">\(X\)</span> has CDF <span class="math inline">\(F_X(x)\)</span>, pdf <span class="math inline">\(f_X(x)\)</span> and mgf <span class="math inline">\(M_X(t)\)</span>. If <span class="math inline">\(Y=g(X)\)</span>, then the mgf of <span class="math inline">\(Y\)</span> is<br>
+<br>
+<br>
+<span class="math inline">\(M_Y(t)=\)</span><br>
+<br>
+<br>
 </p>
+</div>
+</div>
+<p><strong>Example</strong>: Consider the linear transformation <span class="math inline">\(Y=aX + b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants. What is the mgf of <span class="math inline">\(Y\)</span>?</p>
 
 
 </section>
@@ -997,14 +1098,11 @@ where <span class="math inline">\(f_X(x)\)</span> is the pdf. By the Fundamental
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Section 1 Probability.html" class="pagination-link" aria-label="Probability">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></span>
+      <a href="./Section 2 Random Variables.html" class="pagination-link" aria-label="Random Variables and their Associated Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Section 3 Moments.html" class="pagination-link" aria-label="Moments">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

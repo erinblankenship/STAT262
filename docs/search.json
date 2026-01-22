@@ -88,5 +88,65 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Random Variables and their Associated Functions</span>"
     ]
+  },
+  {
+    "objectID": "Section 3 Moments.html",
+    "href": "Section 3 Moments.html",
+    "title": "3  Moments",
+    "section": "",
+    "text": "3.1 Expected Values\nRemember that a random variable is a function that associates a real number with each element in the sample space. The probability a RV takes on a certain value, or falls within a range of values, is described by the probability distribution (pdf or pmf) of the RV. Often, we are interested in the expected/“average” value of the RV. The expected value can tell us things like the “average” amount we might expect to win (or lose!) in a game, the typical weight range for 3 month old babies, the price we might expect to pay for a typical house in a new city.\nNOTE: The expected value is a characteristic of the underlying distribution of the random variable–its CDF/pdf. It is NOT calculated from data. The sample mean calculated from data could be used to estimate the true expected value (and this is what we did in STAT 102; \\(\\mu\\) vs \\(\\bar X\\)).\nExample: Consider a game in which a fair die is thrown. The player pays $5 to play, and wins $2 for each dot that occurs on the roll. Is it worth the $5 to enter?\nAn insurance policyholder’s loss, \\(X\\), follows a distribution with pdf \\[\nf_X(x) = \\left \\{ \\begin{array}{ll} \\frac{2}{x^3} & x &gt; 1 \\\\ 0 & \\hbox{else} \\end{array} \\right . .\n\\]\nExample: Let \\(f_X(x) = \\left\\{ \\begin{array}{ll} e^{-x} & x \\geq 0 \\\\ 0 & \\hbox{else} \\end{array} \\right.\\).\nIf E\\([|g(X)|] = \\infty\\), then E\\([g(X)]\\) does not exist.\nExample: The failure of a circuit board interrupts work that utilizes a computing system until a new board is delivered. The delivery time (in days), \\(X\\), follows a distribution with pdf \\(f_X(x) = \\left\\{ \\begin{array}{ll} \\frac{1}{4} & 1 \\leq x \\leq 5 \\\\ 0 & \\hbox{else} \\end{array}\\right.\\). The cost of a board failure and interruption is given by \\(C=500 + 100X^2 - 25 X\\). Find the expected cost associated with a single failed circuit board.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Moments</span>"
+    ]
+  },
+  {
+    "objectID": "Section 3 Moments.html#expected-values",
+    "href": "Section 3 Moments.html#expected-values",
+    "title": "3  Moments",
+    "section": "",
+    "text": "TipDefinition: Expected Value\n\n\n\nLet \\(X \\sim f_X(x)\\), \\(F_X(x)\\) and let \\(g\\) be a function defined on the support of \\(X\\). The expected value of \\(g(X)\\) is E\\([g(X)]\\), where\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is the expected loss for a randomly selected policyholder?\n\n\n\nThe insurance company reimburses a loss up to a benefit limit of 20. What is the expected value of the benefit paid under the insurance policy?\n\n\n\n\nSuppose \\(g(X) = X\\). Find E\\([g(X)]\\).\n\n\n\nSuppose \\(g(X) = e^{X}\\). Find E\\([g(X)]\\).\n\n\n\n\n\n\n\n\n\nTipTheorem:\n\n\n\nLet \\(X\\) be a random variable and let \\(a\\), \\(b\\) and \\(c\\) be constants. For any functions \\(g_1(x)\\) and \\(g_2(x)\\) whose expectations exist,",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Moments</span>"
+    ]
+  },
+  {
+    "objectID": "Section 3 Moments.html#moments",
+    "href": "Section 3 Moments.html#moments",
+    "title": "3  Moments",
+    "section": "3.2 Moments",
+    "text": "3.2 Moments\nA particular set of expected values are called moments.\n\n\n\n\n\n\nTipDefinition: Moment\n\n\n\nThe \\(n^{th}\\) moment of \\(X\\) is\n\n\n\nExample:\n\n\n\n\n\n\n\nTipDefinition: Central Moment\n\n\n\nThe \\(n^{th}\\) central moment of \\(X\\) is\n\n\n\nExample:\n\n\n\n\n\n\nTipFacts about the Variance:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample (cont’d): Earlier, we considered a random variable, \\(X\\), representing the delivery time (in days) of a new circuit board, which had pdf \\(f_X(x) = \\left\\{\\begin{array}{ll} \\frac{1}{4} & 1 \\leq x \\leq 5 \\\\ 0 & \\hbox{else} \\end{array}\\right.\\).\n\nFind the variance of the delivery time (in days) of a new circuit board.\n\n\n\n\n\n\n\n\nSuppose that the cost of a single failed circuit board is \\(K=500 + 6 X^2\\) (yeah, I know it’s not the same cost we used before). Find the variance of the cost associated with a single failed circuit board.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOne identity that will come in VERY handy this semester:\n\nThis is especially helpful with a common discrete distribution called the Poisson.\nExample: Suppose \\(X\\sim\\) Poisson(\\(\\lambda\\)). This means that \\(f_X(x) = P(X=x) = \\frac{e^{-\\lambda}\\lambda^x}{x!}\\) for \\(x=0,1,2,\\dots\\).\n\nE\\((X)\\) =\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVar\\((X)\\) =",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Moments</span>"
+    ]
+  },
+  {
+    "objectID": "Section 3 Moments.html#moment-generating-functions",
+    "href": "Section 3 Moments.html#moment-generating-functions",
+    "title": "3  Moments",
+    "section": "3.3 Moment Generating Functions",
+    "text": "3.3 Moment Generating Functions\nA special expected value that is quite useful is the moment generating function. Moment generating functions can make our lives a LOT easier. We’ll first talk about how to find moment generating functions, and then discuss how to use moment generating functions in a few different ways.\n\n3.3.1 Finding Moment Generating Functions\n\n\n\n\n\n\nTipDefinition: Moment Generating Function\n\n\n\nLet \\(X\\) be a random variable with pdf/pmf \\(f_X(x)\\). The moment generating function (mgf) of \\(X\\) is \\(M_X(t)\\), where\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote: At \\(t=0\\), \\(M_X(t)=1\\).\n\n\n\n\nExample: Suppose \\(X\\sim\\) Poisson(\\(\\lambda\\)). What is the mgf of \\(X\\)?\n\n\n\n\n\n\n3.3.2 Using Moment Generating Functions\nThe moment generating function (mgf) of a random variable is a tool we use for a variety of purposes. Specifically, we use the mgf to:\n\nCalculate moments (the mean, variance, other quantities calculated from moments like skewness and kurtosis)\nIdentify distributions (of a random variable, or some function of a random variable)\n\n\n\n\n\n\n\nTipTheorem:\n\n\n\nIf \\(X\\) has mgf \\(M_X(t)\\), then E\\((X^n) = M_X^{(n)}(0)\\), where\n\n\n\\(M_X^{(n)}(0)=\\)\n\n\nThat is, the \\(n^{th}\\) moment of \\(X\\) is equal to the \\(n^{th}\\) partial derivative of \\(M_X(t)\\) with respect to \\(t\\), evaluated at \\(t=0\\).\n\n\nExample (cont’d): Suppose \\(X\\sim\\) Poisson\\((\\lambda)\\). Using the mgf we found earlier, let’s find the mean and variance of \\(X\\).\n\n\n\n\n\n\n\nExample: Let \\(X\\sim\\) Gamma\\((\\alpha,\\beta)\\). This means that \\(f_X(x) = \\left\\{ \\begin{array}{ll} \\left ( \\frac{1}{\\Gamma(\\alpha) \\beta^\\alpha} \\right ) x^{\\alpha-1} e^{-x/\\beta} & x \\geq 0 \\\\ 0 & \\hbox{else} \\end{array}\\right.\\), where \\(\\alpha,\\beta &gt; 0\\). Also note that \\(\\Gamma(\\alpha) = \\int_0^\\infty y^{\\alpha-1} e^{-y} dy\\), \\(\\Gamma(\\alpha+1) = \\alpha \\Gamma(\\alpha)\\), and, if \\(n\\) is an integer, \\(\\Gamma(n+1) = n \\Gamma(n) = n!\\). What is the mgf of \\(X\\)?\n\n\n\n\n\n\n\n\n\nExample (cont’d): Using the mgf, find the mean and variance of \\(X\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotice that one of the key steps in finding the mgf of a gamma distribution was recognizing another gamma pdf.\n\\[\\begin{align*}\n    M_X(t)\n    &= \\frac{1}{\\Gamma(\\alpha) \\beta^\\alpha} \\int_0^\\infty \\underbrace{x^{\\alpha-1} e^{x(t-1/\\beta)}}_{\\text{looks like $x^{\\alpha-1}e^{-x/\\beta^*}$}} dx\n    \\\\\n    &=\\frac{1}{\\Gamma(\\alpha) \\beta^\\alpha} \\int_0^\\infty\n    \\underbrace{x^{\\alpha-1} e^{-x/(\\frac{\\beta}{1-\\beta t})}}_{\\propto \\operatorname{gamma}\\left(\\alpha,\\frac{\\beta}{1-\\beta t}\\right) \\text{ pdf}} dx\n\\end{align*}\\]\n\nThe part we recognized is called the kernel of the pdf.\nA kernel of a function is the main part of the function, the part that remains when constants are ignored.\n\n\n\n\n\n\nThe mean and variance don’t completely describe a distribution. These three distributions all have the same mean and variance.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Moments</span>"
+    ]
+  },
+  {
+    "objectID": "Section 3 Moments.html#other-quantities-based-on-moments",
+    "href": "Section 3 Moments.html#other-quantities-based-on-moments",
+    "title": "3  Moments",
+    "section": "3.4 Other Quantities Based on Moments",
+    "text": "3.4 Other Quantities Based on Moments\nThe distribution of a random variable is most often described by its mean and variance. However, as evidence by the previous examples, we might need additional measures. One such quantity is the skewness.\n\n\n\n\n\n\n\n\nTipDefinition: Skewness\n\n\n\nThe skewness of a random variable \\(X\\) measures the lack of symmetry in the pdf and is defined as\n\n\n\n\n\n\n\n\n\nDistributions of random variables can be summarized by a variety of measures, among which are mean, variance/standard deviation and skewness. Random variables with symmetric pdfs/pmfs have a value of ________ for the skewness. Random variables with right-skewed pdfs/pmfs have ________ values for the skewness. Random variables with left-skewed pdfs/pmfs have ________ values for the skewness.\n\n\nAnother such quantity is the kurtosis.\n\n\n\n\n\n\nTipDefinition: Kurtosis\n\n\n\nThe kurtosis of a random variable \\(X\\) measures the peakedness or flatness of the pdf and is defined as\n\n\n\n\n\n\n\n\nThe normal distribution has a kurtosis of 3, but often excess kurtosis is calculated, rather than kurtosis. Excess kurtosis is \\(\\alpha_4 -3\\), so the normal has excess kurtosis = 0.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Moments</span>"
+    ]
+  },
+  {
+    "objectID": "Section 3 Moments.html#identifying-distributions",
+    "href": "Section 3 Moments.html#identifying-distributions",
+    "title": "3  Moments",
+    "section": "3.5 Identifying Distributions",
+    "text": "3.5 Identifying Distributions\nEarlier we said that mgfs can also be used to identify distributions, both for RVs and for functions of RVs. How does this work?\n\n\n\n\n\n\nTipIf a moment generating function exists, it is unique\n\n\n\n\n\n\nExample: Let \\(X\\) be a random variable with mgf \\(M_X(t) = e^{3.2(e^t-1)}\\). What is the distribution of \\(X\\)?\n\n\n\n\n\nExample: Let \\(X\\) be a random variable with pdf \\(f_X(x) = \\left\\{ \\begin{array}{ll} \\frac{1}{\\beta} e^{-x/\\beta} & x \\geq 0 \\\\ 0 & \\hbox{else} \\end{array}\\right.\\), where \\(\\beta &gt; 0\\).\n\nWhat is the mgf of \\(X\\)?\n\n\n\n\n\n\n\n\n\n\n\nWhere have we seen something similar before?\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can also use mgfs to identify the distributions of functions of random variables (i.e., Transformations–much more on these later).\n\n\n\n\n\n\nTipMGFs of functions of RVs\n\n\n\nAssume a random variable \\(X\\) has CDF \\(F_X(x)\\), pdf \\(f_X(x)\\) and mgf \\(M_X(t)\\). If \\(Y=g(X)\\), then the mgf of \\(Y\\) is\n\n\n\\(M_Y(t)=\\)\n\n\n\n\n\nExample: Consider the linear transformation \\(Y=aX + b\\), where \\(a\\) and \\(b\\) are constants. What is the mgf of \\(Y\\)?",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Moments</span>"
+    ]
   }
 ]
