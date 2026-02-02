@@ -1,0 +1,466 @@
+# Families of Distributions
+
+Statistical distributions are used to model populations. We've already seen this a lot in STAT 102 and STAT 212, when we used the normal distribution to model different populations.
+
+Typically we deal with **families** of distributions. There isn't just one normal distribution--there are an infinite number! What makes one normal distribution different from another are the mean and variance--the parameters of the normal distribution. The name normal refers to a **family** of distributions that change depending on the underlying mean and variance.
+
+Families of distributions are indexed by one (or more!) **parameters**. For the normal, the parameters are $\mu$ and $\sigma^2$, which represent the underlying mean and variance of the distribution. For other distributions, the parameters may represent other characteristics of the distribution family. For example, we've already seen that the parameter $\lambda$ represents both the mean and variance of the Poisson distribution. That family of distributions has only parameter.
+
+There are many common distributions; we'll only discuss a few discrete and a few continuous distributions.
+
+## Discrete Distributions
+
+-   What makes a distribution discrete?
+
+    \
+    \
+    \
+    \
+
+-   Most often:
+
+    \
+
+-   We'll discuss: binomial, geometric, negative binomial, hypergeometric, and Poisson
+
+-   Summarize: pmf, mean, variance, mgf (if it exists), fun facts
+
+\newpage
+
+### The Binomial Distribution
+
+::: callout-tip
+## Binomial Distribution
+
+**When it is used?** When a random variable is a result of a **Bernoulli process** or a binomial experiment. This requires:
+\
+1\.
+
+\
+
+2\.
+
+\
+
+3\.
+
+\
+
+4\.
+
+\
+
+5\.
+
+\
+
+**pmf**: 
+
+$f_Y(y;n,p)=P(Y=y)=\left\{\begin{array}{ll} \hbox{\hspace{60mm}} & y=0,1,2,\dots,n \hbox{ and } 0 \leq p \leq 1 \\  & \\  & \\ &  \\ 0 & \hbox{otherwise} \end{array}\right .$
+
+**Note**: The notation used above ($f(y;n,p)$, may also be denoted as $f(y|n,p)$) implies the value of the function is dependent on the values of $n$ and $p$. A value such as $n$ or $p$ required for the calculation of any probability is called a **distributional parameter**.
+\
+
+**mgf**: $M_Y(t) =$
+\
+
+**Expected Value**: E$(Y) =$
+\
+
+**Variance**: Var$(Y) =$
+\
+
+**In R**: 
+
+- To find $P(Y = y)$ use `dbinom(y, size, prob)`
+
+- To find $P(Y \leq y)$ use `pbinom(y, size, prob)`
+
+- To generate $n$ random binomial RVs use `rbinom(n, size, prob)`
+:::
+
+\newpage
+
+### The Geometric Distribution
+
+::: callout-tip
+## Geometric Distribution
+
+**When it is used?** When a random variable represents the number of the Bernoulli trial on which the first success occurs. The following conditions are also required:
+\
+1\.
+
+\
+
+2\.
+
+\
+
+3\.
+
+\
+
+
+**pmf**: 
+
+$f_Y(y;p) = P(Y=y) = \left\{\begin{array}{ll} \hbox{\hspace{60mm}} & y=1,2,\dots \hbox{ and } 0 \leq p \leq 1 \\  & \\  & \\ &  \\ 0 & \hbox{otherwise}\end{array}\right .$
+
+\underline{Note:} The notation used above ($f(y;p)$, may also be denoted as $f(y|p)$) implies the value of the function is dependent on the value of $p$.  The value $p$ is the **parameter** of the geometric distribution.
+
+\
+
+**mgf**: $M_Y(t) =$
+\
+
+**Expected Value**: E$(Y) =$
+\
+
+**Variance**: Var$(Y) =$
+\
+
+**In R**: 
+
+- To find $P(Y = y)$ use `dgeom(y-1, prob)`
+
+- To find $P(Y \leq y)$ use `pgeom(y-1, prob)`
+
+- To generate $n$ random binomial RVs use `rgeom(n, prob) + 1`
+:::
+
+**Key Questions**:
+
+- How is a Binomial random variable similar to a Geometric random variable? How are they different?
+
+- Why does the support of the Geometric distribution start at 1, but the support of the Binomial distribution starts at 0?
+
+\newpage
+
+### The Negative Binomial Distribution
+
+::: callout-tip
+## Negative Binomial Distribution
+
+**When it is used?** When a random variable represents the number of the Bernoulli trial on which the $r^{th}$ success occurs ($r=2,3,4,$ etc.). The following conditions are also required:
+\
+1\.
+\
+
+2\.
+\
+
+3\.
+
+\
+\
+
+**pmf**: 
+
+$f_Y(y;r,p) = P(Y=y) = \left\{\begin{array}{ll} \hbox{\hspace{60mm}} & y=r, r+1, r+2,\dots \hbox{ and } 0 \leq p \leq 1 \\  & \\  & \\ &  \\ 0 & \hbox{otherwise}\end{array}\right .$
+
+\underline{Note:} The notation used above ($f(y;r,p)$, may also be denoted as $f(y|r,p)$) implies the value of the function is dependent on the values of $r$ and $p$.  The values $r$ and $p$ are the **parameters** of the negative binomial distribution.
+
+\
+
+**mgf**: $M_Y(t) =$
+\
+
+**Expected Value**: E$(Y) =$
+\
+
+**Variance**: Var$(Y) =$
+\
+
+**In R**: 
+
+- To find $P(Y = y)$ use `dnbinom(y-r, r, prob)`
+
+- To find $P(Y \leq y)$ use `pnbinom(y-r, r, prob)`
+
+- To generate $n$ random binomial RVs use `rnbinom(n, r, prob) + r`
+:::
+
+**Key Questions**:
+
+- How is a Negative Binomial random variable similar to a Geometric random variable? How are they different?
+
+- Why does the support of the Negative Binomial distribution start at $r$?
+
+\newpage
+
+
+
+### The Hypergeometric Distribution
+
+::: callout-tip
+## Hypergeometric Distribution
+
+**When it is used?**  When a random variable represents the number of items with a certain characteristic observed in a sample of size $n$, drawn from a population with $r$ total items with the characteristic of interest and $N-r$ total items without the characteristic. The following conditions are also required: 
+\
+1\.
+\
+
+2\.
+
+\
+
+**pmf**: 
+
+$f_Y(y;N,r,n) = P(Y=y) = \left\{\begin{array}{ll} \hbox{\hspace{60mm}} & y=0,1,2,\dots,n \hbox{ and } \\  &  y \leq r \hbox{ and } n-y \leq N-r \\   & \\ &  \\ 0 & \hbox{otherwise}\end{array}\right .$
+
+**Note**: The notation used above ($f(y;N,r,n)$, may also be denoted as $f(y|N,r,n)$) implies the value of the function is dependent on the values of $N$, $r$ and $n$.  The values $N$, $r$ and $n$ are the **parameters** of the hypergeometric distribution.
+\
+
+**Expected Value**: E$(Y) =$
+\
+
+**Variance**: Var$(Y) =$
+\
+
+
+**In R**: 
+
+- To find $P(Y = y)$ use `dhyper(y, r, N-r, n)`
+
+- To find $P(Y \leq y)$ use `phyper(y,r,N-r,n)`
+
+- To generate $w$ hypergeometric RVs use `rhyper(w, r, N-r, n)`
+
+:::
+
+**Key Questions**:
+
+- How is a Binomial random variable similar to a Hypergeometric random variable? How are they different?
+
+\
+
+- Why are the bounds $y \leq r$ and $n-y \leq N -r$ required in the support?
+
+
+
+\newpage
+
+### The Poisson Distribution
+
+::: callout-tip
+## Poisson Distribution
+
+**When it is used?**  When a random variable represents the number of occurrences over a certain amount of time or space.
+
+**pmf**: 
+
+$f_Y(y;\lambda) = P(Y=y) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & y=0,1,2,\dots,n \hbox{ and }  \lambda > 0 \\   & \\ &  \\ 0 & \hbox{otherwise}\end{array}\right .$
+
+\underline{Note:} The notation used above ($f(y;\lambda)$, may also be denoted as $f(y|\lambda)$) implies the value of the function is dependent on the value of $\lambda$.  The value $\lambda$ is the **parameter** of the Poisson distribution.
+\
+
+**mgf**: $M_Y(t) =$
+\
+
+**Expected Value**: E$(Y) =$
+\
+
+**Variance**: Var$(Y) =$
+\
+
+**In R**: 
+
+- To find $P(Y = y)$ use `dpois(y,lambda)`
+
+- To find $P(Y \leq y)$ use `ppois(y,lambda)`
+
+- To generate $n$ Poisson RVs use `rpois(n,lambda)`
+
+:::
+
+**Useful Facts about the Poisson Distribution**:
+
+- Recursive Relationship:
+\
+
+- If $Y_1$ is Poisson$(\lambda_1)$ random variable and $Y_2$ is an independent Poisson$(\lambda_2)$ random variable, then $X=Y_1 + Y_2$ is a Poisson$(\lambda_1 +\lambda_2)$ random variable
+
+
+## Continuous Distributions
+
+- What makes a distribution continuous?
+\
+    
+- We'll discuss: uniform, normal, gamma, exponential, chi-square, and beta 
+    
+- Summarize: pmf, mean, variance, mgf (if it exists), fun facts
+
+
+\newpage
+
+### The Uniform Distribution
+
+::: callout-tip
+## Uniform Distribution
+
+**When it is used?**  When a random variable takes on any value between two limits $\theta_1$ and $\theta_2$ with constant probability.
+        
+**pdf**: 
+
+$f_Y(y;\theta_1,\theta_2) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & \theta_1 \leq y \leq \theta_2 \\   & \\ &  \\ 0 & \hbox{otherwise}\end{array}\right .$
+       
+\
+
+**Note**: The values $\theta_1$ and $\theta_2$ are the \textbf{parameters} of the distribution.  The parameter $\theta_1$ is the minimum value the random variable can take on, while $\theta_2$ is the maximum.
+        
+\
+
+**mgf**: $M_Y(t) =$
+\        
+\
+
+**Expected Value**: E$(Y) =$
+\     
+\
+
+**Variance**: Var$(Y) =$
+\
+\
+        
+**In R**: 
+
+- To find $P(Y \leq y)$ use `punif(y, min= , max= )`
+        
+- To generate $n$ random uniform($\theta_1,\theta_2)$ RVs use `runif(n, min=theta1, max=theta2)`
+
+:::
+
+\
+
+Show that if $\theta_1 < \theta_2$ and $Y$ is a random variable uniformly distributed over the interval $(\theta_1,\theta_2)$, then E$(Y) = \frac{\theta_1 + \theta_2}{2}$.
+
+
+\newpage
+
+### The Normal Distribution
+
+::: callout-tip
+## Normal Distribution
+
+**When it is used?**  All  the time! The normal distribution is the most widely used continuous probability distribution, mainly because it is tractable analytically, it follows the familiar bell shape which is consistent with a lot of population models, and the Central Limit Theorem says that, with a large enough sample, the normal distribution can be used to approximate a large variety of other distributions (e.g., Normal approximation to the Binomial).  The chi-square, $t$ and $F$ distributions are all by-products of the normal distribution. 
+\        
+**pdf**: 
+
+- **Normal**: $f_Y(y;\mu,\sigma^2) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & -\infty < y < \infty \\ & \hbox{where } -\infty < \mu < \infty \\ & \hbox{and } \sigma^2 > 0\end{array}\right .$
+            
+- If $Y \sim N(\mu,\sigma^2)$, then $Z = \frac{Y - \mu}{\sigma} \sim N(0,1)$.  The distribution of $Z$ is called the **standard normal distribution**.
+            
+  **Standard Normal**:$f_Z(z) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & -\infty < z < \infty \\ &\end{array}\right .$
+
+\
+        
+**Note**: The values $\mu$ and $\sigma^2$ are the **parameters** of the distribution.  The standard normal distribution is a special case of the normal distribution, where $\mu=0$ and $\sigma^2=1$.  All normal probabilities are calculated in terms of the standard normal. 
+        
+\
+        
+**mgf**: $M_Y(t) =$
+        
+\
+        
+**Expected Value**: E$(Y) =$
+\        
+
+**Variance**: Var$(Y) =$
+\
+        
+**In R**: 
+
+- To find $P(Y \leq y)$ use `pnorm(y, mean, sd)`
+        
+- To generate $n$ random normal($\mu,\sigma^2)$ RVs use `rnorm(n, mean, sd)`
+        
+:::
+ 
+When using a Normal distribution to approximate a Binomial distribution, what are $\mu$ and $\sigma^2$?  What are suitable conditions needed for this approximation?
+
+\newpage
+
+### The Gamma, Exponential, and Chi-Square Distributions
+
+::: callout-tip
+## Gamma, Exponential, and Chi-Square Distributions
+
+**When are they used?**  When a random variable describes the time between events or the time to an event occurring, such as an equipment failure (reliability analysis) or death (survival analysis).  They are generally used when the scenario being modeled results in observations with a right-skewed distribution. 
+        
+**pdf**: 
+
+- **Gamma**:$f_Y(y;\alpha,\beta) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} &  0 < y < \infty \hbox{ where } \alpha,\beta > 0 \\   & \\ 0  & \hbox{elsewhere}\end{array}\right .$
+            
+  where $\Gamma(\alpha) =$ 
+            
+- **Exponential**: ($\alpha=1$) $f_Y(y;\beta) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} &  0 < y < \infty \hbox{ where } \beta > 0 \\  & \\ 0  & \hbox{elsewhere}\end{array}\right .$
+   
+\   
+            
+- **Chi-Square**: ($\alpha=\nu/2$ and $\beta=2$)$f_Y(y;\nu) = \left\{ \begin{array}{ll} \hbox{\hspace{50mm}} &  0 < y < \infty  \\  & \\ 0  & \hbox{elsewhere}  \end{array}\right .$
+            
+**Note**: The values $\alpha$ and $\beta$ are the **parameters** of the distribution.  Assuming $\alpha$ is an integer, $\Gamma(\alpha+1)=\alpha!$.  The exponential distribution is a special case of the gamma distribution where $\alpha=1$, and it is often used to model lifetimes.  The chi-square distribution is also a special case of the gamma distribution where $\alpha=\nu/2$ and $\beta=2$, where $\nu$ is a positive integer (aka degrees of freedom).
+
+\        
+**mgf**: $M_Y(t) =$
+
+\        
+**Expected Value**: E$(Y) =$
+
+\        
+        
+**Variance**: Var$(Y) =$
+\
+        
+**In R**: 
+
+- Gamma/Exponential: To find $P(Y \leq y)$ use `pgamma(y, alpha, beta)`
+        
+  To generate $n$ random gamma/exp RVs use `rgamma(n, alpha, beta)`
+        
+- Chi-Square: To find $P(Y \leq y)$ use `pchisq(y, df)`
+        
+  To generate $n$ random chi-square RVs use `rchisq(n, df)`
+
+:::
+
+\newpage
+
+### The Beta Distribution
+
+::: callout-tip
+## Beta Distribution
+
+**When it is used?**  When a random variable is defined over the closed interval $0 \leq y \leq 1$; typically it represents proportions. 
+        
+**pdf**: 
+
+$f_Y(y;\alpha,\beta) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & 0 \leq y \leq 1 \hbox{ where } \alpha,\beta > 0 \\   & \\ &  \\ 0 & \hbox{otherwise}\end{array}\right .$
+        
+**Note**: The values $\alpha$ and $\beta$ are the **parameters** of the distribution.  
+        
+\
+        
+**Expected Value**: E$(Y) =$
+        
+\
+**Variance**: Var$(Y) =$
+
+\
+        
+**In R**: 
+
+- To find $P(Y \leq y)$ use `pbeta(y, alpha, beta)`
+        
+- To generate $n$ random beta RVs use `rbeta(n, alpha, beta)`
+        
+:::
+
+
+- How can the Beta distribution be applied to a random variable defined over the interval $a \leq y \leq b$, where $a \neq 0$ and $b \neq 1$?
+    
+\
+\
+    
+- Let $Y\sim$ Beta$(\alpha,\beta)$.  Show that E$(Y) = \frac{\alpha}{\alpha+\beta}$.
+    
+
