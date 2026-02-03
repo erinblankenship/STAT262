@@ -413,9 +413,9 @@ When using a Normal distribution to approximate a Binomial distribution, what ar
         
 **In R**: 
 
-- Gamma/Exponential: To find $P(Y \leq y)$ use `pgamma(y, alpha, beta)`
+- Gamma/Exponential: To find $P(Y \leq y)$ use `pgamma(y, alpha, 1/beta)`
         
-  To generate $n$ random gamma/exp RVs use `rgamma(n, alpha, beta)`
+  To generate $n$ random gamma/exp RVs use `rgamma(n, alpha, 1/beta)`
         
 - Chi-Square: To find $P(Y \leq y)$ use `pchisq(y, df)`
         
