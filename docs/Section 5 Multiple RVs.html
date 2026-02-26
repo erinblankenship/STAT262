@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Multiple Random Variables – Stat 262 Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Section 4 Distribution Families.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d9ea66fcd6c317012447f26e9c021348.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 5 Multiple RVs.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Random Variables</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Stat 262 Notes</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Stat-262-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Goals for STAT 262</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 1 Probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 2 Random Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 3 Moments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 4 Distribution Families.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Section 5 Multiple RVs.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Random Variables</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#bivariate-probability-distributions" id="toc-bivariate-probability-distributions" class="nav-link active" data-scroll-target="#bivariate-probability-distributions"><span class="header-section-number">5.1</span> Bivariate Probability Distributions</a></li>
+  <li><a href="#bivariate-expectations" id="toc-bivariate-expectations" class="nav-link" data-scroll-target="#bivariate-expectations"><span class="header-section-number">5.2</span> Bivariate Expectations</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">5.3</span> Independence</a></li>
+  <li><a href="#conditional-distributions" id="toc-conditional-distributions" class="nav-link" data-scroll-target="#conditional-distributions"><span class="header-section-number">5.4</span> Conditional Distributions</a></li>
+  <li><a href="#conditional-expectations" id="toc-conditional-expectations" class="nav-link" data-scroll-target="#conditional-expectations"><span class="header-section-number">5.5</span> Conditional Expectations</a></li>
+  <li><a href="#covariance-and-correlation" id="toc-covariance-and-correlation" class="nav-link" data-scroll-target="#covariance-and-correlation"><span class="header-section-number">5.6</span> Covariance and Correlation</a></li>
+  <li><a href="#multivariate-probability-distributions" id="toc-multivariate-probability-distributions" class="nav-link" data-scroll-target="#multivariate-probability-distributions"><span class="header-section-number">5.7</span> Multivariate Probability Distributions</a>
+  <ul class="collapse">
+  <li><a href="#multivariate-expectations" id="toc-multivariate-expectations" class="nav-link" data-scroll-target="#multivariate-expectations"><span class="header-section-number">5.7.1</span> Multivariate Expectations</a></li>
+  <li><a href="#multivariate-independence" id="toc-multivariate-independence" class="nav-link" data-scroll-target="#multivariate-independence"><span class="header-section-number">5.7.2</span> Multivariate Independence</a></li>
+  <li><a href="#multivariate-conditional-distributions" id="toc-multivariate-conditional-distributions" class="nav-link" data-scroll-target="#multivariate-conditional-distributions"><span class="header-section-number">5.7.3</span> Multivariate Conditional Distributions</a></li>
+  </ul></li>
+  <li><a href="#multivariate-families-of-distributions" id="toc-multivariate-families-of-distributions" class="nav-link" data-scroll-target="#multivariate-families-of-distributions"><span class="header-section-number">5.8</span> Multivariate Families of Distributions</a>
+  <ul class="collapse">
+  <li><a href="#the-multinomial-distribution" id="toc-the-multinomial-distribution" class="nav-link" data-scroll-target="#the-multinomial-distribution"><span class="header-section-number">5.8.1</span> The Multinomial Distribution</a></li>
+  <li><a href="#the-bivariate-normal-distribution" id="toc-the-bivariate-normal-distribution" class="nav-link" data-scroll-target="#the-bivariate-normal-distribution"><span class="header-section-number">5.8.2</span> The Bivariate Normal Distribution</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Random Variables</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Most often, we are interested in more than a single random variable. We may be interested in multiple observations that come from the same underlying population, and/or we can focus on random variables being drawn from different populations which may or may not be related to each other.</p>
+<section id="bivariate-probability-distributions" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="bivariate-probability-distributions"><span class="header-section-number">5.1</span> Bivariate Probability Distributions</h2>
+<p><strong>Recall</strong>: A (univariate) random variable is defined to be a function from a sample space <span class="math inline">\(\cal{S}\)</span> into the real numbers, <span class="math inline">\(\mathbb{R}\)</span>. Often we are interested simultaneously in two outcomes of a random experiment rather than one. For example, we might be interested in </p>
+<ul>
+<li>SAT score and GPA for a student</li>
+<li>Number of customers waiting in two lines at the grocery store</li>
+<li>Number of hours spent studying and test score</li>
+<li>Dosage of a drug and blood pressure</li>
+</ul>
+<p>In each of these examples, there are two random variables, and we are interested in the 2-dimensional random vector <span class="math inline">\((X, Y)\)</span>. The concepts of discrete/continuous random variables, independence, CDFs and pmfs/pdfs can be extended to <strong>bivariate random variables</strong>, as well as <span class="math inline">\(n\)</span>-dimensional random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Bivariate CDF
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. The joint cumulative distribution function (<strong>bivariate CDF</strong>) of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is<br>
+<span class="math display">\[
+F_{XY}(x,y) = \hbox{\hspace{110mm}}
+\]</span><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Recall</strong>: What are the conditions for a univariate CDF?</p>
+<p><br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The function <span class="math inline">\(F_{XY}(x,y)\)</span> is a bivariate CDF if and only if the following conditions hold:<br>
+<br>
+1.</p>
+<p><br>
+2.</p>
+<p><br>
+3.</p>
+<p><br>
+<br>
+4.</p>
+<p><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Recall</strong>: How do we use a univariate pdf to find a univariate CDF?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Joint pdf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are jointly distributed/bivariate (absolutely) continuous random variables, then<br>
+<br>
+<br>
+<span class="math inline">\(F_{XY}(x,y) =\)</span><br>
+<br>
+<br>
+where <span class="math inline">\(f_{XY}(x,y)\)</span> is a <strong>joint (bivariate) probability density function</strong>, or joint pdf.</p>
+</div>
+</div>
+<p><strong>Recall</strong>: How do we use a univariate pmf to find a univariate CDF?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Joint pmf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are jointly distributed/bivariate discrete random variables, then<br>
+<br>
+<br>
+<span class="math inline">\(F_{XY}(x,y) =\)</span><br>
+<br>
+<br>
+<br>
+where <span class="math inline">\(f_{XY}(x,y)\)</span> is a <strong>joint (bivariate) probability mass function</strong>, or joint pmf.</p>
+</div>
+</div>
+<p><strong>Recall</strong>: How do we use a univariate CDF to find a univariate pdf?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Relationship between Bivariate CDFs and pdfs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bivariate CDFs and pdfs have the following relationship:<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span class="math inline">\(f_{Y}(y) =\)</span> and <span class="math inline">\(f_X(x) =\)</span><br>
+<br>
+<br>
+That is, if we integrate one of the continuous random variables out of the bivariate/joint pdf, we are left with the pdf of the other variable. This is the <strong>marginal probability density function of</strong> <span class="math inline">\(Y\)</span>. Similarly, we can get the <strong>marginal probability mass function</strong> of a discrete random variable by summing the other random variable out of the bivariate/joint pmf.</p>
+</div>
+</div>
+<p><strong>Recall</strong>: If two events are independent, how do we find the probability of both events occurring?</p>
+<p><br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem: Independence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two random variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, are independent if and only if</p>
+<ul>
+<li><p><strong>Using the CDF</strong>:<br>
+<br>
+<span class="math inline">\(F_{XY}(x,y) =\)</span><br>
+<br>
+<br>
+</p></li>
+<li><p><strong>Using the pdf/pmf</strong>:<br>
+<br>
+<span class="math inline">\(f_{XY}(x,y) =\)</span><br>
+<br>
+</p></li>
+</ul>
+<p>for every pair of real numbers <span class="math inline">\((x,y)\)</span>. Be careful with the support!</p>
+</div>
+</div>
+<p>All of these definitions/theorems build upon what we’ve already learned. Now we’ll try them out!</p>
+<p><strong>Example</strong>: Consider the function <span class="math inline">\(F_{XY}(x,y) = \frac{1}{16}xy(x+y)\)</span>, <span class="math inline">\(0 \leq x \leq 2\)</span>, <span class="math inline">\(0 \leq y \leq 2\)</span>.</p>
+<ul>
+<li>Verify that <span class="math inline">\(F_{XY}(x,y)\)</span> is a CDF.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the corresponding joint pdf and verify it is a pdf.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find <span class="math inline">\(P(0 \leq X \leq 1, 1 \leq Y \leq 2)\)</span></li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Points are uniformly (and randomly) distributed in the unit square. That is, <span class="math inline">\(X \sim\)</span> Uniform(0,1) and <span class="math inline">\(Y \sim\)</span> Uniform(0,1). Assume <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</p>
+<ul>
+<li>What are the univariate pdfs for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>What is the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find <span class="math inline">\(P(Y &lt; X)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint density function given by <span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} kx &amp; 0 \leq y \leq x \leq 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span> .</p>
+<ul>
+<li>Find <span class="math inline">\(k\)</span>. Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the marginal density functions (pdfs) of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have joint pdf given by</p>
+<p><span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} kxy &amp; 0 \leq x \leq 1, 0 \leq y \leq 1 \\  0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>.</p>
+<ul>
+<li>Find <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: A juice company produces blends of juices with each blend containing various proportions of cranberry, grape and other juices. The proportions of cranberry and grape juice in a blend are random variables with joint pdf (<span class="math inline">\(X\)</span> = cranberry and <span class="math inline">\(Y\)</span> = grape): <span class="math display">\[
+f_{XY}(x,y) = \left\{\begin{array}{ll} 24xy &amp; 0 \leq x \leq 1, 0 \leq y \leq 1, x+y \leq 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .
+\]</span></p>
+<ul>
+<li>Find the probability that in a given bottle, the cranberry juice accounts for over half the blend.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the marginal density function for the proportion of grape juice.</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+</section>
+<section id="bivariate-expectations" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="bivariate-expectations"><span class="header-section-number">5.2</span> Bivariate Expectations</h2>
+<p>Similar to the univariate case, we can also find the expected value of functions of multiple random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Bivariate Expectations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(g(x,y)\)</span> is a real-valued function. If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables with joint pmf/pdf <span class="math inline">\(f_{XY}(x,y)\)</span>, then<br>
+<br>
+<br>
+<br>
+<br>
+E<span class="math inline">\([g(X,Y)] =\)</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: Consider the joint pdf <span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} e^{-y} &amp; 0 &lt; x &lt; y &lt; \infty \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. Find E<span class="math inline">\((X^2 Y)\)</span>.</p>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Consider the joint pmf <span class="math display">\[
+f_{XY}(x,y) = \left\{\begin{array}{ll} {y \choose x} p^x(1-p)^{y-x} \frac{e^{-\lambda} \lambda^y}{y!} &amp; y=0,1,2,\dots; x=0,\dots, y \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .
+\]</span></p>
+<ul>
+<li>What does the support look like?</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the marginal pmf of <span class="math inline">\(Y\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the marginal pmf of <span class="math inline">\(X\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find E<span class="math inline">\((XY)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</section>
+<section id="independence" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="independence"><span class="header-section-number">5.3</span> Independence</h2>
+<p>Independence can make our lives easier in lots of ways!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If two random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent, then<br>
+<br>
+E<span class="math inline">\([g(X_1) h(X_2)] =\)</span><br>
+</p>
+</div>
+</div>
+<p>However, we don’t need the marginal CDFs and pmfs/pdfs to show independence! We can show independence using non-negative functions of the variables themselves.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem: Independence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two random variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, are independent if and only if<br>
+<br>
+<span class="math inline">\(f_{XY}(x,y) =\)</span><br>
+<br>
+<br>
+for all <span class="math inline">\(x, y\)</span> in <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+<p><strong>Example</strong>: Consider the joint pdf <span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} 8xy &amp; 0 &lt; x &lt; y &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent?</p>
+<p><strong>Example</strong>: Consider the joint pmf <span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} e^{-4} \left ( \frac{2^{x+y}}{x! y!} \right ) &amp; y=0,1,2,\dots; x=0,1,2,\dots \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent?</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Consider the joint pdf <span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} x+y &amp; 0&lt;x&lt;1; 0&lt;y&lt;1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent?</p>
+<p><br>
+<br>
+<br>
+</p>
+</section>
+<section id="conditional-distributions" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="conditional-distributions"><span class="header-section-number">5.4</span> Conditional Distributions</h2>
+<p>Often, two random variables are not independent. For example, a randomly selected person’s height is typically related to his/her weight. If we looked at the conditional distribution of a randomly selected person’s weight given that we knew a randomly selected person was 63 inches tall, it would be different from the distribution of any randomly selected person’s weight. The additional information about height changes the distribution of weight, so these two random variables are not independent. In such cases, we are often interested in the conditional probability of <span class="math inline">\(Y\)</span> given knowledge that <span class="math inline">\(X=x\)</span>. Recall the definition of conditional probability:</p>
+<p>This definition can be extended to conditional distributions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Conditional pmf/pdf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The conditional pdf or pmf of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span> is<br>
+<br>
+<span class="math inline">\(f_{Y|X}(y|x) =\)</span><br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables, then</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Consider the joint pdf <span class="math inline">\(f_{XY}(x,y) = \left\{\begin{array}{ll} e^{-y} &amp; 0 &lt; x &lt; y &lt; \infty \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. We can show the marginal pdfs of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (left as practice for you!) are: <span class="math display">\[
+f_X(x) = \left\{\begin{array}{ll} e^{-x} &amp; 0 &lt; x &lt; \infty \\ 0 &amp; \hbox{else} \end{array} \right .  \hbox{\hspace{5mm} and \hspace{5mm}} f_Y(y) = \left \{ \begin{array}{ll} ye^{-y} &amp; 0 &lt; y &lt; \infty \\ 0 &amp; \hbox{else} \end{array} \right. .
+\]</span></p>
+<ul>
+<li>For <span class="math inline">\(x &gt; 0\)</span>, find the conditional pdf of <span class="math inline">\(Y|X\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>For <span class="math inline">\(y &gt; 0\)</span>, find the conditional pdf of <span class="math inline">\(X|Y\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Consider the joint pmf <span class="math display">\[
+f_{XY}(x,y) = \left\{\begin{array}{ll} {y \choose x} p^x(1-p)^{y-x} \frac{e^{-\lambda} \lambda^y}{y!} &amp; y=0,1,2,\dots; x=0,\dots, y \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .
+\]</span> Previously, we showed that <span class="math inline">\(X\sim\)</span> Poisson<span class="math inline">\((p\lambda)\)</span> and <span class="math inline">\(Y\sim\)</span> Poisson<span class="math inline">\((\lambda)\)</span>.</p>
+<ul>
+<li>For <span class="math inline">\(x=0,1,2,\dots\)</span>, find the conditional pmf of <span class="math inline">\(Y|X\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>For <span class="math inline">\(y=0,1,2,\dots\)</span>, find the conditional pmf of <span class="math inline">\(X|Y\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</section>
+<section id="conditional-expectations" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="conditional-expectations"><span class="header-section-number">5.5</span> Conditional Expectations</h2>
+<p>Conditional distributions can be used in the same way unconditional distributions are used. For example, conditional distributions may be used to compute conditional expectations.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Conditional Expectation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables and <span class="math inline">\(g(Y)\)</span> is a function of <span class="math inline">\(Y\)</span>, then the <strong>conditional expectation</strong> of <span class="math inline">\(g(Y)\)</span> given <span class="math inline">\(X=x\)</span> is:<br>
+<br>
+<br>
+<br>
+E<span class="math inline">\([g(Y)|X=x] =\)</span><br>
+<br>
+<br>
+<br>
+In particular, the <strong>conditional mean</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span> is:<br>
+<br>
+<br>
+<br>
+E<span class="math inline">\((Y|X=x) =\)</span><br>
+<br>
+<br>
+<br>
+and the <strong>conditional variance</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span> is:</p>
+<p><br>
+Var<span class="math inline">\((Y|X=x) =\)</span><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: Consider the joint pdf <span class="math inline">\(f_{XY}(x,y)=\left\{\begin{array}{ll} e^{-y} &amp; 0 &lt; x &lt; y &lt; \infty \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. Previously, we showed the conditional distribution of <span class="math inline">\(X|Y\)</span> is <span class="math inline">\(f_{X|Y}(x|y) = \left\{\begin{array}{ll} \frac{1}{y} &amp; 0 &lt; x &lt; y &lt; \infty \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>.</p>
+<ul>
+<li>Find E<span class="math inline">\((X|Y=y)\)</span></li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Find Var<span class="math inline">\((X|Y=y)\)</span></li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p>Conditional expectations lend themselves to other useful results, such as finding the expected values and variances of univariate random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables, then<br>
+<br>
+E<span class="math inline">\((Y)=\)</span> E<span class="math inline">\((X)=\)</span></p>
+</div>
+</div>
+<p><strong>Proof</strong>:</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Consider the joint pdf <span class="math inline">\(f_{XY}(x,y)=\left\{\begin{array}{ll} e^{-y} &amp; 0 &lt; x &lt; y &lt; \infty \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. Previously, we showed E<span class="math inline">\((X|Y=y) =\)</span> and mentioned that <span class="math inline">\(f_Y(y) = \left\{\begin{array}{ll} y e^{-y} &amp; 0 &lt; y &lt; \infty \\ 0 &amp; \hbox{elsewhere} \end{array} \right.\)</span>. What is E<span class="math inline">\((X)\)</span>?</p>
+<p><strong>Example</strong>: Consider the joint pmf <span class="math display">\[
+f_{XY}(x,y) = \left\{\begin{array}{ll} {y \choose x} p^x(1-p)^{y-x} \frac{e^{-\lambda} \lambda^y}{y!} &amp; y=0,1,2,\dots; x=0,\dots, y \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .
+\]</span> Previously, we showed that <span class="math inline">\(X\sim\)</span> Poisson<span class="math inline">\((p\lambda)\)</span>, <span class="math inline">\(Y\sim\)</span> Poisson<span class="math inline">\((\lambda)\)</span> and <span class="math inline">\(X|Y\sim\)</span> Binomial<span class="math inline">\((y,p)\)</span>. What is E<span class="math inline">\((X)\)</span>?</p>
+<p><br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables, then<br>
+<br>
+Var<span class="math inline">\((Y) =\)</span><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Proof</strong>:</p>
+<ul>
+<li><p>We know E<span class="math inline">\((Y) =\)</span> . Similarly, E<span class="math inline">\((Y^2) =\)</span><br>
+</p></li>
+<li><p>By definition, we know Var<span class="math inline">\((Y|X) =\)</span><br>
+</p></li>
+<li><p>We also know E[Var<span class="math inline">\((Y|X)\)</span>] =<br>
+</p></li>
+<li><p>By definition, Var[E<span class="math inline">\((Y|X)\)</span>] =<br>
+</p></li>
+<li><p>Therefore, E[Var<span class="math inline">\((Y|X)\)</span>] + Var[E<span class="math inline">\((Y|X)\)</span>] =</p></li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Suppose the number of eggs laid by a certain insect has a Poisson distribution with mean <span class="math inline">\(\lambda\)</span>. The probability that any one egg hatches is <span class="math inline">\(p\)</span>. Assume the eggs hatch independently of one another.</p>
+<p><em>What do we know?</em></p>
+<p><br>
+</p>
+<ol type="1">
+<li>Find the expected value of <span class="math inline">\(Y\)</span>, the total number of eggs that hatch.</li>
+</ol>
+<p><br>
+</p>
+<ol start="2" type="1">
+<li>Find the variance of <span class="math inline">\(Y\)</span>.</li>
+</ol>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: In a clinical study of a new drug formulated to reduce the effects of rheumatoid arthritis, researchers found the proportion <span class="math inline">\(p\)</span> of patients who respond favorably to the new drug is a random variable that varies from batch to batch of the drug. Assume that <span class="math inline">\(p\)</span> has a probability density function given by <span class="math display">\[
+f(p) = \left\{\begin{array}{ll} 12p^2(1-p) &amp; 0 \leq p \leq 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .
+\]</span> Suppose <span class="math inline">\(n\)</span> patients are injected with portions of the drug taken from the same batch. Let <span class="math inline">\(Y\)</span> denote the number showing a favorable response.</p>
+<ol type="1">
+<li>Find the unconditional probability distribution of <span class="math inline">\(Y\)</span> for general <span class="math inline">\(n\)</span>.</li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="2" type="1">
+<li>Find E<span class="math inline">\((Y)\)</span> for <span class="math inline">\(n=2\)</span>.</li>
+</ol>
+</section>
+<section id="covariance-and-correlation" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="covariance-and-correlation"><span class="header-section-number">5.6</span> Covariance and Correlation</h2>
+<p>If two random variables are not independent, we are often interested in finding their conditional distributions. However, we are often also interested in quantifying the strength of the relationship between them. For example, we could quantify the strength of the relationship between a randomly chosen person’s height and weight or the strength of the relationship between a randomly chosen person’s height and GPA. We would expect the relationship between a randomly chosen person’s height and weight would be much stronger than that between a randomly chosen person’s height and GPA. Covariance and correlation are two commonly used numerical measures of the strength of a relationship between two random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem (Covariance)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be jointly distributed random variables such that E<span class="math inline">\((X) = \mu_X\)</span>, Var<span class="math inline">\((X) = \sigma^2_X\)</span>, E<span class="math inline">\((Y) = \mu_Y\)</span>, and Var<span class="math inline">\((Y) = \sigma^2_Y\)</span>. The <strong>covariance</strong> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is<br>
+<br>
+Cov<span class="math inline">\((X,Y) =\)</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Note</strong>: Cov<span class="math inline">\((X,Y)\)</span> = Cov<span class="math inline">\((Y,X)\)</span>. What is Cov<span class="math inline">\((X,X)\)</span>?</p>
+<p><br>
+<br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables, then<br>
+<br>
+Cov<span class="math inline">\((X,Y) =\)</span><br>
+<br>
+<br>
+</p>
+<p>Thus, independent random variables must be uncorrelated. However, the converse is not true. That is, if the covariance between two random variables is zero, this does necessarily imply they are independent.</p>
+</div>
+</div>
+<p>Covariance is useful when calculating the correlation between two random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition (Correlation)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be jointly distributed random variables such that Var<span class="math inline">\((X) = \sigma^2_X\)</span> and Var<span class="math inline">\((Y) = \sigma^2_Y\)</span>. The <strong>correlation</strong> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is<br>
+<br>
+<span class="math inline">\(\rho_{XY} = \hbox{Corr}(X,Y) =\)</span><br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Facts About the Correlation</strong>:</p>
+<ol type="1">
+<li><p><br>
+</p></li>
+<li><p><br>
+</p></li>
+</ol>
+<p>Covariance is also useful when calculating the variance of linear functions of random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are jointly distributed random variables, then<br>
+<br>
+E<span class="math inline">\((aX + bY) =\)</span><br>
+<br>
+Var<span class="math inline">\((aX + bY) =\)</span><br>
+<br>
+If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> random variables, then<br>
+<br>
+Var<span class="math inline">\((aX + bY) =\)</span><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Proof</strong>: Suppose <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are jointly distributed random variables such that E<span class="math inline">\((X) = \mu_X\)</span> and E<span class="math inline">\((Y) = \mu_Y\)</span>.</p>
+<p>Var<span class="math inline">\((aX + bY) =\)</span></p>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Consider the joint pmf <span class="math display">\[
+f_{XY}(x,y) = \left\{\begin{array}{ll} {y \choose x} p^x(1-p)^{y-x} \frac{e^{-\lambda} \lambda^y}{y!} &amp; y=0,1,2,\dots; x=0,\dots, y \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .
+\]</span> Previously, we showed that <span class="math inline">\(X\sim\)</span> Poisson<span class="math inline">\((p\lambda)\)</span>, <span class="math inline">\(Y\sim\)</span> Poisson<span class="math inline">\((\lambda)\)</span> and E<span class="math inline">\((XY) = p\lambda + p\lambda^2\)</span>.</p>
+<ul>
+<li>Find Corr<span class="math inline">\((X,Y)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find Var<span class="math inline">\((3X-4Y)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+</section>
+<section id="multivariate-probability-distributions" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="multivariate-probability-distributions"><span class="header-section-number">5.7</span> Multivariate Probability Distributions</h2>
+<p><strong>Recall</strong>: A (univariate) random variable is a function from a sample space <span class="math inline">\(\cal{S}\)</span> into the real numbers, <span class="math inline">\(\mathbb{R}\)</span>. In the bivariate case, we are interested in a 2-dimensional random vector <span class="math inline">\((X,Y)\)</span>, that is, a function from a sample space <span class="math inline">\(\cal{S}\)</span> into <span class="math inline">\(\mathbb{R}^2\)</span>. We can also consider <span class="math inline">\(n\)</span>-dimensional random vectors, or random vectors with more than two random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: <span class="math inline">\(n\)</span>-Dimensional Random Vector
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An <span class="math inline">\(n\)</span>-dimensional random vector is<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p>As before, the concepts of discrete/continuous random variables, independence, CDFs and pmfs/pdfs that were extended to bivariate random variables can also be extended to <span class="math inline">\(n\)</span>-dimensional random vectors.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Multivariate CDF
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X_1, X_2,\dots,X_n\)</span> be <span class="math inline">\(n\)</span> random variables. The multivariate cumulative distribution function (<strong>multivariate CDF</strong>) of <span class="math inline">\(X_1,X_2,\dots, X_n\)</span> is<br>
+<br>
+<span class="math inline">\(F(x_1,\dots,x_n) =\)</span><br>
+<br>
+</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Multivariate pdf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\((X_1,\dots,X_n)\)</span> are (absolutely) continuous, then<br>
+<br>
+<span class="math inline">\(F(x_1,\dots,x_n) =\)</span><br>
+<br>
+<br>
+where <span class="math inline">\(f(x_1,\dots, x_n)\)</span> is a <strong>multivariate probability density function</strong>, or multivariate pdf.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Multivariate pmf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\((X_1,\dots,X_n)\)</span> are discrete, then<br>
+<br>
+<span class="math inline">\(F(x_1,\dots,x_n) =\)</span><br>
+<br>
+<br>
+<br>
+where <span class="math inline">\(f(x_1,\dots, x_n)\)</span> is a <strong>multivariate probability mass function</strong>, or multivariate pmf.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Relationship between Multivariate CDFs and pdfs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Continuous multivariate CDFs and pdfs have the following relationship:<br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Marginal Distributions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\((X_1,\dots,X_n)\)</span> are (absolutely) continuous, then</p>
+<ul>
+<li><p>the <strong>marginal CDF</strong> of the random variable <span class="math inline">\(X_j\)</span> is<br>
+<br>
+<span class="math inline">\(F_{X_j}(x_j) =\)</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p></li>
+<li><p>and the <strong>marginal pdf</strong> of the random variable <span class="math inline">\(X_j\)</span> is<br>
+<br>
+<span class="math inline">\(f_{X_j}(x_j) =\)</span><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p></li>
+</ul>
+<p>That is, if we integrate <span class="math inline">\(k\)</span> (<span class="math inline">\(k &lt; n\)</span>) continuous random variables out of the multivariate pdf, we are left with the marginal pdf of the other <span class="math inline">\(n-k\)</span> variable(s). Similarly, we can get the <strong>marginal probability mass function</strong> of a discrete random variable by summing the other random variables out of the multivariate pmf.</p>
+</div>
+</div>
+<p><strong>Example</strong>: Let <span class="math inline">\(X_1,X_2,X_3,X_4\)</span> be continuous random variables with joint cdf <span class="math inline">\(F(x_1,x_2,x_3,x_4)\)</span> and joint pdf <span class="math inline">\(f(x_1,x_2,x_3,x_4)\)</span>.</p>
+<ul>
+<li>What is the marginal CDF of <span class="math inline">\(X_2\)</span>?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<ul>
+<li>What is the marginal pdf of <span class="math inline">\(X_2\)</span>?</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X_1, X_2, X_3\)</span> be continuous random variables with joint pdf <span class="math display">\[f(x_1,x_2,x_3) = \left\{\begin{array}{ll} c &amp; 0 &lt; x_1 &lt; x_2 &lt; x_3 &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .\]</span></p>
+<ul>
+<li>Find <span class="math inline">\(c\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>What is the marginal pdf of <span class="math inline">\(X_3\)</span>?</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find <span class="math inline">\(f_{X_1 X_2}(x_1,x_2)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<section id="multivariate-expectations" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="multivariate-expectations"><span class="header-section-number">5.7.1</span> Multivariate Expectations</h3>
+<p>Similar to the univariate case, we can also find the expected value of a function of multiple random variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Multivariate Expectation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(g(x_1,\dots,x_n)\)</span> is a real-valued function. If <span class="math inline">\(X_1,\dots, X_n\)</span> are continuous random variables with joint pdf <span class="math inline">\(f(x_1,\dots,x_n)\)</span> then<br>
+<br>
+E<span class="math inline">\([g(X_1,\dots,X_n)] =\)</span><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: Let <span class="math inline">\(X_1,X_2,X_3\)</span> be continuous random variables with joint pdf <span class="math display">\[f(x_1,x_2,x_3) = \left\{\begin{array}{ll} c &amp; 0 &lt; x_1 &lt; x_2 &lt; x_3 &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .\]</span> Find E<span class="math inline">\((X_1 X_2 X_3)\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</section>
+<section id="multivariate-independence" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="multivariate-independence"><span class="header-section-number">5.7.2</span> Multivariate Independence</h3>
+<p>The concept of independence can also be extended from the bivariate case to the multivariate case.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Mutual Independence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(X_1,\dots, X_n\)</span> are mutually independent if and only if</p>
+<ul>
+<li><strong>Using the CDF</strong>:</li>
+</ul>
+<p><span class="math inline">\(F(x_1,\dots, x_n) =\)</span></p>
+<ul>
+<li><strong>Using the pdf/pmf</strong>:</li>
+</ul>
+<p><span class="math inline">\(f(x_1,\dots,x_n) =\)</span></p>
+<p><br>
+</p>
+<p>for all <span class="math inline">\((x_1,\dots, x_n)\)</span> in <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+<p>If random variables are independent, a useful result follows.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables, then<br>
+Var<span class="math inline">\((aX+bY) =\)</span><br>
+<br>
+In general: If <span class="math inline">\(X_1,\dots, X_n\)</span> are mutually independent random variables with Var<span class="math inline">\((X_i) = \sigma^2_i\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>, then<br>
+<br>
+Var<span class="math inline">\(\left(\sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \sigma^2_i\)</span><br>
+</p>
+</div>
+</div>
+</section>
+<section id="multivariate-conditional-distributions" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="multivariate-conditional-distributions"><span class="header-section-number">5.7.3</span> Multivariate Conditional Distributions</h3>
+<p>The definition of conditional pdfs and conditional pmfs can also be extended to more than two dimensions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Higher Dimensionall pdf/pmf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X_1,\dots, X_n\)</span> be absolutely continuous/discrete random variables. Then, the following conditional pdfs/pmfs are defined as:<br>
+<br>
+<br>
+<span class="math inline">\(f_{X_1|X_2,\dots, X_n}(x_1|x_2,\dots, x_n) =\)</span><br>
+<br>
+<br>
+<br>
+<span class="math inline">\(f_{X_1 X_2|X_3,\dots,X_n}(x_1,x_2|x_3,\dots,x_n) =\)</span><br>
+<br>
+<br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: Let <span class="math inline">\(X_1,X_2,X_3\)</span> be continuous random variables with joint pdf <span class="math display">\[f(x_1,x_2,x_3) = \left\{\begin{array}{ll} c &amp; 0 &lt; x_1 &lt; x_2 &lt; x_3 &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right. .\]</span> Previously, we found <span class="math display">\[
+f_{X_3}(x_3) = \left\{\begin{array}{ll} 3x_3^2 &amp; 0 &lt; x_3 &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right. \hbox{\hspace{5mm} and \hspace{5mm}} f_{X_1 X_2}(x_1,x_2) = \left\{\begin{array}{ll} 6 - 6x_2 &amp; 0 &lt; x_1 &lt; x_2 &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array} \right.
+\]</span></p>
+<ul>
+<li>Find the conditional pdf <span class="math inline">\(f_{X_1 X_2|X_3}(x_1,x_2|x_3)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Find the conditional pdf <span class="math inline">\(f_{X_3|X_1 X_2}(x_3|x_1,x_2)\)</span>.</li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</section>
+</section>
+<section id="multivariate-families-of-distributions" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="multivariate-families-of-distributions"><span class="header-section-number">5.8</span> Multivariate Families of Distributions</h2>
+<p>There are named multivariate families of distributions, just as there are univariate families of distributions. We are only going to talk about two: one discrete (multinomial) and one continuous (bivariate normal)</p>
+<section id="the-multinomial-distribution" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="the-multinomial-distribution"><span class="header-section-number">5.8.1</span> The Multinomial Distribution</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Multinomial Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>When it is used?</strong> To model scenarios in which independent trials result in more than two possible outcomes. Multinomial experiments are generalizations of binomial experiments. The multinomial distribution is characterized by:</p>
+<ol type="1">
+<li><p>The experiment consists of <span class="math inline">\(n\)</span> identical trials</p></li>
+<li><p>The outcome of each trial falls into one of <span class="math inline">\(k\)</span> classes</p></li>
+<li><p>The probability the outcome of a single trial falls in class <span class="math inline">\(i\)</span> is <span class="math inline">\(p_i\)</span>, <span class="math inline">\(i=1,\dots,k\)</span> and remains constant over trials<br>
+</p></li>
+<li><p>Trials are independent</p></li>
+<li><p>The random variables of interest are <span class="math inline">\(Y_1,Y_2,\dots,Y_k\)</span> where <span class="math inline">\(Y_i=\)</span> the number of trials within class <span class="math inline">\(i\)</span></p></li>
+</ol>
+<p><br>
+<br>
+</p>
+<p><strong>pmf</strong>: <span class="math inline">\(f_{Y_1,\dots,Y_k}(y_1,\dots,y_k;n,p_1,\dots,p_k) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} &amp; y_i=0,1,2,\dots,n \\ &amp;  y_1+\cdots+y_k = n \\  &amp; i=1,\dots,k\\  &amp; \\ &amp;  \\ 0 &amp; \hbox{otherwise} \end{array} \right.\)</span></p>
+<p><strong>Expected Value}</strong>: E<span class="math inline">\((Y_i) =\)</span><br>
+</p>
+<p><strong>Variance</strong>: Var<span class="math inline">\((Y_i) =\)</span><br>
+</p>
+<p><strong>Covariance</strong>: Cov<span class="math inline">\((Y_i, Y_j) =\)</span></p>
+</div>
+</div>
+<p><strong>Example</strong>: The National Fire Incident Reporting Service stated that, among residential fires, 73% are in family homes, 20% are in apartments, and 7% are in other types of dwellings. If four residential fires are independently reported on a single day, what is the probability that two are in family homes, one is in an apartment, and one is another type of dwelling?</p>
+</section>
+<section id="the-bivariate-normal-distribution" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="the-bivariate-normal-distribution"><span class="header-section-number">5.8.2</span> The Bivariate Normal Distribution</h3>
+<p>The multivariate normal distribution is the foundation for most modern statistical theory. In general, the multivariate normal distribution is defined for <span class="math inline">\(n\)</span> continuous random variables, <span class="math inline">\(X_1,X_2,\dots, X_n\)</span>. Because of its complexity, we look only at the <strong>bivariate normal</strong> distribution (at least until the next chapter!).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition: Bivariate Normal Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\((X,Y)\)</span> has a bivariate normal distribution if its probability density function has the form<br>
+<br>
+<br>
+<br>
+<span class="math inline">\(f_{XY}(x,y) =\)</span><br>
+<br>
+<br>
+<br>
+</p>
+<p>We denote this as <span class="math inline">\((X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})\)</span>.</p>
+</div>
+</div>
+<p><strong>Properties of the Bivariate Normal Distribution</strong>:</p>
+<ol type="1">
+<li><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> both have</li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="2" type="1">
+<li><span class="math inline">\(Y|X=x \sim\)</span></li>
+</ol>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(\rho_{XY}\)</span></li>
+</ol>
+<p><br>
+</p>
+<p><strong>Proof</strong>: Show <span class="math inline">\(\rho_{XY}\)</span> is the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<ul>
+<li>Cov<span class="math inline">\((X,Y)\)</span> =</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>E<span class="math inline">\((XY) =\)</span></li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<ul>
+<li>Corr<span class="math inline">\((X,Y) =\)</span></li>
+</ul>
+<p><br>
+<br>
+<br>
+</p>
+<p><strong>Independence</strong></p>
+<ul>
+<li><p>We know if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(\rho_{XY} =\)</span></p></li>
+<li><p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be bivariate normally distributed RVs. What happens if <span class="math inline">\(\rho_{XY}=0\)</span>? What does the bivariate normal pdf reduce to? What does this imply?</p></li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Independence of Bivariate Normal Random Variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be bivariate normally distributed random variables. <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if <span class="math inline">\(\rho_{XY}=0\)</span>.<br>
+</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Section 4 Distribution Families.html" class="pagination-link" aria-label="Families of Distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of Distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
