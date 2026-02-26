@@ -562,9 +562,10 @@ Conditional expectations lend themselves to other useful results, such as findin
 ::: callout-tip
 ## Theorem
 
-If $X$ and $Y$ are two random variables, then\
+If $X$ and $Y$ are two random variables, then
 \
-E$(Y)=$ \hspace{60mm} E$(X)=$
+\
+$\hbox{E}(Y)= \hbox{\hspace{60mm}} \hbox{and} \hbox{\hspace{5mm}} \hbox{E}(X)=$
 :::
 
 **Proof**:
@@ -921,11 +922,10 @@ Similar to the univariate case, we can also find the expected value of a functio
 
 ::: callout-tip
 ## Definition: Multivariate Expectation
-Suppose $g(x_1,\dots,x_n)$ is a real-valued function.  If $X_1,\dots, X_n$ are continuous random variables with joint pdf $f(x_1,\dots,x_n)$ then
+
+Suppose $g(x_1,\dots,x_n)$ is a real-valued function. If $X_1,\dots, X_n$ are continuous random variables with joint pdf $f(x_1,\dots,x_n)$ then\
 \
-\
-E$[g(X_1,\dots,X_n)] =$
-\
+E$[g(X_1,\dots,X_n)] =$\
 \
 :::
 
@@ -943,13 +943,14 @@ The concept of independence can also be extended from the bivariate case to the 
 
 ::: callout-tip
 ## Definition: Mutual Independence
+
 $X_1,\dots, X_n$ are mutually independent if and only if
 
-- **Using the CDF**:
+-   **Using the CDF**:
 
 $F(x_1,\dots, x_n) =$
 
-- **Using the pdf/pmf**:
+-   **Using the pdf/pmf**:
 
 $f(x_1,\dots,x_n) =$
 
@@ -964,16 +965,13 @@ If random variables are independent, a useful result follows.
 
 ::: callout-tip
 ## Theorem
-If $X$ and $Y$ are independent random variables, then
+
+If $X$ and $Y$ are independent random variables, then\
+Var$(aX+bY) =$\
 \
-Var$(aX+bY) =$
+In general: If $X_1,\dots, X_n$ are mutually independent random variables with Var$(X_i) = \sigma^2_i$, $i=1,\dots,n$, then\
 \
-\
-In general: If $X_1,\dots, X_n$ are mutually independent random variables with Var$(X_i) = \sigma^2_i$, $i=1,\dots,n$, then
-\
-\
-Var$\left(\sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \sigma^2_i$
-\
+Var$\left(\sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \sigma^2_i$\
 :::
 
 ### Multivariate Conditional Distributions
@@ -982,17 +980,15 @@ The definition of conditional pdfs and conditional pmfs can also be extended to 
 
 ::: callout-tip
 ## Definition: Higher Dimensionall pdf/pmf
-Let $X_1,\dots, X_n$ be absolutely continuous/discrete random variables.  Then, the following conditional pdfs/pmfs are defined as:
+
+Let $X_1,\dots, X_n$ be absolutely continuous/discrete random variables. Then, the following conditional pdfs/pmfs are defined as:\
+\
+\
+$f_{X_1|X_2,\dots, X_n}(x_1|x_2,\dots, x_n) =$\
 \
 \
 \
-$f_{X_1|X_2,\dots, X_n}(x_1|x_2,\dots, x_n) =$
-\
-\
-\
-\
-$f_{X_1 X_2|X_3,\dots,X_n}(x_1,x_2|x_3,\dots,x_n) =$
-\
+$f_{X_1 X_2|X_3,\dots,X_n}(x_1,x_2|x_3,\dots,x_n) =$\
 \
 \
 \
@@ -1004,16 +1000,14 @@ $f_{X_1 X_2|X_3,\dots,X_n}(x_1,x_2|x_3,\dots,x_n) =$
 f_{X_3}(x_3) = \left\{\begin{array}{ll} 3x_3^2 & 0 < x_3 < 1 \\ 0 & \hbox{elsewhere} \end{array} \right. \hbox{\hspace{5mm} and \hspace{5mm}} f_{X_1 X_2}(x_1,x_2) = \left\{\begin{array}{ll} 6 - 6x_2 & 0 < x_1 < x_2 < 1 \\ 0 & \hbox{elsewhere} \end{array} \right.
 $$
 
-
-- Find the conditional pdf $f_{X_1 X_2|X_3}(x_1,x_2|x_3)$.
+-   Find the conditional pdf $f_{X_1 X_2|X_3}(x_1,x_2|x_3)$.
 
 \
 \
 \
 \
 
-
-- Find the conditional pdf $f_{X_3|X_1 X_2}(x_3|x_1,x_2)$.
+-   Find the conditional pdf $f_{X_3|X_1 X_2}(x_3|x_1,x_2)$.
 
 \
 \
@@ -1032,35 +1026,30 @@ There are named multivariate families of distributions, just as there are univar
 
 ::: callout-tip
 ## Multinomial Distribution
-**When it is used?**  To model scenarios in which independent trials result in more than two possible outcomes.  Multinomial experiments are generalizations of binomial experiments.  The multinomial distribution is characterized by:
 
-1. The experiment consists of $n$ identical trials
+**When it is used?** To model scenarios in which independent trials result in more than two possible outcomes. Multinomial experiments are generalizations of binomial experiments. The multinomial distribution is characterized by:
 
-2. The outcome of each trial falls into one of $k$ classes
+1.  The experiment consists of $n$ identical trials
 
-3. The probability the outcome of a single trial falls in class $i$ is $p_i$, $i=1,\dots,k$ and remains constant over trials
+2.  The outcome of each trial falls into one of $k$ classes
+
+3.  The probability the outcome of a single trial falls in class $i$ is $p_i$, $i=1,\dots,k$ and remains constant over trials\
+
+4.  Trials are independent
+
+5.  The random variables of interest are $Y_1,Y_2,\dots,Y_k$ where $Y_i=$ the number of trials within class $i$
+
+\
 \
 
-4. Trials are independent
+**pmf**: $f_{Y_1,\dots,Y_k}(y_1,\dots,y_k;n,p_1,\dots,p_k) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & y_i=0,1,2,\dots,n \\ &  y_1+\cdots+y_k = n \\  & i=1,\dots,k\\  & \\ &  \\ 0 & \hbox{otherwise} \end{array} \right.$
 
-5. The random variables of interest are $Y_1,Y_2,\dots,Y_k$ where $Y_i=$ the number of trials within class $i$
+**Expected Value}**: E$(Y_i) =$\
 
-\
-\
-
-**pmf**: 
-$f_{Y_1,\dots,Y_k}(y_1,\dots,y_k;n,p_1,\dots,p_k) = \left\{\begin{array}{ll} \hbox{\hspace{50mm}} & y_i=0,1,2,\dots,n \\ &  y_1+\cdots+y_k = n \\  & i=1,\dots,k\\  & \\ &  \\ 0 & \hbox{otherwise} \end{array} \right.$
-
-**Expected Value}**: E$(Y_i) =$
-\
-
-**Variance**: Var$(Y_i) =$
-\
+**Variance**: Var$(Y_i) =$\
 
 **Covariance**: Cov$(Y_i, Y_j) =$
-
 :::
-
 
 **Example**: The National Fire Incident Reporting Service stated that, among residential fires, 73% are in family homes, 20% are in apartments, and 7% are in other types of dwellings. If four residential fires are independently reported on a single day, what is the probability that two are in family homes, one is in an apartment, and one is another type of dwelling?
 
@@ -1072,13 +1061,12 @@ The multivariate normal distribution is the foundation for most modern statistic
 
 ::: callout-tip
 ## Definition: Bivariate Normal Distribution
-$(X,Y)$ has a bivariate normal distribution if its probability density function has the form
+
+$(X,Y)$ has a bivariate normal distribution if its probability density function has the form\
 \
 \
 \
-\
-$f_{XY}(x,y) =$
-\
+$f_{XY}(x,y) =$\
 \
 \
 \
@@ -1088,7 +1076,7 @@ We denote this as $(X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})$.
 
 **Properties of the Bivariate Normal Distribution**:
 
-1. $X$ and $Y$ both have 
+1.  $X$ and $Y$ both have
 
 \
 \
@@ -1098,16 +1086,15 @@ We denote this as $(X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})$.
 \
 \
 
+2.  $Y|X=x \sim$
 
-2. $Y|X=x \sim$
-
 \
 \
 \
 \
 \
 
-3. $\rho_{XY}$
+3.  $\rho_{XY}$
 
 \
 
@@ -1115,11 +1102,11 @@ We denote this as $(X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})$.
 
 **Proof**: Show $\rho_{XY}$ is the correlation coefficient between $X$ and $Y$.
 
-- Cov$(X,Y)$ = 
+-   Cov$(X,Y)$ =
 
 \
 
-- E$(XY) =$
+-   E$(XY) =$
 
 \
 \
@@ -1128,7 +1115,7 @@ We denote this as $(X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})$.
 \
 \
 
-- Corr$(X,Y) =$
+-   Corr$(X,Y) =$
 
 \
 \
@@ -1136,9 +1123,9 @@ We denote this as $(X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})$.
 
 **Independence**
 
-- We know if $X$ and $Y$ are independent, then $\rho_{XY} =$
+-   We know if $X$ and $Y$ are independent, then $\rho_{XY} =$
 
-- Let $X$ and $Y$ be bivariate normally distributed RVs.  What happens if $\rho_{XY}=0$? What does the bivariate normal pdf reduce to? What does this imply?
+-   Let $X$ and $Y$ be bivariate normally distributed RVs. What happens if $\rho_{XY}=0$? What does the bivariate normal pdf reduce to? What does this imply?
 
 \
 \
@@ -1150,11 +1137,9 @@ We denote this as $(X,Y) \sim N_2(\mu_X,\mu_Y,\sigma^2_X,\sigma^2_Y,\rho_{XY})$.
 \
 \
 \
-
-
 
 ::: callout-tip
 ## Independence of Bivariate Normal Random Variables
-Let $X$ and $Y$ be bivariate normally distributed random variables.  $X$ and $Y$ are independent if and only if $\rho_{XY}=0$.
-\
+
+Let $X$ and $Y$ be bivariate normally distributed random variables. $X$ and $Y$ are independent if and only if $\rho_{XY}=0$.\
 :::
