@@ -95,7 +95,7 @@ Bivariate CDFs and pdfs have the following relationship:\
 \
 \
 \
-$f_{Y}(y) =$ \hspace{60mm} and \hspace{5mm} $f_X(x) =$\
+$f_Y(Y)= \hbox{\hspace{60mm}} \hbox{and} \hbox{\hspace{5mm}} f_X(X)=$
 \
 \
 That is, if we integrate one of the continuous random variables out of the bivariate/joint pdf, we are left with the pdf of the other variable. This is the **marginal probability density function of** $Y$. Similarly, we can get the **marginal probability mass function** of a discrete random variable by summing the other random variable out of the bivariate/joint pmf.
