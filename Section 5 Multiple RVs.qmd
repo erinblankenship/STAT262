@@ -173,7 +173,7 @@ All of these definitions/theorems build upon what we've already learned. Now we'
 
 \newpage
 
--   Find $P(0 \leq X \leq 1, 1 \leq Y \leq 2)$
+-   Find $P(0 \leq X \leq 1, 0 \leq Y \leq 1)$
 
 \
 \
