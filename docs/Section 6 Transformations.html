@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Moments – Stat 262 Notes</title>
+<title>6&nbsp; Transformations – Stat 262 Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Section 4 Distribution Families.html" rel="next">
-<link href="./Section 2 Random Variables.html" rel="prev">
+<link href="./Section 5 Multiple RVs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -112,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 3 Moments.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Section 6 Transformations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Transformations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,7 +161,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Section 3 Moments.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Section 3 Moments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></span></a>
   </div>
 </li>
@@ -180,7 +179,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Section 6 Transformations.html" class="sidebar-item-text sidebar-link">
+  <a href="./Section 6 Transformations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Transformations</span></span></a>
   </div>
 </li>
@@ -194,15 +193,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#expected-values" id="toc-expected-values" class="nav-link active" data-scroll-target="#expected-values"><span class="header-section-number">3.1</span> Expected Values</a></li>
-  <li><a href="#moments" id="toc-moments" class="nav-link" data-scroll-target="#moments"><span class="header-section-number">3.2</span> Moments</a></li>
-  <li><a href="#moment-generating-functions" id="toc-moment-generating-functions" class="nav-link" data-scroll-target="#moment-generating-functions"><span class="header-section-number">3.3</span> Moment Generating Functions</a>
+  <li><a href="#univariate-transformations" id="toc-univariate-transformations" class="nav-link active" data-scroll-target="#univariate-transformations"><span class="header-section-number">6.1</span> Univariate Transformations</a>
   <ul class="collapse">
-  <li><a href="#finding-moment-generating-functions" id="toc-finding-moment-generating-functions" class="nav-link" data-scroll-target="#finding-moment-generating-functions"><span class="header-section-number">3.3.1</span> Finding Moment Generating Functions</a></li>
-  <li><a href="#using-moment-generating-functions" id="toc-using-moment-generating-functions" class="nav-link" data-scroll-target="#using-moment-generating-functions"><span class="header-section-number">3.3.2</span> Using Moment Generating Functions</a></li>
+  <li><a href="#the-cdf-approach" id="toc-the-cdf-approach" class="nav-link" data-scroll-target="#the-cdf-approach"><span class="header-section-number">6.1.1</span> The CDF Approach</a></li>
+  <li><a href="#the-pdf-approach" id="toc-the-pdf-approach" class="nav-link" data-scroll-target="#the-pdf-approach"><span class="header-section-number">6.1.2</span> The pdf Approach</a></li>
+  <li><a href="#non-monotone-univariate-transformations" id="toc-non-monotone-univariate-transformations" class="nav-link" data-scroll-target="#non-monotone-univariate-transformations"><span class="header-section-number">6.1.3</span> Non-Monotone Univariate Transformations</a></li>
+  <li><a href="#linear-transformations" id="toc-linear-transformations" class="nav-link" data-scroll-target="#linear-transformations"><span class="header-section-number">6.1.4</span> Linear Transformations</a></li>
   </ul></li>
-  <li><a href="#other-quantities-based-on-moments" id="toc-other-quantities-based-on-moments" class="nav-link" data-scroll-target="#other-quantities-based-on-moments"><span class="header-section-number">3.4</span> Other Quantities Based on Moments</a></li>
-  <li><a href="#identifying-distributions" id="toc-identifying-distributions" class="nav-link" data-scroll-target="#identifying-distributions"><span class="header-section-number">3.5</span> Identifying Distributions</a></li>
+  <li><a href="#bivariatemultivariate-transformations" id="toc-bivariatemultivariate-transformations" class="nav-link" data-scroll-target="#bivariatemultivariate-transformations"><span class="header-section-number">6.2</span> Bivariate/Multivariate Transformations</a>
+  <ul class="collapse">
+  <li><a href="#multivariate-moment-generating-functions" id="toc-multivariate-moment-generating-functions" class="nav-link" data-scroll-target="#multivariate-moment-generating-functions"><span class="header-section-number">6.2.1</span> Multivariate Moment Generating Functions</a></li>
+  <li><a href="#multivariate-transformations-using-mgfs" id="toc-multivariate-transformations-using-mgfs" class="nav-link" data-scroll-target="#multivariate-transformations-using-mgfs"><span class="header-section-number">6.2.2</span> Multivariate Transformations using MGFs</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -211,7 +213,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moments</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Transformations</span></h1>
 </div>
 
 
@@ -228,46 +230,44 @@ window.Quarto = {
 </header>
 
 
-<section id="expected-values" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="expected-values"><span class="header-section-number">3.1</span> Expected Values</h2>
-<p>Remember that a random variable is a function that associates a real number with each element in the sample space. The probability a RV takes on a certain value, or falls within a range of values, is described by the probability distribution (pdf or pmf) of the RV. Often, we are interested in the expected/“average” value of the RV. The expected value can tell us things like the “average” amount we might expect to win (or lose!) in a game, the typical weight range for 3 month old babies, the price we might expect to pay for a typical house in a new city.</p>
+<section id="univariate-transformations" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="univariate-transformations"><span class="header-section-number">6.1</span> Univariate Transformations</h2>
+<p><strong>Recall</strong>: A (univariate) random variable is defined to be a function from a sample space <span class="math inline">\(\cal{S}\)</span> into the real numbers, <span class="math inline">\(\mathbb{R}\)</span>. We’ve talked <strong>a lot</strong> about distributions of random variables (including multivariate random variables), and we’ve used these distributions to find probabilities and other quantities like expected values that can be used to make decisions. Often, we are not interested in the random variable(s) themselves, but instead in functions of the random variable(s), such as the sample mean. In these cases, we need to know the probability distribution for the resulting function in order to make decisions. We can’t construct hypothesis tests or confidence intervals based on a particular function of the random variables unless we know how much underlying variability is present or the shape of the distribution. Let’s start by looking at some examples.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Expected Value
+<span class="screen-reader-only">Tip</span>Starting Distribution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X \sim f_X(x)\)</span>, <span class="math inline">\(F_X(x)\)</span> and let <span class="math inline">\(g\)</span> be a function defined on the support of <span class="math inline">\(X\)</span>. The <strong>expected value</strong> of <span class="math inline">\(g(X)\)</span> is E<span class="math inline">\([g(X)]\)</span>, where<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-</div>
-</div>
-<p>NOTE: The expected value is a characteristic of the underlying distribution of the random variable–its CDF/pdf. It is NOT calculated from data. The sample mean calculated from data could be used to estimate the true expected value (and this is what we did in STAT 102; <span class="math inline">\(\mu\)</span> vs <span class="math inline">\(\bar X\)</span>).</p>
-<p><strong>Example</strong>: Consider a game in which a fair die is thrown. The player pays $5 to play, and wins $2 for each dot that occurs on the roll. Is it worth the $5 to enter?</p>
-<p> An insurance policyholder’s loss, <span class="math inline">\(X\)</span>, follows a distribution with pdf <span class="math display">\[
-f_X(x) = \left \{ \begin{array}{ll} \frac{2}{x^3} &amp; x &gt; 1 \\ 0 &amp; \hbox{else} \end{array} \right . .
-\]</span></p>
+<p>Assume <span class="math inline">\(X\sim\)</span> Uniform(0,10). We are interested in various functions of <span class="math inline">\(X\)</span>. We know:</p>
 <ul>
-<li>What is the expected loss for a randomly selected policyholder?</li>
+<li><p>Expected Value</p></li>
+<li><p>Variance</p></li>
+<li><p>pdf<br>
+</p></li>
+<li><p>CDF<br>
+<br>
+</p></li>
 </ul>
+</div>
+</div>
+<p><strong>Example 1</strong>: <span class="math inline">\(Y = 2X\)</span></p>
+<p><strong>Example 2</strong>: <span class="math inline">\(W=2X+4\)</span></p>
 <p><br>
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </p>
-<ul>
-<li>The insurance company reimburses a loss up to a benefit limit of 20. What is the expected value of the benefit paid under the insurance policy?</li>
-</ul>
+<p><strong>Example 3</strong>: <span class="math inline">\(T=X^2\)</span></p>
 <p><br>
 <br>
 <br>
@@ -279,136 +279,45 @@ f_X(x) = \left \{ \begin{array}{ll} \frac{2}{x^3} &amp; x &gt; 1 \\ 0 &amp; \hbo
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
 </p>
-<p><strong>Example</strong>: Let <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} e^{-x} &amp; x \geq 0 \\ 0 &amp; \hbox{else} \end{array} \right.\)</span>.</p>
-<ul>
-<li>Suppose <span class="math inline">\(g(X) = X\)</span>. Find E<span class="math inline">\([g(X)]\)</span>.</li>
-</ul>
+<p><strong>Example 4</strong>: <span class="math inline">\(R=-\ln(X)\)</span></p>
 <p><br>
 <br>
 <br>
 <br>
-</p>
-<ul>
-<li>Suppose <span class="math inline">\(g(X) = e^{X}\)</span>. Find E<span class="math inline">\([g(X)]\)</span>.</li>
-</ul>
-<p><br>
+<br>
 <br>
 </p>
-<p>If E<span class="math inline">\([|g(X)|] = \infty\)</span>, then E<span class="math inline">\([g(X)]\)</span> does not exist.</p>
+<p>There are multiple ways to determine the distribution of a function of a random variable.</p>
+<section id="the-cdf-approach" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="the-cdf-approach"><span class="header-section-number">6.1.1</span> The CDF Approach</h3>
+<p>All of the previous examples featured monotone, one-to-one functions. If the function of interest is monotone, we can use the CDF of the original random variable to find the distribution of the transformed random variable.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Theorem:
+<span class="screen-reader-only">Tip</span>Theorem: Univariate Transformations using CDFs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X\)</span> be a random variable and let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> be constants. For any functions <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span> whose expectations exist,<br>
-<br>
-<br>
-</p>
-</div>
-</div>
-<p><strong>Example</strong>: The failure of a circuit board interrupts work that utilizes a computing system until a new board is delivered. The delivery time (in days), <span class="math inline">\(X\)</span>, follows a distribution with pdf <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} \frac{1}{4} &amp; 1 \leq x \leq 5 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>. The cost of a board failure and interruption is given by <span class="math inline">\(C=500 + 100X^2 - 25 X\)</span>. Find the expected cost associated with a single failed circuit board.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-</section>
-<section id="moments" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="moments"><span class="header-section-number">3.2</span> Moments</h2>
-<p>A particular set of expected values are called moments.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Moment
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <span class="math inline">\(n^{th}\)</span> <strong>moment</strong> of <span class="math inline">\(X\)</span> is<br>
-</p>
-</div>
-</div>
-<p><strong>Example</strong>:<br>
-</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Central Moment
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <span class="math inline">\(n^{th}\)</span> <strong>central moment</strong> of <span class="math inline">\(X\)</span> is<br>
-</p>
-</div>
-</div>
-<p><strong>Example</strong>:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Facts about the Variance:
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> have CDF <span class="math inline">\(F_X(x)\)</span>, let <span class="math inline">\(Y=g(X)\)</span>, and let Supp<span class="math inline">\((X)\)</span> and Supp<span class="math inline">\((Y)\)</span> be the supports of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively.</p>
 <ol type="1">
-<li><br>
-</li>
-<li><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</li>
+<li>If <span class="math inline">\(g\)</span> is an function on Supp<span class="math inline">\((X)\)</span> , <span class="math inline">\(F_Y(y)=\)</span></li>
 </ol>
+<p>for <span class="math inline">\(y\in\)</span> Supp<span class="math inline">\((Y)\)</span> .</p>
+<ol start="2" type="1">
+<li>If <span class="math inline">\(g\)</span> is a function on Supp<span class="math inline">\((X)\)</span>, <span class="math inline">\(F_Y(y)=\)</span></li>
+</ol>
+<p>for <span class="math inline">\(y\in\)</span> Supp<span class="math inline">\((Y)\)</span> .</p>
 </div>
 </div>
-<p><strong>Example (cont’d)</strong>: Earlier, we considered a random variable, <span class="math inline">\(X\)</span>, representing the delivery time (in days) of a new circuit board, which had pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} \frac{1}{4} &amp; 1 \leq x \leq 5 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>.</p>
-<ul>
-<li>Find the variance of the delivery time (in days) of a new circuit board.</li>
-</ul>
+<p><strong>Example 3</strong> (revisited): <span class="math inline">\(X\sim\)</span> Uniform(0,10), <span class="math inline">\(T=X^2\)</span></p>
 <p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li>Suppose that the cost of a single failed circuit board is <span class="math inline">\(K=500 + 6 X^2\)</span> (yeah, I know it’s not the same cost we used before). Find the variance of the cost associated with a single failed circuit board.</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -419,118 +328,31 @@ f_X(x) = \left \{ \begin{array}{ll} \frac{2}{x^3} &amp; x &gt; 1 \\ 0 &amp; \hbo
 <br>
 <br>
 </p>
-<p>One identity that will come in VERY handy this semester:</p>
-<p><img src="exp.png" class="img-fluid"></p>
-<p>This is especially helpful with a common discrete distribution called the Poisson.</p>
-<p><strong>Example</strong>: Suppose <span class="math inline">\(X\sim\)</span> Poisson(<span class="math inline">\(\lambda\)</span>). This means that <span class="math inline">\(f_X(x) = P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}\)</span> for <span class="math inline">\(x=0,1,2,\dots\)</span>.</p>
-<ul>
-<li>E<span class="math inline">\((X)\)</span> =</li>
-</ul>
+<p><strong>Example 4</strong> (revisited): <span class="math inline">\(X\sim\)</span> Uniform(0,10), <span class="math inline">\(R=-\ln(X)\)</span></p>
 <p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li>Var<span class="math inline">\((X)\)</span> =</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
 </p>
 </section>
-<section id="moment-generating-functions" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="moment-generating-functions"><span class="header-section-number">3.3</span> Moment Generating Functions</h2>
-<p>A special expected value that is quite useful is the moment generating function. Moment generating functions can make our lives a LOT easier. We’ll first talk about how to find moment generating functions, and then discuss how to use moment generating functions in a few different ways.</p>
-<section id="finding-moment-generating-functions" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="finding-moment-generating-functions"><span class="header-section-number">3.3.1</span> Finding Moment Generating Functions</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Moment Generating Function
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X\)</span> be a random variable with pdf/pmf <span class="math inline">\(f_X(x)\)</span>. The <strong>moment generating function</strong> (mgf) of <span class="math inline">\(X\)</span> is <span class="math inline">\(M_X(t)\)</span>, where<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<u>Note</u>: At <span class="math inline">\(t=0\)</span>, <span class="math inline">\(M_X(t)=1\)</span>.<br>
-<br>
-</p>
-</div>
-</div>
-<p><strong>Example</strong>: Suppose <span class="math inline">\(X\sim\)</span> Poisson(<span class="math inline">\(\lambda\)</span>). What is the mgf of <span class="math inline">\(X\)</span>?</p>
-<p><br>
-<br>
-<br>
-</p>
-</section>
-<section id="using-moment-generating-functions" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="using-moment-generating-functions"><span class="header-section-number">3.3.2</span> Using Moment Generating Functions</h3>
-<p>The moment generating function (mgf) of a random variable is a tool we use for a variety of purposes. Specifically, we use the mgf to:</p>
+<section id="the-pdf-approach" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="the-pdf-approach"><span class="header-section-number">6.1.2</span> The pdf Approach</h3>
+<p>In each of the previous examples, we differentiated the CDF with respect to the random variable to get the pdf.</p>
 <ul>
-<li>Calculate moments (the mean, variance, other quantities calculated from moments like skewness and kurtosis)</li>
-<li>Identify distributions (of a random variable, or some function of a random variable)</li>
+<li><p>If <span class="math inline">\(Y=g(X)\)</span> is an <strong>increasing</strong> function on Supp<span class="math inline">\((X)\)</span> , <span class="math inline">\(F_Y(y)=\)</span><br>
+</p></li>
+<li><p>In the <strong>increasing</strong> case, <span class="math inline">\(f_Y(y) = \frac{d}{dy} F_Y(y) =\)</span></p></li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Theorem:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(X\)</span> has mgf <span class="math inline">\(M_X(t)\)</span>, then E<span class="math inline">\((X^n) = M_X^{(n)}(0)\)</span>, where<br>
-<br>
-<br>
-<span class="math inline">\(M_X^{(n)}(0)=\)</span><br>
-<br>
-<br>
-That is, the <span class="math inline">\(n^{th}\)</span> moment of <span class="math inline">\(X\)</span> is equal to the <span class="math inline">\(n^{th}\)</span> partial derivative of <span class="math inline">\(M_X(t)\)</span> with respect to <span class="math inline">\(t\)</span>, evaluated at <span class="math inline">\(t=0\)</span>.</p>
-</div>
-</div>
-<p><strong>Example (cont’d)</strong>: Suppose <span class="math inline">\(X\sim\)</span> Poisson<span class="math inline">\((\lambda)\)</span>. Using the mgf we found earlier, let’s find the mean and variance of <span class="math inline">\(X\)</span>.</p>
 <p><br>
 <br>
 <br>
 <br>
-<br>
-<br>
 </p>
-<p><strong>Example</strong>: Let <span class="math inline">\(X\sim\)</span> Gamma<span class="math inline">\((\alpha,\beta)\)</span>. This means that <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} \left ( \frac{1}{\Gamma(\alpha) \beta^\alpha} \right ) x^{\alpha-1} e^{-x/\beta} &amp; x \geq 0 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>, where <span class="math inline">\(\alpha,\beta &gt; 0\)</span>. Also note that <span class="math inline">\(\Gamma(\alpha) = \int_0^\infty y^{\alpha-1} e^{-y} dy\)</span>, <span class="math inline">\(\Gamma(\alpha+1) = \alpha \Gamma(\alpha)\)</span>, and, if <span class="math inline">\(n\)</span> is an integer, <span class="math inline">\(\Gamma(n+1) = n \Gamma(n) = n!\)</span>. What is the mgf of <span class="math inline">\(X\)</span>?</p>
+<ul>
+<li><p>If <span class="math inline">\(Y=g(X)\)</span> is a <strong>decreasing</strong> function on Supp<span class="math inline">\((X)\)</span> , <span class="math inline">\(F_Y(y) =\)</span><br>
+</p></li>
+<li><p>In the <strong>decreasing</strong> case, <span class="math inline">\(f_Y(y) = \frac{d}{dy} F_Y(y) =\)</span></p></li>
+</ul>
 <p><br>
 <br>
 <br>
@@ -539,55 +361,6 @@ That is, the <span class="math inline">\(n^{th}\)</span> moment of <span class="
 <br>
 <br>
 <br>
-</p>
-<p><strong>Example (cont’d)</strong>: Using the mgf, find the mean and variance of <span class="math inline">\(X\)</span>.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>Notice that one of the key steps in finding the mgf of a gamma distribution was recognizing another gamma pdf.</p>
-<p><span class="math display">\[\begin{align*}
-    M_X(t)
-    &amp;= \frac{1}{\Gamma(\alpha) \beta^\alpha} \int_0^\infty \underbrace{x^{\alpha-1} e^{x(t-1/\beta)}}_{\text{looks like $x^{\alpha-1}e^{-x/\beta^*}$}} dx
-    \\
-    &amp;=\frac{1}{\Gamma(\alpha) \beta^\alpha} \int_0^\infty
-    \underbrace{x^{\alpha-1} e^{-x/(\frac{\beta}{1-\beta t})}}_{\propto \operatorname{gamma}\left(\alpha,\frac{\beta}{1-\beta t}\right) \text{ pdf}} dx
-\end{align*}\]</span><br>
-</p>
-<p>The part we recognized is called the kernel of the pdf.</p>
-<p>A <strong>kernel</strong> of a function is the main part of the function, the part that remains when constants are ignored.</p>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>The mean and variance don’t completely describe a distribution. These three distributions all have the same mean and variance.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="UniformNormalGamma.pdf" class="img-fluid quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</section>
-</section>
-<section id="other-quantities-based-on-moments" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="other-quantities-based-on-moments"><span class="header-section-number">3.4</span> Other Quantities Based on Moments</h2>
-<p>The distribution of a random variable is most often described by its mean and variance. However, as evidence by the previous examples, we might need additional measures. One such quantity is the skewness.</p>
-<p><br>
 </p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -595,123 +368,339 @@ That is, the <span class="math inline">\(n^{th}\)</span> moment of <span class="
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Skewness
+<span class="screen-reader-only">Tip</span>Theorem: Univariate Transformations using pdfs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <strong>skewness</strong> of a random variable <span class="math inline">\(X\)</span> measures the lack of symmetry in the pdf and is defined as<br>
+<p>Let <span class="math inline">\(X\)</span> have CDF <span class="math inline">\(F_X(x)\)</span> and let <span class="math inline">\(Y=g(X)\)</span>, where <span class="math inline">\(g\)</span> is monotone. Let Supp<span class="math inline">\((X)\)</span> and Supp<span class="math inline">\((Y)\)</span> be the supports of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively. Suppose <span class="math inline">\(f_X(x)\)</span> is continuous on Supp<span class="math inline">\((X)\)</span> and <span class="math inline">\(g^{-1}(y)\)</span> has continuous derivative on Supp<span class="math inline">\((Y)\)</span> . Then the pdf of <span class="math inline">\(Y\)</span> is given by:<br>
 <br>
-<br>
-<br>
+<span class="math inline">\(f_Y(y) = \left\{ \begin{array}{ll}   &amp; \\   &amp;   \\   &amp; \\    &amp;   \\   &amp; \\   &amp; \\ \end{array}\right.\)</span><br>
 <br>
 </p>
+<p>where <span class="math inline">\(\frac{d}{dy} g^{-1}(y)\)</span> is called the <strong>Jacobian</strong> of the transformation.</p>
 </div>
 </div>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} 4x^3 &amp; 0 &lt; x &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf for each of the functions of <span class="math inline">\(X\)</span> below.</p>
+<ul>
+<li><span class="math inline">\(Y = e^X\)</span></li>
+</ul>
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </p>
-<p>Distributions of random variables can be summarized by a variety of measures, among which are mean, variance/standard deviation and skewness. Random variables with symmetric pdfs/pmfs have a value of ________ for the skewness. Random variables with right-skewed pdfs/pmfs have ________ values for the skewness. Random variables with left-skewed pdfs/pmfs have ________ values for the skewness.</p>
+<ul>
+<li><span class="math inline">\(Z = \frac{1}{X}\)</span></li>
+</ul>
 <p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </p>
-<p>Another such quantity is the kurtosis.</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} \frac{3}{2} x^2 &amp; -1 &lt; x &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf of <span class="math inline">\(Y=3X\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} \frac{3}{2} x^2 &amp; -1 &lt; x &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf of <span class="math inline">\(Y=X^2\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>How is this example different from the previous example, where we found the pdf of <span class="math inline">\(Y=3X\)</span>?</p>
+<p><br>
+<br>
+</p>
+<p><span class="math inline">\(F_Y(y) =\)</span></p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p><span class="math inline">\(f_Y(y) =\)</span></p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+</section>
+<section id="non-monotone-univariate-transformations" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="non-monotone-univariate-transformations"><span class="header-section-number">6.1.3</span> Non-Monotone Univariate Transformations</h3>
+<p>In the previous example, the function of the random variable was not monotone on the support of <span class="math inline">\(X\)</span>. In such cases, the pdf of the transformed random variable is the sum of the pieces that represent the intervals over which the function is monotone.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition: Kurtosis
+<span class="screen-reader-only">Tip</span>Univariate Transformations for Non-Monotone Functions using pdfs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <strong>kurtosis</strong> of a random variable <span class="math inline">\(X\)</span> measures the peakedness or flatness of the pdf and is defined as<br>
+<p>Let <span class="math inline">\(X\)</span> have pdf <span class="math inline">\(f_X(x)\)</span>, let <span class="math inline">\(Y=g(X)\)</span>, and let Supp<span class="math inline">\((X)\)</span> be the support of <span class="math inline">\(X\)</span>. Suppose there exists a partition <span class="math inline">\(A_0, A_1,\dots, A_k\)</span>, of Supp<span class="math inline">\((X)\)</span> such that <span class="math inline">\(P(X \in A_0) = 0\)</span> and <span class="math inline">\(f_X(x)\)</span> is continuous on each <span class="math inline">\(A_i\)</span>. Further, suppose there exist functions <span class="math inline">\(g_1(x),\dots, g_k(x)\)</span>, defined on <span class="math inline">\(A_1,\dots,A_k\)</span>, respectively, satisfying</p>
+<ul>
+<li><span class="math inline">\(g(x) = g_i(x)\)</span>, for <span class="math inline">\(x \in A_i\)</span></li>
+<li><span class="math inline">\(g_i(x)\)</span> is <strong>monotone</strong> on each <span class="math inline">\(A_i\)</span></li>
+<li>Supp<span class="math inline">\((Y)\)</span> = the support of <span class="math inline">\(Y\)</span> on <span class="math inline">\(A_i\)</span> is the <strong>same</strong> for each <span class="math inline">\(i=1,\dots,k\)</span>.</li>
+<li><span class="math inline">\(g^{-1}(y)\)</span> has a continuous derivative on each Supp<span class="math inline">\((Y)\)</span> (<span class="math inline">\(i=1,\dots,k\)</span>)</li>
+</ul>
+<p>Then,<br>
+<br>
+<span class="math inline">\(f_Y(y) = \left\{\begin{array}{ll}  &amp; \\  &amp; \\ &amp; \\ &amp; \\ &amp; \\ &amp; \end{array}\right.\)</span><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong> (revisited): Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} \frac{3}{2} x^2 &amp; -1 &lt; x &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf of <span class="math inline">\(Y=X^2\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{\begin{array}{ll} 4x^3 &amp; 0 &lt; x &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf of <span class="math inline">\(Y = g(X) = \left (X - \frac{1}{2} \right )^2\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
 <br>
 <br>
 </p>
-</div>
-</div>
-<p>The normal distribution has a kurtosis of 3, but often <strong>excess kurtosis</strong> is calculated, rather than kurtosis. Excess kurtosis is <span class="math inline">\(\alpha_4 -3\)</span>, so the normal has excess kurtosis = 0.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="KurtosisAlt.pdf" class="img-fluid quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
+<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x)= \left\{\begin{array}{ll} \frac{x+1}{2} &amp; -1 &lt; x &lt; 1 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf of <span class="math inline">\(Y=X^2+1\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x)= \left\{\begin{array}{ll} \frac{x^2}{3} &amp; -1 &lt; x &lt; 2 \\ 0 &amp; \hbox{elsewhere} \end{array}\right.\)</span>. Find the pdf of <span class="math inline">\(Y=X^2\)</span>.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
 </section>
-<section id="identifying-distributions" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="identifying-distributions"><span class="header-section-number">3.5</span> Identifying Distributions</h2>
-<p>Earlier we said that mgfs can also be used to identify distributions, both for RVs and for functions of RVs. How does this work?</p>
-<div class="callout callout-style-default callout-tip callout-empty-content callout-titled">
+<section id="linear-transformations" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="linear-transformations"><span class="header-section-number">6.1.4</span> Linear Transformations</h3>
+<p>Linear transformations are one of the easiest types of transformations to deal with. For example, let <span class="math inline">\(X \sim F_X(x)\)</span> and let <span class="math inline">\(Y=aX + b\)</span> (<span class="math inline">\(a &gt; 0\)</span>). Then<br>
+</p>
+<p><span class="math inline">\(F_Y(y) =\)</span></p>
+<p><br>
+</p>
+<p>Some linear transformations are used without even realizing you are using a transformation. For example,</p>
+<p><br>
+<br>
+</p>
+</section>
+</section>
+<section id="bivariatemultivariate-transformations" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="bivariatemultivariate-transformations"><span class="header-section-number">6.2</span> Bivariate/Multivariate Transformations</h2>
+<p>Often, we are interested in finding the probability distribution of a function of two or more random variables and/or the joint distribution of functions of multivariate random varibles. For example, suppose two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have joint distribution <span class="math inline">\(f_{XY}(x,y)\)</span>. We are sometimes interested in a new bivariate random vector <span class="math inline">\((U,V)\)</span> defined by <span class="math inline">\(U=g_1(X,Y)\)</span> and <span class="math inline">\(V=g_2(X,Y)\)</span>, and we want to find either the CDF/pdf/pmf of <span class="math inline">\(U\)</span> or <span class="math inline">\(V\)</span>, or the joint distribution of <span class="math inline">\((U,V)\)</span>. In such situations, we can extend the methods used in the univariate case to the bivariate (or multivariate) case. These are generally much more complicated, especially in the supports. And they involve (for continuous random variables) a Jacobian that’s a matrix. We’re going to leave these for a future class.</p>
+<p>However, this Jacobian technique often isn’t needed for the transformation of interest in the multivariate case. Commonly, we are interested in the distribution of something like <span class="math inline">\(Y =\)</span></p>
+<p>In such instances, MGFs are <strong>very</strong> useful.</p>
+<section id="multivariate-moment-generating-functions" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="multivariate-moment-generating-functions"><span class="header-section-number">6.2.1</span> Multivariate Moment Generating Functions</h3>
+<p><strong>Recall</strong>: The moment generating function (MGF) of a unvariate distribution is given by</p>
+<p><span class="math inline">\(M_X(t) =\)</span></p>
+<p>We can extend this to the multivariate case.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>If a moment generating function exists, it is unique
+<span class="screen-reader-only">Tip</span>Definition: Multivariate Moment Generating Functions
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(X_1,\dots, X_n\)</span> are random variables with joint pdf <span class="math inline">\(f_{X_1 \dots X_n}(x_1,\dots,x_n)\)</span>. The <strong>multivariate moment generating function</strong> (MGF) of <span class="math inline">\((X_1,\dots, X_n)\)</span> is<br>
+<br>
+<span class="math inline">\(M_{X_1 \dots X_n}(t_1,\dots,t_n) =\)</span><br>
+<br>
+for all <span class="math inline">\(t_i\)</span> near zero where the expectation exists.</p>
+</div>
+</div>
+<p>Multivariate MGFs can be used for a variety of purposes, such as:</p>
+<ul>
+<li><p><strong>Finding Moments</strong>:<br>
+</p>
+<p>E<span class="math inline">\((X_i) =\)</span><br>
+</p>
+<p><strong>Examples</strong>:<br>
+</p>
+<p><span class="math inline">\(\frac{\partial}{\partial t_1} M_{X_1 \dots X_n}(0,\dots,0) =\)</span><br>
+</p>
+<p><span class="math inline">\(\frac{\partial^2}{\partial t_1^2} M_{X_1 \dots X_n}(0,\dots,0) =\)</span><br>
+</p>
+<p><span class="math inline">\(\frac{\partial^2}{\partial t_1 t_3} M_{X_1 \dots X_n}(0,\dots,0) =\)</span><br>
+</p></li>
+<li><p><strong>Finding Univariate MGFs</strong>:<br>
+</p>
+<p><span class="math inline">\(M_{X_1 \dots X_n}(t,0,\dots,0) =\)</span><br>
+</p></li>
+</ul>
+</section>
+<section id="multivariate-transformations-using-mgfs" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="multivariate-transformations-using-mgfs"><span class="header-section-number">6.2.2</span> Multivariate Transformations using MGFs</h3>
+<p>MGFs are most useful for multivariate transformations.</p>
+<p>Suppose <span class="math inline">\(X_1,\dots, X_n\)</span> are random variables. Often, we are interested in the distribution of something like <span class="math inline">\(Y=\sum_{i=1}^n X_i = X_1 + X_2 + \cdots + X_n\)</span>. In this case, the MGF of <span class="math inline">\(Y\)</span> is<br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span><br>
+</p>
+<p>In the case where <span class="math inline">\(X_1,\dots X_n\)</span> are mutually independent random variables, the MGF of <span class="math inline">\(Y\)</span> becomes<br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span><br>
+</p>
+<p>In the very special case there <span class="math inline">\(X_1,\dots, X_n\)</span> are independently and identically distributed (iid) random variables, the MGF of <span class="math inline">\(Y\)</span> becomes<br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span><br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X_1,\dots, X_n\)</span> are independent random variables with MGFs <span class="math inline">\(M_{X_1}(t), M_{X_2}(t),\dots, M_{X_n}(t)\)</span>, then the MGF of <span class="math inline">\(Y=\sum_{i=1}^n X_i\)</span> is<br>
+<br>
+<span class="math inline">\(M_Y(t) =\)</span><br>
+<br>
+Additionally, if <span class="math inline">\(X_1,\dots, X_n\)</span> all have the same distribution, then<br>
+<br>
+<span class="math inline">\(M_Y(t) =\)</span><br>
+<br>
+</p>
+</div>
+</div>
+<p><strong>Example</strong>: Suppose <span class="math inline">\(X_1,\dots, X_n\)</span> are independent random variables where <span class="math inline">\(X_i\sim\)</span> Poisson(<span class="math inline">\(\lambda_i\)</span>). Find the distribution of <span class="math inline">\(Y=X_1+X_2+\cdots+X_n\)</span>.<br>
+</p>
+<p><span class="math inline">\(M_{X_i}(t) =\)</span></p>
+<p><br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span></p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p><strong>Extension</strong>: In the univariate case, we found the MGF of the linear transformation <span class="math inline">\(Y=aX+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants, is<br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span><br>
+<br>
+</p>
+<p>Similarly, we can find the multivariate MGF of a linear transformation of a sum of multiple random variables. This will be extremely useful when finding the sampling distribution of the sample mean, <span class="math inline">\(\bar X\)</span>. Suppose <span class="math inline">\(Y=a(X_1 + X_2 + \cdots + X_n) + b\)</span>. Then,</p>
+<p><br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span></p>
+<p><br>
+</p>
+<p>In the case where <span class="math inline">\(X_1,\dots, X_n\)</span> are mutually independent random variables, the multivariate MGF of <span class="math inline">\(Y\)</span> becomes</p>
+<p><br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span></p>
+<p>In the very special case where <span class="math inline">\(X_1,\dots, X_n\)</span> are independent and identically distributed (iid) random variables, the multivariate MGF of <span class="math inline">\(Y\)</span> becomes</p>
+<p><br>
+</p>
+<p><span class="math inline">\(M_Y(t) =\)</span></p>
+<p><br>
+</p>
+<p><strong>Example</strong>: Suppose <span class="math inline">\(X_1,\dots, X_n\)</span> are independently and identically distributed random variables. What is the MGF of <span class="math inline">\(\bar X\)</span>?</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Theorem: The Probability Integral Transform
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> have continuous CDF <span class="math inline">\(F_X(x)\)</span> and define the random variable <span class="math inline">\(Y\)</span> as <span class="math inline">\(Y=F_X(x)\)</span>. Then <span class="math inline">\(Y\sim\)</span> UNIF(0,1).</p>
+</div>
+</div>
+<p><strong>Proof</strong>:</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>How is this used?</p>
+<ul>
+<li>Generating random samples from a particular distribution. Take <span class="math inline">\(Y\sim\)</span> UNIF(0,1) and let <span class="math inline">\(F\)</span> be a continuous CDF. Define <span class="math inline">\(X = F^{-1}(Y)\)</span>. Then <span class="math display">\[
+  P(X \leq x) = P(F^{-1}(Y) \leq x) = P(Y \leq F(x)) = F(x)
+  \]</span></li>
+<li>Hypothesis testing. Suppose you want to test whether a random variable follows a particular distribution. This is essentially testing H<span class="math inline">\(_0: F_X = F_0\)</span> versus H<span class="math inline">\(_a: F_X \neq F_0\)</span>. If <span class="math inline">\(Y_i = F_0(x_i)\)</span> then under H<span class="math inline">\(_0\)</span>, <span class="math inline">\(Y_i\)</span> are iid UNIF(0,1) and you can test H<span class="math inline">\(_0: F_Y =\)</span> UNIF(0,1) versus H<span class="math inline">\(_a: F_Y \neq\)</span> UNIF(0,1).</li>
+</ul>
 
-</div>
-</div>
-<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with mgf <span class="math inline">\(M_X(t) = e^{3.2(e^t-1)}\)</span>. What is the distribution of <span class="math inline">\(X\)</span>?</p>
-<p><br>
-<br>
-<br>
-<br>
-</p>
-<p><strong>Example</strong>: Let <span class="math inline">\(X\)</span> be a random variable with pdf <span class="math inline">\(f_X(x) = \left\{ \begin{array}{ll} \frac{1}{\beta} e^{-x/\beta} &amp; x \geq 0 \\ 0 &amp; \hbox{else} \end{array}\right.\)</span>, where <span class="math inline">\(\beta &gt; 0\)</span>.</p>
-<ul>
-<li>What is the mgf of <span class="math inline">\(X\)</span>?</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<ul>
-<li>Where have we seen something similar before?</li>
-</ul>
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-<p>We can also use mgfs to identify the distributions of functions of random variables (i.e., Transformations–much more on these later).</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>MGFs of functions of RVs
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Assume a random variable <span class="math inline">\(X\)</span> has CDF <span class="math inline">\(F_X(x)\)</span>, pdf <span class="math inline">\(f_X(x)\)</span> and mgf <span class="math inline">\(M_X(t)\)</span>. If <span class="math inline">\(Y=g(X)\)</span>, then the mgf of <span class="math inline">\(Y\)</span> is<br>
-<br>
-<br>
-<span class="math inline">\(M_Y(t)=\)</span><br>
-<br>
-<br>
-</p>
-</div>
-</div>
-<p><strong>Example</strong>: Consider the linear transformation <span class="math inline">\(Y=aX + b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants. What is the mgf of <span class="math inline">\(Y\)</span>?</p>
 
-
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1117,14 +1106,11 @@ That is, the <span class="math inline">\(n^{th}\)</span> moment of <span class="
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Section 2 Random Variables.html" class="pagination-link" aria-label="Random Variables and their Associated Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Random Variables and their Associated Functions</span></span>
+      <a href="./Section 5 Multiple RVs.html" class="pagination-link" aria-label="Multiple Random Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multiple Random Variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Section 4 Distribution Families.html" class="pagination-link" aria-label="Families of Distributions">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

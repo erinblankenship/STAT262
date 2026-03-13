@@ -1,0 +1,508 @@
+# Transformations 
+
+## Univariate Transformations
+
+**Recall**: A (univariate) random variable is defined to be a function from a sample space $\cal{S}$ into the real numbers, $\mathbb{R}$. We've talked **a lot** about distributions of random variables (including multivariate random variables), and we've used these distributions to find probabilities and other quantities like expected values that can be used to make decisions.  Often, we are not interested in the random variable(s) themselves, but instead in functions of the random variable(s), such as the sample mean.  In these cases, we need to know the probability distribution for the resulting function in order to make decisions.  We can't construct hypothesis tests or confidence intervals based on a particular function of the random variables unless we know how much underlying variability is present or the shape of the distribution. Let's start by looking at some examples.
+
+::: callout-tip
+## Starting Distribution
+Assume $X\sim$ Uniform(0,10).  We are interested in various functions of $X$. We know:
+
+ - Expected Value
+ - Variance
+ - pdf
+\
+
+ - CDF
+\
+\
+
+::: 
+
+**Example 1**: $Y = 2X$
+
+\newpage
+
+**Example 2**: $W=2X+4$
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+
+
+**Example 3**: $T=X^2$
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+**Example 4**: $R=-\ln(X)$
+
+\
+\
+\
+\
+\
+\
+
+\newpage
+
+There are multiple ways to determine the distribution of a function of a random variable. 
+
+### The CDF Approach
+
+All of the previous examples featured monotone, one-to-one functions.  If the function of interest is monotone, we can use the CDF of the original random variable
+to find the distribution of the transformed random variable.
+
+::: callout-tip
+## Theorem: Univariate Transformations using CDFs
+Let $X$ have CDF $F_X(x)$, let $Y=g(X)$, and let Supp$(X)$ and Supp$(Y)$ be the supports of $X$ and $Y$, respectively.
+
+ 1. If $g$ is an \textbf{increasing} function on Supp$(X)$ , $F_Y(y)=$ 
+
+for $y\in$ Supp$(Y)$ .
+
+ 2. If $g$ is a \textbf{decreasing} function on Supp$(X)$, $F_Y(y)=$ 
+
+
+for $y\in$ Supp$(Y)$ .
+:::
+
+**Example 3** (revisited): $X\sim$ Uniform(0,10), $T=X^2$
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+
+**Example 4** (revisited): $X\sim$ Uniform(0,10), $R=-\ln(X)$
+
+\
+\
+\
+\
+
+\newpage
+
+### The pdf Approach
+
+In each of the previous examples, we differentiated the CDF with respect to the random variable to get the pdf.
+
+ - If $Y=g(X)$ is an **increasing** function on Supp$(X)$ , $F_Y(y)=$
+\
+
+ - In the **increasing** case, $f_Y(y) = \frac{d}{dy} F_Y(y) =$
+
+\
+\
+\
+\
+
+- If $Y=g(X)$ is a **decreasing** function on Supp$(X)$ , $F_Y(y) =$ 
+\
+
+- In the **decreasing** case, $f_Y(y) = \frac{d}{dy} F_Y(y) =$
+
+\
+\
+\
+\
+\
+\
+\
+\
+
+::: callout-tip
+## Theorem: Univariate Transformations using pdfs
+Let $X$ have CDF $F_X(x)$ and let $Y=g(X)$, where $g$ is monotone. Let Supp$(X)$ and Supp$(Y)$ be the supports of $X$ and $Y$, respectively. Suppose $f_X(x)$ is continuous on Supp$(X)$ and $g^{-1}(y)$ has continuous derivative on Supp$(Y)$ .  Then the pdf of $Y$ is given by:
+\
+\
+$f_Y(y) = \left\{ \begin{array}{ll}   & \\   &   \\   & \\    &   \\   & \\   & \\ \end{array}\right.$
+\
+\
+
+where $\frac{d}{dy} g^{-1}(y)$ is called the **Jacobian** of the transformation.
+
+:::
+
+\newpage
+
+**Example**: Let $X$ be a random variable with pdf $f_X(x) = \left\{\begin{array}{ll} 4x^3 & 0 < x < 1 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf for each of the functions of $X$ below.
+
+- $Y = e^X$
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+- $Z = \frac{1}{X}$
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+**Example**: Let $X$ be a random variable with pdf $f_X(x) = \left\{\begin{array}{ll} \frac{3}{2} x^2 & -1 < x < 1 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf of $Y=3X$.
+
+\
+\
+\
+\
+\
+
+\newpage
+
+**Example**: Let $X$ be a random variable with pdf $f_X(x) = \left\{\begin{array}{ll} \frac{3}{2} x^2 & -1 < x < 1 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf of $Y=X^2$.
+
+\
+\
+\
+\
+\
+\
+\
+\
+
+How is this example different from the previous example, where we found the pdf of $Y=3X$?
+
+\
+\
+
+$F_Y(y) =$
+
+\
+\
+\
+\
+
+$f_Y(y) =$
+
+\
+\
+\
+\
+\
+\
+
+\newpage
+
+### Non-Monotone Univariate Transformations
+
+In the previous example, the function of the random variable was not monotone on the support of $X$. In such cases, the pdf of the transformed random variable is the sum of the pieces that represent the intervals over which the function is monotone.
+
+::: callout-tip
+## Univariate Transformations for Non-Monotone Functions using pdfs
+Let $X$ have pdf $f_X(x)$, let $Y=g(X)$, and let Supp$(X)$ be the support of $X$. Suppose there exists a partition $A_0, A_1,\dots, A_k$, of Supp$(X)$ such that $P(X \in A_0) = 0$ and $f_X(x)$ is continuous on each $A_i$.  Further, suppose there exist functions $g_1(x),\dots, g_k(x)$, defined on $A_1,\dots,A_k$, respectively, satisfying
+
+- $g(x) = g_i(x)$, for $x \in A_i$
+- $g_i(x)$ is **monotone** on each $A_i$
+- Supp$(Y)$ = the support of $Y$ on $A_i$ is the **same** for each $i=1,\dots,k$.
+- $g^{-1}(y)$ has a continuous derivative on each Supp$(Y)$ ($i=1,\dots,k$)
+
+Then,
+\
+\
+$f_Y(y) = \left\{\begin{array}{ll}  & \\  & \\ & \\ & \\ & \\ & \end{array}\right.$
+\
+\
+
+:::
+
+**Example** (revisited): Let $X$ be a random variable with pdf $f_X(x) = \left\{\begin{array}{ll} \frac{3}{2} x^2 & -1 < x < 1 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf of $Y=X^2$.
+
+\
+\
+\
+\
+\
+
+\newpage
+
+**Example**: Let $X$ be a random variable with pdf $f_X(x) = \left\{\begin{array}{ll} 4x^3 & 0 < x < 1 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf of $Y = g(X) = \left (X - \frac{1}{2} \right )^2$.
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+**Example**: Let $X$ be a random variable with pdf $f_X(x)= \left\{\begin{array}{ll} \frac{x+1}{2} & -1 < x < 1 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf of $Y=X^2+1$.
+
+\
+\
+\
+\
+\
+\
+
+\newpage
+
+\textbf{Example}: Let $X$ be a random variable with pdf $f_X(x)= \left\{\begin{array}{ll} \frac{x^2}{3} & -1 < x < 2 \\ 0 & \hbox{elsewhere} \end{array}\right.$. Find the pdf of $Y=X^2$.
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+### Linear Transformations
+
+Linear transformations are one of the easiest types of transformations to deal with.  For example, let $X \sim F_X(x)$ and let $Y=aX + b$ ($a > 0$).  Then
+\
+
+$F_Y(y) =$
+
+\
+
+
+Some linear transformations are used without even realizing you are using a transformation.  For example,
+
+\
+\
+
+\newpage
+
+## Bivariate/Multivariate Transformations
+
+Often, we are interested in finding the probability distribution of a function of two or more random variables and/or the joint distribution of functions of multivariate random varibles.  For example, suppose two random variables $X$ and $Y$ have joint distribution $f_{XY}(x,y)$.  We are sometimes interested in a new bivariate random vector $(U,V)$ defined by $U=g_1(X,Y)$ and $V=g_2(X,Y)$, and we want to find either the CDF/pdf/pmf of $U$ or $V$, or the joint distribution of $(U,V)$.  In such situations, we can extend the methods used in the univariate case to the bivariate (or multivariate) case. These are generally much more complicated, especially in the supports. And they involve (for continuous random variables) a Jacobian that's a matrix. We're going to leave these for a future class.
+
+However, this Jacobian technique often isn't needed for the transformation of interest in the multivariate case.  Commonly, we are interested in the distribution of something like $Y =$
+
+In such instances, MGFs are **very** useful.
+
+### Multivariate Moment Generating Functions
+
+**Recall**: The moment generating function (MGF) of a unvariate distribution is given by
+
+$M_X(t) =$  
+
+We can extend this to the multivariate case.
+
+::: callout-tip
+## Definition: Multivariate Moment Generating Functions
+Suppose $X_1,\dots, X_n$ are random variables with joint pdf $f_{X_1 \dots X_n}(x_1,\dots,x_n)$. The **multivariate moment generating function** (MGF) of $(X_1,\dots, X_n)$ is 
+\
+\
+$M_{X_1 \dots X_n}(t_1,\dots,t_n) =$
+\
+\
+for all $t_i$ near zero where the expectation exists.
+
+:::
+
+\newpage
+
+Multivariate MGFs can be used for a variety of purposes, such as:
+
+- **Finding Moments**:
+\
+
+  E$(X_i) =$
+\
+
+  **Examples**:
+\
+
+
+  $\frac{\partial}{\partial t_1} M_{X_1 \dots X_n}(0,\dots,0) =$
+\
+
+  $\frac{\partial^2}{\partial t_1^2} M_{X_1 \dots X_n}(0,\dots,0) =$
+\
+
+  $\frac{\partial^2}{\partial t_1 t_3} M_{X_1 \dots X_n}(0,\dots,0) =$
+\
+
+- **Finding Univariate MGFs**:
+\
+
+  $M_{X_1 \dots X_n}(t,0,\dots,0) =$
+\
+
+### Multivariate Transformations using MGFs
+
+MGFs are most useful for multivariate transformations.
+
+Suppose $X_1,\dots, X_n$ are random variables.  Often, we are interested in the distribution of something like $Y=\sum_{i=1}^n X_i = X_1 + X_2 + \cdots + X_n$.  In this case, the MGF of $Y$ is
+\
+
+  $M_Y(t) =$
+\
+
+In the case where $X_1,\dots X_n$ are mutually independent random variables, the MGF of $Y$ becomes
+\
+
+  $M_Y(t) =$
+\
+
+  In the very special case there $X_1,\dots, X_n$ are independently and identically distributed (iid) random variables, the MGF of $Y$ becomes
+\
+
+  $M_Y(t) =$
+\
+
+::: callout-tip
+## Theorem
+If $X_1,\dots, X_n$ are independent random variables with MGFs $M_{X_1}(t), M_{X_2}(t),\dots, M_{X_n}(t)$, then the MGF of $Y=\sum_{i=1}^n X_i$ is 
+\
+\
+$M_Y(t) =$
+\
+\
+Additionally, if $X_1,\dots, X_n$ all have the same distribution, then
+\
+\
+$M_Y(t) =$
+\
+\
+
+:::
+
+**Example**: Suppose $X_1,\dots, X_n$ are independent random variables where $X_i\sim$ Poisson($\lambda_i$).  Find the distribution of $Y=X_1+X_2+\cdots+X_n$.
+\
+
+$M_{X_i}(t) =$
+
+\
+
+$M_Y(t) =$
+
+\
+\
+\
+\
+
+**Extension**: In the univariate case, we found the MGF of the linear transformation $Y=aX+b$, where $a$ and $b$ are constants, is
+\
+
+$M_Y(t) =$
+\
+\
+
+Similarly, we can find the multivariate MGF of a linear transformation of a sum of multiple random variables.  This will be extremely useful when finding the sampling distribution of the sample mean, $\bar X$.  Suppose $Y=a(X_1 + X_2 + \cdots + X_n) + b$. Then,
+
+\
+
+$M_Y(t) =$
+
+\
+
+In the case where $X_1,\dots, X_n$ are mutually independent random variables, the multivariate MGF of $Y$ becomes 
+
+\
+
+$M_Y(t) =$
+
+\vspace{10mm}
+
+In the very special case where $X_1,\dots, X_n$ are independent and identically distributed (iid) random variables, the multivariate MGF of $Y$ becomes
+
+\
+
+$M_Y(t) =$
+
+\
+
+**Example**: Suppose $X_1,\dots, X_n$ are independently and identically distributed random variables.  What is the MGF of $\bar X$?
+
+\
+\
+\
+\
+\
+
+\newpage
+
+::: callout-tip
+## Theorem: The Probability Integral Transform
+Let $X$ have continuous CDF $F_X(x)$ and define the random variable $Y$ as $Y=F_X(x)$. Then $Y\sim$ UNIF(0,1).
+
+:::
+
+**Proof**:
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+How is this used?
+
+- Generating random samples from a particular distribution. Take $Y\sim$ UNIF(0,1) and let $F$ be a continuous CDF. Define $X = F^{-1}(Y)$. Then
+	$$
+	P(X \leq x) = P(F^{-1}(Y) \leq x) = P(Y \leq F(x)) = F(x)
+	$$
+- Hypothesis testing. Suppose you want to test whether a random variable follows a particular distribution. This is essentially testing H$_0: F_X = F_0$ versus H$_a: F_X \neq F_0$. If $Y_i = F_0(x_i)$ then under H$_0$, $Y_i$ are iid UNIF(0,1) and you can test H$_0: F_Y =$ UNIF(0,1) versus H$_a: F_Y \neq$ UNIF(0,1).
